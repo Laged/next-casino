@@ -1,8 +1,8 @@
-import * as React from "react";
-import Link from "next/link";
-import { ArrowRight, Star, Shield, Zap } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { ArrowRight, Shield, Star, Zap } from 'lucide-react';
+import Link from 'next/link';
+import * as React from 'react';
 
 interface HeroSectionProps {
   badge?: {
@@ -28,15 +28,15 @@ interface HeroSectionProps {
     icon: React.ReactNode;
     text: string;
   }>;
-  variant?: "default" | "centered" | "split";
-  backgroundVariant?: "gradient" | "pattern" | "minimal";
+  variant?: 'default' | 'centered' | 'split';
+  backgroundVariant?: 'gradient' | 'pattern' | 'minimal';
   className?: string;
 }
 
 const defaultTrustBadges = [
-  { icon: <Star className="w-4 h-4" />, text: "Expert Reviews" },
-  { icon: <Shield className="w-4 h-4" />, text: "Licensed Only" },
-  { icon: <Zap className="w-4 h-4" />, text: "Updated Daily" },
+  { icon: <Star className="w-4 h-4" />, text: 'Expert Reviews' },
+  { icon: <Shield className="w-4 h-4" />, text: 'Licensed Only' },
+  { icon: <Zap className="w-4 h-4" />, text: 'Updated Daily' },
 ];
 
 export function HeroSection({
@@ -48,8 +48,8 @@ export function HeroSection({
   secondaryCta,
   stats,
   trustBadges = defaultTrustBadges,
-  variant = "default",
-  backgroundVariant = "gradient",
+  variant = 'default',
+  backgroundVariant = 'gradient',
   className,
 }: HeroSectionProps) {
   // Split title if highlight is provided
@@ -70,24 +70,20 @@ export function HeroSection({
   };
 
   const backgroundClasses = {
-    gradient: "bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950",
+    gradient: 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950',
     pattern: "bg-slate-950 bg-[url('/patterns/grid.svg')] bg-center",
-    minimal: "bg-slate-950",
+    minimal: 'bg-slate-950',
   };
 
   const contentAlignment = {
-    default: "text-left items-start",
-    centered: "text-center items-center",
-    split: "text-left items-start lg:text-left lg:items-start",
+    default: 'text-left items-start',
+    centered: 'text-center items-center',
+    split: 'text-left items-start lg:text-left lg:items-start',
   };
 
   return (
     <section
-      className={cn(
-        "relative overflow-hidden",
-        backgroundClasses[backgroundVariant],
-        className
-      )}
+      className={cn('relative overflow-hidden', backgroundClasses[backgroundVariant], className)}
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -98,9 +94,9 @@ export function HeroSection({
       <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10">
         <div
           className={cn(
-            "flex flex-col gap-6 max-w-4xl",
+            'flex flex-col gap-6 max-w-4xl',
             contentAlignment[variant],
-            variant === "centered" && "mx-auto"
+            variant === 'centered' && 'mx-auto'
           )}
         >
           {/* Badge */}
@@ -114,8 +110,8 @@ export function HeroSection({
           {/* Main Heading (H1 for SEO) */}
           <h1
             className={cn(
-              "text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight",
-              variant === "centered" && "max-w-3xl"
+              'text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight',
+              variant === 'centered' && 'max-w-3xl'
             )}
           >
             {renderTitle()}
@@ -124,8 +120,8 @@ export function HeroSection({
           {/* Subtitle */}
           <p
             className={cn(
-              "text-lg md:text-xl text-slate-400 max-w-2xl",
-              variant === "centered" && "mx-auto"
+              'text-lg md:text-xl text-slate-400 max-w-2xl',
+              variant === 'centered' && 'mx-auto'
             )}
           >
             {subtitle}
@@ -135,8 +131,8 @@ export function HeroSection({
           {(primaryCta || secondaryCta) && (
             <div
               className={cn(
-                "flex flex-col sm:flex-row gap-4 mt-2",
-                variant === "centered" && "justify-center"
+                'flex flex-col sm:flex-row gap-4 mt-2',
+                variant === 'centered' && 'justify-center'
               )}
             >
               {primaryCta && (
@@ -160,15 +156,12 @@ export function HeroSection({
           {trustBadges && trustBadges.length > 0 && (
             <div
               className={cn(
-                "flex flex-wrap gap-6 mt-4",
-                variant === "centered" && "justify-center"
+                'flex flex-wrap gap-6 mt-4',
+                variant === 'centered' && 'justify-center'
               )}
             >
               {trustBadges.map((badge, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-2 text-slate-400"
-                >
+                <div key={index} className="flex items-center gap-2 text-slate-400">
                   <span className="text-amber-500">{badge.icon}</span>
                   <span className="text-sm font-medium">{badge.text}</span>
                 </div>
@@ -180,15 +173,13 @@ export function HeroSection({
           {stats && stats.length > 0 && (
             <div
               className={cn(
-                "flex flex-wrap gap-8 md:gap-12 mt-8 pt-8 border-t border-slate-800",
-                variant === "centered" && "justify-center"
+                'flex flex-wrap gap-8 md:gap-12 mt-8 pt-8 border-t border-slate-800',
+                variant === 'centered' && 'justify-center'
               )}
             >
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white">
-                    {stat.value}
-                  </div>
+                  <div className="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
                   <div className="text-sm text-slate-400 mt-1">{stat.label}</div>
                 </div>
               ))}
@@ -211,18 +202,10 @@ interface PageHeroProps {
   className?: string;
 }
 
-export function PageHero({
-  title,
-  description,
-  breadcrumbs,
-  className,
-}: PageHeroProps) {
+export function PageHero({ title, description, breadcrumbs, className }: PageHeroProps) {
   return (
     <section
-      className={cn(
-        "bg-gradient-to-b from-slate-900 to-slate-950 py-12 md:py-16",
-        className
-      )}
+      className={cn('bg-gradient-to-b from-slate-900 to-slate-950 py-12 md:py-16', className)}
     >
       <div className="container mx-auto px-4">
         {/* Breadcrumbs */}
@@ -235,10 +218,7 @@ export function PageHero({
               <React.Fragment key={index}>
                 {index > 0 && <span>/</span>}
                 {crumb.href ? (
-                  <Link
-                    href={crumb.href}
-                    className="hover:text-amber-400 transition-colors"
-                  >
+                  <Link href={crumb.href} className="hover:text-amber-400 transition-colors">
                     {crumb.label}
                   </Link>
                 ) : (
@@ -249,13 +229,9 @@ export function PageHero({
           </nav>
         )}
 
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-          {title}
-        </h1>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">{title}</h1>
 
-        {description && (
-          <p className="text-lg text-slate-400 mt-4 max-w-3xl">{description}</p>
-        )}
+        {description && <p className="text-lg text-slate-400 mt-4 max-w-3xl">{description}</p>}
       </div>
     </section>
   );

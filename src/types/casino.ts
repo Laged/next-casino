@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 // ============================================================================
 // ENUMS
@@ -11,14 +11,14 @@ import { z } from "zod";
  * Curacao - Common offshore license
  */
 export const License = {
-  Malta: "malta",
-  Viro: "viro",
-  Curacao: "curacao",
+  Malta: 'malta',
+  Viro: 'viro',
+  Curacao: 'curacao',
 } as const;
 
 export type License = (typeof License)[keyof typeof License];
 
-export const LicenseSchema = z.enum(["malta", "viro", "curacao"]);
+export const LicenseSchema = z.enum(['malta', 'viro', 'curacao']);
 
 /**
  * Bonus type classification
@@ -27,116 +27,116 @@ export const LicenseSchema = z.enum(["malta", "viro", "curacao"]);
  * Cashback - Returns percentage of losses
  */
 export const BonusType = {
-  Sticky: "sticky",
-  NonSticky: "non-sticky",
-  Cashback: "cashback",
+  Sticky: 'sticky',
+  NonSticky: 'non-sticky',
+  Cashback: 'cashback',
 } as const;
 
 export type BonusType = (typeof BonusType)[keyof typeof BonusType];
 
-export const BonusTypeSchema = z.enum(["sticky", "non-sticky", "cashback"]);
+export const BonusTypeSchema = z.enum(['sticky', 'non-sticky', 'cashback']);
 
 /**
  * UI bonus badge types for display purposes
  */
 export const BonusBadgeType = {
-  Welcome: "welcome",
-  NoDeposit: "noDeposit",
-  FreeSpins: "freeSpins",
-  Cashback: "cashback",
-  Exclusive: "exclusive",
-  Vip: "vip",
-  Limited: "limited",
-  New: "new",
+  Welcome: 'welcome',
+  NoDeposit: 'noDeposit',
+  FreeSpins: 'freeSpins',
+  Cashback: 'cashback',
+  Exclusive: 'exclusive',
+  Vip: 'vip',
+  Limited: 'limited',
+  New: 'new',
 } as const;
 
 export type BonusBadgeType = (typeof BonusBadgeType)[keyof typeof BonusBadgeType];
 
 export const BonusBadgeTypeSchema = z.enum([
-  "welcome",
-  "noDeposit",
-  "freeSpins",
-  "cashback",
-  "exclusive",
-  "vip",
-  "limited",
-  "new",
+  'welcome',
+  'noDeposit',
+  'freeSpins',
+  'cashback',
+  'exclusive',
+  'vip',
+  'limited',
+  'new',
 ]);
 
 /**
  * Payment method categories
  */
 export const PaymentMethod = {
-  Trustly: "trustly",
-  Visa: "visa",
-  Mastercard: "mastercard",
-  Skrill: "skrill",
-  Neteller: "neteller",
-  Paysafecard: "paysafecard",
-  BankTransfer: "bank-transfer",
-  Crypto: "crypto",
-  ApplePay: "apple-pay",
-  GooglePay: "google-pay",
-  Zimpler: "zimpler",
-  MuchBetter: "muchbetter",
+  Trustly: 'trustly',
+  Visa: 'visa',
+  Mastercard: 'mastercard',
+  Skrill: 'skrill',
+  Neteller: 'neteller',
+  Paysafecard: 'paysafecard',
+  BankTransfer: 'bank-transfer',
+  Crypto: 'crypto',
+  ApplePay: 'apple-pay',
+  GooglePay: 'google-pay',
+  Zimpler: 'zimpler',
+  MuchBetter: 'muchbetter',
 } as const;
 
 export type PaymentMethod = (typeof PaymentMethod)[keyof typeof PaymentMethod];
 
 export const PaymentMethodSchema = z.enum([
-  "trustly",
-  "visa",
-  "mastercard",
-  "skrill",
-  "neteller",
-  "paysafecard",
-  "bank-transfer",
-  "crypto",
-  "apple-pay",
-  "google-pay",
-  "zimpler",
-  "muchbetter",
+  'trustly',
+  'visa',
+  'mastercard',
+  'skrill',
+  'neteller',
+  'paysafecard',
+  'bank-transfer',
+  'crypto',
+  'apple-pay',
+  'google-pay',
+  'zimpler',
+  'muchbetter',
 ]);
 
 /**
  * Game provider names
  */
 export const GameProvider = {
-  NetEnt: "netent",
-  Microgaming: "microgaming",
-  Playtech: "playtech",
-  Evolution: "evolution",
-  Pragmatic: "pragmatic",
-  PlayNGo: "playngo",
-  Yggdrasil: "yggdrasil",
-  RedTiger: "red-tiger",
-  BTG: "btg",
-  Nolimit: "nolimit",
-  Hacksaw: "hacksaw",
-  PushGaming: "push-gaming",
-  Relax: "relax",
-  ELK: "elk",
-  Thunderkick: "thunderkick",
+  NetEnt: 'netent',
+  Microgaming: 'microgaming',
+  Playtech: 'playtech',
+  Evolution: 'evolution',
+  Pragmatic: 'pragmatic',
+  PlayNGo: 'playngo',
+  Yggdrasil: 'yggdrasil',
+  RedTiger: 'red-tiger',
+  BTG: 'btg',
+  Nolimit: 'nolimit',
+  Hacksaw: 'hacksaw',
+  PushGaming: 'push-gaming',
+  Relax: 'relax',
+  ELK: 'elk',
+  Thunderkick: 'thunderkick',
 } as const;
 
 export type GameProvider = (typeof GameProvider)[keyof typeof GameProvider];
 
 export const GameProviderSchema = z.enum([
-  "netent",
-  "microgaming",
-  "playtech",
-  "evolution",
-  "pragmatic",
-  "playngo",
-  "yggdrasil",
-  "red-tiger",
-  "btg",
-  "nolimit",
-  "hacksaw",
-  "push-gaming",
-  "relax",
-  "elk",
-  "thunderkick",
+  'netent',
+  'microgaming',
+  'playtech',
+  'evolution',
+  'pragmatic',
+  'playngo',
+  'yggdrasil',
+  'red-tiger',
+  'btg',
+  'nolimit',
+  'hacksaw',
+  'push-gaming',
+  'relax',
+  'elk',
+  'thunderkick',
 ]);
 
 // ============================================================================
@@ -147,12 +147,12 @@ export const GameProviderSchema = z.enum([
  * Welcome offer details
  */
 export const WelcomeOfferSchema = z.object({
-  title: z.string().min(1, "Offer title is required"),
-  description: z.string().min(1, "Offer description is required"),
+  title: z.string().min(1, 'Offer title is required'),
+  description: z.string().min(1, 'Offer description is required'),
   value: z.string().optional(),
   matchPercentage: z.number().int().min(0).max(1000).optional(),
   maxBonus: z.number().positive().optional(),
-  currency: z.string().default("EUR"),
+  currency: z.string().default('EUR'),
 });
 
 export type WelcomeOffer = z.infer<typeof WelcomeOfferSchema>;
@@ -212,7 +212,7 @@ export const WithdrawalLimitsSchema = z.object({
   daily: z.number().positive().optional(),
   weekly: z.number().positive().optional(),
   monthly: z.number().positive().optional(),
-  currency: z.string().default("EUR"),
+  currency: z.string().default('EUR'),
 });
 
 export type WithdrawalLimits = z.infer<typeof WithdrawalLimitsSchema>;
@@ -294,13 +294,19 @@ export type RatingBreakdown = z.infer<typeof RatingBreakdownSchema>;
 export const CasinoSchema = z.object({
   // Core identification
   id: z.string().uuid(),
-  name: z.string().min(1, "Casino name is required"),
-  slug: z.string().min(1).regex(/^[a-z0-9-]+$/, "Slug must be lowercase alphanumeric with hyphens"),
+  name: z.string().min(1, 'Casino name is required'),
+  slug: z
+    .string()
+    .min(1)
+    .regex(/^[a-z0-9-]+$/, 'Slug must be lowercase alphanumeric with hyphens'),
 
   // Branding
   logo: z.string().url(),
   logoAlt: z.string().optional(),
-  brandColor: z.string().regex(/^#[0-9A-Fa-f]{6}$/).optional(),
+  brandColor: z
+    .string()
+    .regex(/^#[0-9A-Fa-f]{6}$/)
+    .optional(),
 
   // Links
   affiliateLink: z.string().url(),

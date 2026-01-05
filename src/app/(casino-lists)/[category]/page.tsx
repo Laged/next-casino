@@ -2,9 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-// ISR configuration - revalidate every 10 minutes
-export const revalidate = 600;
-
 // Types
 interface CategoryData {
   slug: string;
@@ -44,45 +41,55 @@ const categoryConfig: Record<string, CategoryData> = {
     name: 'Uudet Kasinot',
     description: 'Tuoreimmat nettikasinot Suomen markkinoilla',
     metaTitle: 'Uudet Nettikasinot 2025 | Tuoreimmat Kasinot',
-    metaDescription: 'Loyda uusimmat nettikasinot 2025. Listaamme kaikki uudet kasinot ensimmaisten joukossa. Tuoreet bonukset ja arvostelut.',
+    metaDescription:
+      'Loyda uusimmat nettikasinot 2025. Listaamme kaikki uudet kasinot ensimmaisten joukossa. Tuoreet bonukset ja arvostelut.',
     heroTitle: 'Uudet Nettikasinot 2025',
-    heroDescription: 'Listaamme kaikki uudet nettikasinot heti kun ne lanseerataan. Loyda tuoreimmat bonukset ja pelipaikat.',
+    heroDescription:
+      'Listaamme kaikki uudet nettikasinot heti kun ne lanseerataan. Loyda tuoreimmat bonukset ja pelipaikat.',
   },
-  'bonukset': {
+  bonukset: {
     slug: 'bonukset',
     name: 'Bonukset',
     description: 'Parhaat kasinobonukset',
     metaTitle: 'Parhaat Kasinobonukset 2025 | Tervetuliaisbonukset',
-    metaDescription: 'Vertaile parhaat kasinobonukset 2025. Tervetuliaisbonukset, reload-bonukset ja cashback-tarjoukset yhteen paikkaan koottuna.',
+    metaDescription:
+      'Vertaile parhaat kasinobonukset 2025. Tervetuliaisbonukset, reload-bonukset ja cashback-tarjoukset yhteen paikkaan koottuna.',
     heroTitle: 'Parhaat Kasinobonukset 2025',
-    heroDescription: 'Kokoamme parhaat kasinobonukset yhteen paikkaan. Vertaile kierratysvaatimuksia ja valitse sinulle sopiva bonus.',
+    heroDescription:
+      'Kokoamme parhaat kasinobonukset yhteen paikkaan. Vertaile kierratysvaatimuksia ja valitse sinulle sopiva bonus.',
   },
-  'ilmaiskierrokset': {
+  ilmaiskierrokset: {
     slug: 'ilmaiskierrokset',
     name: 'Ilmaiskierrokset',
     description: 'Ilmaiset pyoraytykset',
     metaTitle: 'Ilmaiskierrokset 2025 | Parhaat Ilmaiskierrostarjoukset',
-    metaDescription: 'Hae parhaat ilmaiskierrokset nettikasinoille. Ilmaiset pyoraytykset ilman talletusta ja talletuksen kanssa.',
+    metaDescription:
+      'Hae parhaat ilmaiskierrokset nettikasinoille. Ilmaiset pyoraytykset ilman talletusta ja talletuksen kanssa.',
     heroTitle: 'Parhaat Ilmaiskierrokset 2025',
-    heroDescription: 'Loyda parhaat ilmaiskierrostarjoukset. Mukana ilmaiset kierrokset ilman talletusta ja tervetuliaistarjoukset.',
+    heroDescription:
+      'Loyda parhaat ilmaiskierrostarjoukset. Mukana ilmaiset kierrokset ilman talletusta ja tervetuliaistarjoukset.',
   },
-  'pikakotiutus': {
+  pikakotiutus: {
     slug: 'pikakotiutus',
     name: 'Pikakotiutus Kasinot',
     description: 'Nopeat kotiutukset',
     metaTitle: 'Pikakotiutus Kasinot 2025 | Nopeat Nostot',
-    metaDescription: 'Loyda kasinot nopeimmilla kotiutuksilla. Pikakotiutus jopa muutamassa minuutissa. Vertaile nostoajat.',
+    metaDescription:
+      'Loyda kasinot nopeimmilla kotiutuksilla. Pikakotiutus jopa muutamassa minuutissa. Vertaile nostoajat.',
     heroTitle: 'Pikakotiutus Kasinot',
-    heroDescription: 'Etsitkö nopeita kotiutuksia? Listaamme kasinot, joissa voitot ovat tililläsi minuuteissa.',
+    heroDescription:
+      'Etsitkö nopeita kotiutuksia? Listaamme kasinot, joissa voitot ovat tililläsi minuuteissa.',
   },
   'pay-n-play': {
     slug: 'pay-n-play',
     name: 'Pay N Play Kasinot',
     description: 'Kasinot ilman rekisteroitymista',
     metaTitle: 'Pay N Play Kasinot 2025 | Pelaa Ilman Rekisteroitymista',
-    metaDescription: 'Pay N Play kasinot mahdollistavat pelaamisen ilman rekisteroitymista. Nopea tunnistautuminen pankkitunnuksilla.',
+    metaDescription:
+      'Pay N Play kasinot mahdollistavat pelaamisen ilman rekisteroitymista. Nopea tunnistautuminen pankkitunnuksilla.',
     heroTitle: 'Pay N Play Kasinot',
-    heroDescription: 'Pelaa heti ilman rekisteroitymista! Pay N Play -kasinoilla tunnistaudut pankkitunnuksilla ja pelaat välittömästi.',
+    heroDescription:
+      'Pelaa heti ilman rekisteroitymista! Pay N Play -kasinoilla tunnistaudut pankkitunnuksilla ja pelaat välittömästi.',
   },
 };
 
@@ -91,7 +98,7 @@ async function getCategoryData(slug: string): Promise<CategoryData | null> {
   return categoryConfig[slug] || null;
 }
 
-async function getCasinosByCategory(categorySlug: string): Promise<Casino[]> {
+async function getCasinosByCategory(_categorySlug: string): Promise<Casino[]> {
   // TODO: Fetch from CMS/API based on category
   const mockCasinos: Casino[] = [
     {
@@ -204,7 +211,9 @@ export default async function CategoryPage({ params }: PageProps) {
       <section className="container mb-12">
         <div className="rounded-lg bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12">
           <nav className="mb-4 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-primary">Etusivu</Link>
+            <Link href="/" className="hover:text-primary">
+              Etusivu
+            </Link>
             <span className="mx-2">/</span>
             <span>{categoryData.name}</span>
           </nav>
@@ -220,9 +229,7 @@ export default async function CategoryPage({ params }: PageProps) {
       {/* Casino List */}
       <section className="container">
         <div className="mb-6 flex items-center justify-between">
-          <p className="text-muted-foreground">
-            {casinos.length} kasinoa loydetty
-          </p>
+          <p className="text-muted-foreground">{casinos.length} kasinoa loydetty</p>
           <select className="rounded-md border border-input bg-background px-3 py-2 text-sm">
             <option value="rating">Arvosanan mukaan</option>
             <option value="newest">Uusimmat ensin</option>
@@ -308,9 +315,22 @@ export default async function CategoryPage({ params }: PageProps) {
                   <h3 className="mb-2 text-sm font-medium text-green-600">Plussat</h3>
                   <ul className="space-y-1">
                     {casino.pros.map((pro) => (
-                      <li key={pro} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <li
+                        key={pro}
+                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                      >
+                        <svg
+                          className="h-4 w-4 text-green-500"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                         {pro}
                       </li>
@@ -321,9 +341,22 @@ export default async function CategoryPage({ params }: PageProps) {
                   <h3 className="mb-2 text-sm font-medium text-red-600">Miinukset</h3>
                   <ul className="space-y-1">
                     {casino.cons.map((con) => (
-                      <li key={con} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <svg className="h-4 w-4 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <li
+                        key={con}
+                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                      >
+                        <svg
+                          className="h-4 w-4 text-red-500"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
                         </svg>
                         {con}
                       </li>
@@ -341,13 +374,13 @@ export default async function CategoryPage({ params }: PageProps) {
         <div className="prose prose-gray mx-auto max-w-3xl">
           <h2>{categoryData.name} - Opas</h2>
           <p>
-            {categoryData.description}. Olemme koonneet talle sivulle parhaat vaihtoehdot
-            ja arvostelleet jokaisen huolellisesti.
+            {categoryData.description}. Olemme koonneet talle sivulle parhaat vaihtoehdot ja
+            arvostelleet jokaisen huolellisesti.
           </p>
           <h3>Miten valitsemme kasinot?</h3>
           <p>
-            Arvostelemme jokaisen kasinon tarkasti ennen kuin lisaamme sen listallemme.
-            Testaamme bonukset, pelitarjonnan, asiakaspalvelun ja kotiutusnopeudet.
+            Arvostelemme jokaisen kasinon tarkasti ennen kuin lisaamme sen listallemme. Testaamme
+            bonukset, pelitarjonnan, asiakaspalvelun ja kotiutusnopeudet.
           </p>
         </div>
       </section>

@@ -1,4 +1,4 @@
-import { Spade, Heart, Diamond, Club } from "lucide-react";
+import { Club, Diamond, Heart, Spade } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -24,12 +24,8 @@ export default function Home() {
 
         {/* CTA Buttons */}
         <div className="flex gap-4">
-          <button className="casino-button-gold text-lg px-8 py-3">
-            Play Now
-          </button>
-          <button className="casino-button text-lg px-8 py-3">
-            Learn More
-          </button>
+          <button className="casino-button-gold text-lg px-8 py-3">Play Now</button>
+          <button className="casino-button text-lg px-8 py-3">Learn More</button>
         </div>
 
         {/* Feature Cards */}
@@ -39,9 +35,7 @@ export default function Home() {
               <Spade className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-xl font-bold mb-2">Blackjack</h3>
-            <p className="text-gray-400">
-              Classic 21 with perfect strategy support
-            </p>
+            <p className="text-gray-400">Classic 21 with perfect strategy support</p>
           </div>
 
           <div className="casino-card p-6 hover:glow-green transition-all duration-300">
@@ -49,9 +43,7 @@ export default function Home() {
               <Diamond className="w-6 h-6 text-casino-gold" />
             </div>
             <h3 className="text-xl font-bold mb-2">Poker</h3>
-            <p className="text-gray-400">
-              Texas Hold&apos;em and more variants
-            </p>
+            <p className="text-gray-400">Texas Hold&apos;em and more variants</p>
           </div>
 
           <div className="casino-card p-6 hover:glow-green transition-all duration-300">
@@ -59,9 +51,7 @@ export default function Home() {
               <Heart className="w-6 h-6 text-red-500" />
             </div>
             <h3 className="text-xl font-bold mb-2">Roulette</h3>
-            <p className="text-gray-400">
-              European and American wheel options
-            </p>
+            <p className="text-gray-400">European and American wheel options</p>
           </div>
         </div>
 

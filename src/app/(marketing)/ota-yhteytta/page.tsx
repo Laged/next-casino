@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 
-// ISR configuration - revalidate every 10 minutes
-export const revalidate = 600;
-
 export const metadata: Metadata = {
   title: 'Ota yhteytta',
-  description: 'Ota meihin yhteytta kysymyksissa, palautteessa tai yhteistyoehdotuksissa. Vastaamme viesteihin mahdollisimman pian.',
+  description:
+    'Ota meihin yhteytta kysymyksissa, palautteessa tai yhteistyoehdotuksissa. Vastaamme viesteihin mahdollisimman pian.',
   openGraph: {
     title: 'Ota yhteytta | Nettikasinot',
     description: 'Ota meihin yhteytta kysymyksissa tai palautteessa.',
@@ -52,19 +50,23 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: 'Miten voin ehdottaa kasinoa arvosteltavaksi?',
-    answer: 'Laheta meille sahkopostia osoitteeseen info@nettikasinot.fi kasinon nimella ja verkkosivustolla. Arvioimme kaikki ehdotukset.',
+    answer:
+      'Laheta meille sahkopostia osoitteeseen info@nettikasinot.fi kasinon nimella ja verkkosivustolla. Arvioimme kaikki ehdotukset.',
   },
   {
     question: 'Miten arvostelunne tehdaan?',
-    answer: 'Arvostelemme jokaisen kasinon huolellisesti testaamalla niiden palvelut, bonukset, pelitarjonnan ja asiakaspalvelun. Arvosteluprosessimme on lahpinakava ja puolueeton.',
+    answer:
+      'Arvostelemme jokaisen kasinon huolellisesti testaamalla niiden palvelut, bonukset, pelitarjonnan ja asiakaspalvelun. Arvosteluprosessimme on lahpinakava ja puolueeton.',
   },
   {
     question: 'Kuinka usein paivitatte tietoja?',
-    answer: 'Paivitamme kasinotietoja ja bonuksia viikottain. Suuremmat paivitykset, kuten uudet arvostelut, julkaistaan kuukausittain.',
+    answer:
+      'Paivitamme kasinotietoja ja bonuksia viikottain. Suuremmat paivitykset, kuten uudet arvostelut, julkaistaan kuukausittain.',
   },
   {
     question: 'Voinko luottaa arvostelujuanne?',
-    answer: 'Kylla. Kaikki arvostelumme ovat riippumattomia ja perustuvat omaan testauksemme. Kerromme aina selkeasti, mika sisalto on mainosyhteistyota.',
+    answer:
+      'Kylla. Kaikki arvostelumme ovat riippumattomia ja perustuvat omaan testauksemme. Kerromme aina selkeasti, mika sisalto on mainosyhteistyota.',
   },
 ];
 
@@ -72,17 +74,32 @@ function ContactIcon({ type }: { type: ContactMethod['icon'] }) {
   const icons = {
     email: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
       </svg>
     ),
     chat: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+        />
       </svg>
     ),
     faq: (
       <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
       </svg>
     ),
   };
@@ -220,10 +237,7 @@ export default function ContactPage() {
           <h2 className="mb-6 text-2xl font-bold">Usein kysytyt kysymykset</h2>
           <div className="space-y-4">
             {faqItems.map((item, index) => (
-              <details
-                key={index}
-                className="group rounded-lg border bg-card"
-              >
+              <details key={index} className="group rounded-lg border bg-card">
                 <summary className="flex cursor-pointer items-center justify-between p-4 font-medium">
                   {item.question}
                   <svg
@@ -232,7 +246,12 @@ export default function ContactPage() {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </summary>
                 <div className="border-t px-4 py-3">

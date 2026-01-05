@@ -1,24 +1,24 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import {
-  Menu,
-  X,
+  BookOpen,
   ChevronDown,
+  CreditCard,
+  Dice5,
   Gamepad2,
   Gift,
-  Trophy,
-  CreditCard,
-  BookOpen,
-  Star,
-  Zap,
+  Menu,
   Shield,
-  Dice5,
   Spade,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+  Star,
+  Trophy,
+  X,
+  Zap,
+} from 'lucide-react';
+import Link from 'next/link';
+import * as React from 'react';
 
 interface NavItem {
   label: string;
@@ -40,131 +40,131 @@ interface NavItemWithMegaMenu {
 
 const navigationItems: NavItemWithMegaMenu[] = [
   {
-    label: "Casinos",
+    label: 'Casinos',
     megaMenu: [
       {
-        title: "By Type",
+        title: 'By Type',
         items: [
           {
-            label: "New Casinos",
-            href: "/casinos/new",
+            label: 'New Casinos',
+            href: '/casinos/new',
             icon: <Zap className="w-4 h-4" />,
-            description: "Latest casino launches",
+            description: 'Latest casino launches',
           },
           {
-            label: "Top Rated",
-            href: "/casinos/top-rated",
+            label: 'Top Rated',
+            href: '/casinos/top-rated',
             icon: <Star className="w-4 h-4" />,
-            description: "Highest rated casinos",
+            description: 'Highest rated casinos',
           },
           {
-            label: "VIP Casinos",
-            href: "/casinos/vip",
+            label: 'VIP Casinos',
+            href: '/casinos/vip',
             icon: <Trophy className="w-4 h-4" />,
-            description: "Premium VIP experiences",
+            description: 'Premium VIP experiences',
           },
           {
-            label: "Safe Casinos",
-            href: "/casinos/safe",
+            label: 'Safe Casinos',
+            href: '/casinos/safe',
             icon: <Shield className="w-4 h-4" />,
-            description: "Licensed & regulated",
+            description: 'Licensed & regulated',
           },
         ],
       },
       {
-        title: "By Game",
+        title: 'By Game',
         items: [
           {
-            label: "Slots Casinos",
-            href: "/casinos/slots",
+            label: 'Slots Casinos',
+            href: '/casinos/slots',
             icon: <Gamepad2 className="w-4 h-4" />,
-            description: "Best for slot games",
+            description: 'Best for slot games',
           },
           {
-            label: "Live Casinos",
-            href: "/casinos/live",
+            label: 'Live Casinos',
+            href: '/casinos/live',
             icon: <Dice5 className="w-4 h-4" />,
-            description: "Live dealer games",
+            description: 'Live dealer games',
           },
           {
-            label: "Poker Rooms",
-            href: "/casinos/poker",
+            label: 'Poker Rooms',
+            href: '/casinos/poker',
             icon: <Spade className="w-4 h-4" />,
-            description: "Online poker sites",
+            description: 'Online poker sites',
           },
         ],
       },
     ],
   },
   {
-    label: "Bonuses",
+    label: 'Bonuses',
     megaMenu: [
       {
-        title: "Bonus Types",
+        title: 'Bonus Types',
         items: [
           {
-            label: "Welcome Bonuses",
-            href: "/bonuses/welcome",
+            label: 'Welcome Bonuses',
+            href: '/bonuses/welcome',
             icon: <Gift className="w-4 h-4" />,
-            description: "First deposit offers",
+            description: 'First deposit offers',
           },
           {
-            label: "No Deposit",
-            href: "/bonuses/no-deposit",
+            label: 'No Deposit',
+            href: '/bonuses/no-deposit',
             icon: <Star className="w-4 h-4" />,
-            description: "Free bonus no deposit",
+            description: 'Free bonus no deposit',
           },
           {
-            label: "Free Spins",
-            href: "/bonuses/free-spins",
+            label: 'Free Spins',
+            href: '/bonuses/free-spins',
             icon: <Gamepad2 className="w-4 h-4" />,
-            description: "Free spins offers",
+            description: 'Free spins offers',
           },
           {
-            label: "Cashback",
-            href: "/bonuses/cashback",
+            label: 'Cashback',
+            href: '/bonuses/cashback',
             icon: <CreditCard className="w-4 h-4" />,
-            description: "Cashback promotions",
+            description: 'Cashback promotions',
           },
         ],
       },
     ],
   },
   {
-    label: "Payments",
+    label: 'Payments',
     megaMenu: [
       {
-        title: "Payment Methods",
+        title: 'Payment Methods',
         items: [
           {
-            label: "Crypto Casinos",
-            href: "/payments/crypto",
+            label: 'Crypto Casinos',
+            href: '/payments/crypto',
             icon: <CreditCard className="w-4 h-4" />,
-            description: "Bitcoin & crypto accepted",
+            description: 'Bitcoin & crypto accepted',
           },
           {
-            label: "Fast Payouts",
-            href: "/payments/fast-payout",
+            label: 'Fast Payouts',
+            href: '/payments/fast-payout',
             icon: <Zap className="w-4 h-4" />,
-            description: "Quick withdrawal casinos",
+            description: 'Quick withdrawal casinos',
           },
           {
-            label: "PayPal Casinos",
-            href: "/payments/paypal",
+            label: 'PayPal Casinos',
+            href: '/payments/paypal',
             icon: <CreditCard className="w-4 h-4" />,
-            description: "PayPal accepted",
+            description: 'PayPal accepted',
           },
         ],
       },
     ],
   },
   {
-    label: "Guides",
-    href: "/guides",
+    label: 'Guides',
+    href: '/guides',
   },
   {
-    label: "Reviews",
-    href: "/reviews",
+    label: 'Reviews',
+    href: '/reviews',
   },
 ];
 
@@ -219,17 +219,17 @@ export function Navbar() {
                 ) : (
                   <button
                     className={cn(
-                      "flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors",
+                      'flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors',
                       activeMegaMenu === item.label
-                        ? "text-amber-400"
-                        : "text-slate-300 hover:text-white"
+                        ? 'text-amber-400'
+                        : 'text-slate-300 hover:text-white'
                     )}
                   >
                     {item.label}
                     <ChevronDown
                       className={cn(
-                        "w-4 h-4 transition-transform duration-200",
-                        activeMegaMenu === item.label && "rotate-180"
+                        'w-4 h-4 transition-transform duration-200',
+                        activeMegaMenu === item.label && 'rotate-180'
                       )}
                     />
                   </button>
@@ -287,9 +287,7 @@ export function Navbar() {
               </Button>
             </Link>
             <Link href="/casinos/top-rated">
-              <Button size="sm">
-                Find Casino
-              </Button>
+              <Button size="sm">Find Casino</Button>
             </Link>
           </div>
 
@@ -299,11 +297,7 @@ export function Navbar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
@@ -333,9 +327,7 @@ export function Navbar() {
                   </Button>
                 </Link>
                 <Link href="/casinos/top-rated" className="flex-1">
-                  <Button fullWidth>
-                    Find Casino
-                  </Button>
+                  <Button fullWidth>Find Casino</Button>
                 </Link>
               </div>
             </div>
@@ -363,10 +355,7 @@ function MobileAccordion({
       >
         {item.label}
         <ChevronDown
-          className={cn(
-            "w-4 h-4 transition-transform duration-200",
-            isOpen && "rotate-180"
-          )}
+          className={cn('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180')}
         />
       </button>
       {isOpen && item.megaMenu && (

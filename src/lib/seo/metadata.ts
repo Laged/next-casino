@@ -57,9 +57,7 @@ export function generateMetadata(options: MetadataOptions): Metadata {
 
   const url = `${SITE_CONFIG.url}${path}`;
   const titleTemplate = TITLE_TEMPLATES[template];
-  const formattedTitle = titleTemplate.includes('%s')
-    ? titleTemplate.replace('%s', title)
-    : title;
+  const formattedTitle = titleTemplate.includes('%s') ? titleTemplate.replace('%s', title) : title;
 
   // Base keywords for all pages
   const baseKeywords = [
@@ -208,12 +206,7 @@ export function generateListMetadata(list: {
     path: `/${list.slug}`,
     image: list.image,
     template: 'list',
-    keywords: [
-      list.title.toLowerCase(),
-      'parhaat kasinot',
-      'kasinovertailu',
-      'kasinolista',
-    ],
+    keywords: [list.title.toLowerCase(), 'parhaat kasinot', 'kasinovertailu', 'kasinolista'],
   });
 }
 
@@ -250,12 +243,7 @@ export const defaultMetadata: Metadata = generateMetadata({
   description:
     'Kasinolista - Suomen kattavin nettikasinoiden vertailusivusto. Loyda parhaat kasinobonukset, lue arvosteluja ja vertaile kasinoita.',
   template: 'home',
-  keywords: [
-    'parhaat nettikasinot',
-    'kasinobonukset 2024',
-    'uudet kasinot',
-    'ilmaiskierrokset',
-  ],
+  keywords: ['parhaat nettikasinot', 'kasinobonukset 2024', 'uudet kasinot', 'ilmaiskierrokset'],
 });
 
 // Export SITE_CONFIG for use in other modules

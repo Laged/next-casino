@@ -2,9 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-// ISR configuration - revalidate every 10 minutes
-export const revalidate = 600;
-
 // Types
 interface CasinoReview {
   id: string;
@@ -58,12 +55,18 @@ async function getCasinoReview(slug: string): Promise<CasinoReview | null> {
       name: 'Kasino Yksi',
       rating: 4.8,
       bonusTitle: '100% bonus + 200 ilmaiskierrosta',
-      bonusDescription: 'Tervetuliaisbonuksen arvo on jopa 500 EUR. Saat myos 200 ilmaiskierrosta suosikkislotteihin.',
+      bonusDescription:
+        'Tervetuliaisbonuksen arvo on jopa 500 EUR. Saat myos 200 ilmaiskierrosta suosikkislotteihin.',
       bonusTerms: 'Bonus on lunastettava 30 paivan sisalla. Kierratysvaatimus 35x.',
       wageringRequirement: 35,
       minDeposit: 10,
       maxBonus: 500,
-      features: ['Nopeat kotiutukset', 'Suomalainen tuki', 'Laaja pelivalikoima', 'Mobiilioptimoitu'],
+      features: [
+        'Nopeat kotiutukset',
+        'Suomalainen tuki',
+        'Laaja pelivalikoima',
+        'Mobiilioptimoitu',
+      ],
       pros: [
         'Erinomainen asiakaspalvelu suomeksi',
         'Nopeat kotiutukset 1-24 tunnissa',
@@ -71,14 +74,11 @@ async function getCasinoReview(slug: string): Promise<CasinoReview | null> {
         'Turvallinen MGA-lisenssi',
         'Hyva mobiilikokemus',
       ],
-      cons: [
-        'Kierratysvaatimus voisi olla matalampi',
-        'Rajoitettu live-kasino tarjonta',
-      ],
+      cons: ['Kierratysvaatimus voisi olla matalampi', 'Rajoitettu live-kasino tarjonta'],
       payoutSpeed: '1-24 tuntia',
       licenses: ['MGA', 'UKGC'],
       paymentMethods: ['Visa', 'Mastercard', 'Trustly', 'Skrill', 'Neteller', 'Paysafecard'],
-      gameProviders: ['NetEnt', 'Microgaming', 'Play\'n GO', 'Evolution', 'Pragmatic Play'],
+      gameProviders: ['NetEnt', 'Microgaming', "Play'n GO", 'Evolution', 'Pragmatic Play'],
       customerSupport: {
         livechat: true,
         email: true,
@@ -86,12 +86,18 @@ async function getCasinoReview(slug: string): Promise<CasinoReview | null> {
         hours: '24/7',
       },
       sections: {
-        overview: 'Kasino Yksi on yksi Suomen suosituimmista nettikasinoista. Se tarjoaa laajan pelivalikoiman, erinomaiset bonukset ja nopean asiakaspalvelun. Kasino on toiminut alalla vuodesta 2018 ja kerännyt suuren määrän uskollisia pelaajia.',
-        bonuses: 'Tervetuliaisbonuksena saat 100% bonuksen ensimmäiseen talletukseesi aina 500 euroon asti. Lisäksi saat 200 ilmaiskierrosta, jotka jaetaan 20 kierrosta päivässä 10 päivän ajan. Kierrätysvaatimus on 35-kertainen, mikä on alan keskitasoa.',
-        games: 'Pelivalikoimasta löytyy yli 2000 peliä parhailtä pelintoimittajilta. Kolikkopelit, pöytäpelit ja live-kasino ovat kaikki edustettuina. Suosituimpia pelejä ovat Starburst, Book of Dead ja Mega Moolah.',
-        payments: 'Kasino tukee laajaa valikoimaa maksutapoja. Talletukset ovat välittömiä ja kotiutukset käsitellään 1-24 tunnissa. Minimikotiutus on 20 euroa.',
-        support: 'Asiakaspalvelu on tavoitettavissa 24/7 live-chatin kautta. Suomenkielinen tuki on saatavilla arkisin klo 10-22. Vastausajat ovat erinomaiset.',
-        verdict: 'Kasino Yksi on erinomainen valinta niin aloittelijoille kuin kokeneille pelaajille. Laaja pelivalikoima, nopeat kotiutukset ja laadukas asiakaspalvelu tekevät siitä yhden parhaista vaihtoehdoista Suomen markkinoilla.',
+        overview:
+          'Kasino Yksi on yksi Suomen suosituimmista nettikasinoista. Se tarjoaa laajan pelivalikoiman, erinomaiset bonukset ja nopean asiakaspalvelun. Kasino on toiminut alalla vuodesta 2018 ja kerännyt suuren määrän uskollisia pelaajia.',
+        bonuses:
+          'Tervetuliaisbonuksena saat 100% bonuksen ensimmäiseen talletukseesi aina 500 euroon asti. Lisäksi saat 200 ilmaiskierrosta, jotka jaetaan 20 kierrosta päivässä 10 päivän ajan. Kierrätysvaatimus on 35-kertainen, mikä on alan keskitasoa.',
+        games:
+          'Pelivalikoimasta löytyy yli 2000 peliä parhailtä pelintoimittajilta. Kolikkopelit, pöytäpelit ja live-kasino ovat kaikki edustettuina. Suosituimpia pelejä ovat Starburst, Book of Dead ja Mega Moolah.',
+        payments:
+          'Kasino tukee laajaa valikoimaa maksutapoja. Talletukset ovat välittömiä ja kotiutukset käsitellään 1-24 tunnissa. Minimikotiutus on 20 euroa.',
+        support:
+          'Asiakaspalvelu on tavoitettavissa 24/7 live-chatin kautta. Suomenkielinen tuki on saatavilla arkisin klo 10-22. Vastausajat ovat erinomaiset.',
+        verdict:
+          'Kasino Yksi on erinomainen valinta niin aloittelijoille kuin kokeneille pelaajille. Laaja pelivalikoima, nopeat kotiutukset ja laadukas asiakaspalvelu tekevät siitä yhden parhaista vaihtoehdoista Suomen markkinoilla.',
       },
       lastUpdated: '2025-01-05',
       affiliateUrl: 'https://example.com/affiliate/kasino-yksi',
@@ -166,10 +172,7 @@ function RatingBar({ label, value, max = 5 }: { label: string; value: number; ma
     <div className="flex items-center gap-4">
       <span className="w-24 text-sm text-muted-foreground">{label}</span>
       <div className="h-2 flex-1 rounded-full bg-muted">
-        <div
-          className="h-2 rounded-full bg-primary"
-          style={{ width: `${percentage}%` }}
-        />
+        <div className="h-2 rounded-full bg-primary" style={{ width: `${percentage}%` }} />
       </div>
       <span className="w-8 text-sm font-medium">{value}</span>
     </div>
@@ -198,9 +201,13 @@ export default async function CasinoReviewPage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <div className="container mb-6">
         <nav className="text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-primary">Etusivu</Link>
+          <Link href="/" className="hover:text-primary">
+            Etusivu
+          </Link>
           <span className="mx-2">/</span>
-          <Link href="/uudet-kasinot" className="hover:text-primary">Kasinot</Link>
+          <Link href="/uudet-kasinot" className="hover:text-primary">
+            Kasinot
+          </Link>
           <span className="mx-2">/</span>
           <span>{casino.name}</span>
         </nav>
@@ -304,15 +311,30 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               <div className="rounded-lg border border-green-200 bg-green-50 p-6 dark:border-green-900 dark:bg-green-950">
                 <h2 className="mb-4 flex items-center gap-2 font-bold text-green-700 dark:text-green-400">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                   Plussat
                 </h2>
                 <ul className="space-y-2">
                   {casino.pros.map((pro) => (
                     <li key={pro} className="flex items-start gap-2 text-sm">
-                      <svg className="mt-0.5 h-4 w-4 shrink-0 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0 text-green-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       {pro}
                     </li>
@@ -322,15 +344,30 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               <div className="rounded-lg border border-red-200 bg-red-50 p-6 dark:border-red-900 dark:bg-red-950">
                 <h2 className="mb-4 flex items-center gap-2 font-bold text-red-700 dark:text-red-400">
                   <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                   Miinukset
                 </h2>
                 <ul className="space-y-2">
                   {casino.cons.map((con) => (
                     <li key={con} className="flex items-start gap-2 text-sm">
-                      <svg className="mt-0.5 h-4 w-4 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <svg
+                        className="mt-0.5 h-4 w-4 shrink-0 text-red-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
                       </svg>
                       {con}
                     </li>
@@ -378,10 +415,7 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               <p className="mb-6 text-muted-foreground">{casino.sections.games}</p>
               <div className="flex flex-wrap gap-2">
                 {casino.gameProviders.map((provider) => (
-                  <span
-                    key={provider}
-                    className="rounded-md border bg-card px-3 py-1 text-sm"
-                  >
+                  <span key={provider} className="rounded-md border bg-card px-3 py-1 text-sm">
                     {provider}
                   </span>
                 ))}
@@ -394,10 +428,7 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               <p className="mb-6 text-muted-foreground">{casino.sections.payments}</p>
               <div className="flex flex-wrap gap-2">
                 {casino.paymentMethods.map((method) => (
-                  <span
-                    key={method}
-                    className="rounded-md border bg-card px-3 py-1 text-sm"
-                  >
+                  <span key={method} className="rounded-md border bg-card px-3 py-1 text-sm">
                     {method}
                   </span>
                 ))}
@@ -410,9 +441,16 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               <p className="mb-6 text-muted-foreground">{casino.sections.support}</p>
               <div className="grid gap-4 sm:grid-cols-3">
                 <div className="flex items-center gap-3 rounded-lg border bg-card p-4">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-full ${casino.customerSupport.livechat ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-full ${casino.customerSupport.livechat ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}
+                  >
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                      />
                     </svg>
                   </div>
                   <div>
@@ -421,25 +459,43 @@ export default async function CasinoReviewPage({ params }: PageProps) {
                   </div>
                 </div>
                 <div className="flex items-center gap-3 rounded-lg border bg-card p-4">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-full ${casino.customerSupport.email ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-full ${casino.customerSupport.email ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}
+                  >
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <p className="font-medium">Sahkoposti</p>
-                    <p className="text-sm text-muted-foreground">{casino.customerSupport.email ? 'Saatavilla' : 'Ei saatavilla'}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {casino.customerSupport.email ? 'Saatavilla' : 'Ei saatavilla'}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 rounded-lg border bg-card p-4">
-                  <div className={`flex h-10 w-10 items-center justify-center rounded-full ${casino.customerSupport.phone ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                  <div
+                    className={`flex h-10 w-10 items-center justify-center rounded-full ${casino.customerSupport.phone ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}
+                  >
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
                     </svg>
                   </div>
                   <div>
                     <p className="font-medium">Puhelin</p>
-                    <p className="text-sm text-muted-foreground">{casino.customerSupport.phone ? 'Saatavilla' : 'Ei saatavilla'}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {casino.customerSupport.phone ? 'Saatavilla' : 'Ei saatavilla'}
+                    </p>
                   </div>
                 </div>
               </div>

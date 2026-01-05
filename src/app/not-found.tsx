@@ -17,8 +17,8 @@ export default function NotFound() {
         <h1 className="text-6xl font-bold tracking-tight">404</h1>
         <h2 className="text-2xl font-semibold">Sivua ei loytynyt</h2>
         <p className="max-w-md text-muted-foreground">
-          Pahoittelut, etsimasi sivu ei ole saatavilla. Se on saatettu poistaa,
-          siirtaa tai osoite on kirjoitettu vaarin.
+          Pahoittelut, etsimasi sivu ei ole saatavilla. Se on saatettu poistaa, siirtaa tai osoite
+          on kirjoitettu vaarin.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Link

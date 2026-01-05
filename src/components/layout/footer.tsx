@@ -1,15 +1,15 @@
-import Link from "next/link";
 import {
-  Gamepad2,
-  Mail,
-  Twitter,
-  Facebook,
-  Instagram,
-  Youtube,
-  Shield,
   Award,
+  Facebook,
+  Gamepad2,
+  Instagram,
   Lock,
-} from "lucide-react";
+  Mail,
+  Shield,
+  Twitter,
+  Youtube,
+} from 'lucide-react';
+import Link from 'next/link';
 
 interface FooterLink {
   label: string;
@@ -23,47 +23,47 @@ interface FooterColumn {
 
 const footerColumns: FooterColumn[] = [
   {
-    title: "Casinos",
+    title: 'Casinos',
     links: [
-      { label: "New Casinos", href: "/casinos/new" },
-      { label: "Top Rated Casinos", href: "/casinos/top-rated" },
-      { label: "VIP Casinos", href: "/casinos/vip" },
-      { label: "Safe Casinos", href: "/casinos/safe" },
-      { label: "Live Casinos", href: "/casinos/live" },
-      { label: "Mobile Casinos", href: "/casinos/mobile" },
+      { label: 'New Casinos', href: '/casinos/new' },
+      { label: 'Top Rated Casinos', href: '/casinos/top-rated' },
+      { label: 'VIP Casinos', href: '/casinos/vip' },
+      { label: 'Safe Casinos', href: '/casinos/safe' },
+      { label: 'Live Casinos', href: '/casinos/live' },
+      { label: 'Mobile Casinos', href: '/casinos/mobile' },
     ],
   },
   {
-    title: "Bonuses",
+    title: 'Bonuses',
     links: [
-      { label: "Welcome Bonuses", href: "/bonuses/welcome" },
-      { label: "No Deposit Bonuses", href: "/bonuses/no-deposit" },
-      { label: "Free Spins", href: "/bonuses/free-spins" },
-      { label: "Cashback Offers", href: "/bonuses/cashback" },
-      { label: "VIP Programs", href: "/bonuses/vip" },
-      { label: "Bonus Codes", href: "/bonuses/codes" },
+      { label: 'Welcome Bonuses', href: '/bonuses/welcome' },
+      { label: 'No Deposit Bonuses', href: '/bonuses/no-deposit' },
+      { label: 'Free Spins', href: '/bonuses/free-spins' },
+      { label: 'Cashback Offers', href: '/bonuses/cashback' },
+      { label: 'VIP Programs', href: '/bonuses/vip' },
+      { label: 'Bonus Codes', href: '/bonuses/codes' },
     ],
   },
   {
-    title: "Guides",
+    title: 'Guides',
     links: [
-      { label: "How to Choose a Casino", href: "/guides/how-to-choose" },
-      { label: "Responsible Gambling", href: "/guides/responsible-gambling" },
-      { label: "Casino Games Guide", href: "/guides/casino-games" },
-      { label: "Payment Methods", href: "/guides/payment-methods" },
-      { label: "Gambling Laws", href: "/guides/gambling-laws" },
-      { label: "Beginner Tips", href: "/guides/beginner-tips" },
+      { label: 'How to Choose a Casino', href: '/guides/how-to-choose' },
+      { label: 'Responsible Gambling', href: '/guides/responsible-gambling' },
+      { label: 'Casino Games Guide', href: '/guides/casino-games' },
+      { label: 'Payment Methods', href: '/guides/payment-methods' },
+      { label: 'Gambling Laws', href: '/guides/gambling-laws' },
+      { label: 'Beginner Tips', href: '/guides/beginner-tips' },
     ],
   },
   {
-    title: "Company",
+    title: 'Company',
     links: [
-      { label: "About Us", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "Our Team", href: "/team" },
-      { label: "Careers", href: "/careers" },
-      { label: "Press", href: "/press" },
-      { label: "Partners", href: "/partners" },
+      { label: 'About Us', href: '/about' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Our Team', href: '/team' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Press', href: '/press' },
+      { label: 'Partners', href: '/partners' },
     ],
   },
 ];
@@ -71,23 +71,23 @@ const footerColumns: FooterColumn[] = [
 const trustBadges = [
   {
     icon: <Shield className="w-6 h-6" />,
-    label: "Licensed Reviews",
+    label: 'Licensed Reviews',
   },
   {
     icon: <Award className="w-6 h-6" />,
-    label: "Expert Verified",
+    label: 'Expert Verified',
   },
   {
     icon: <Lock className="w-6 h-6" />,
-    label: "Secure & Safe",
+    label: 'Secure & Safe',
   },
 ];
 
 const socialLinks = [
-  { icon: <Twitter className="w-5 h-5" />, href: "https://twitter.com", label: "Twitter" },
-  { icon: <Facebook className="w-5 h-5" />, href: "https://facebook.com", label: "Facebook" },
-  { icon: <Instagram className="w-5 h-5" />, href: "https://instagram.com", label: "Instagram" },
-  { icon: <Youtube className="w-5 h-5" />, href: "https://youtube.com", label: "YouTube" },
+  { icon: <Twitter className="w-5 h-5" />, href: 'https://twitter.com', label: 'Twitter' },
+  { icon: <Facebook className="w-5 h-5" />, href: 'https://facebook.com', label: 'Facebook' },
+  { icon: <Instagram className="w-5 h-5" />, href: 'https://instagram.com', label: 'Instagram' },
+  { icon: <Youtube className="w-5 h-5" />, href: 'https://youtube.com', label: 'YouTube' },
 ];
 
 export function Footer() {
@@ -100,10 +100,7 @@ export function Footer() {
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             {trustBadges.map((badge) => (
-              <div
-                key={badge.label}
-                className="flex items-center gap-3 text-slate-400"
-              >
+              <div key={badge.label} className="flex items-center gap-3 text-slate-400">
                 <span className="text-amber-500">{badge.icon}</span>
                 <span className="text-sm font-medium">{badge.label}</span>
               </div>
@@ -126,8 +123,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-400 mb-6 max-w-xs">
-              Your trusted source for online casino reviews, bonuses, and expert guides.
-              We help players find safe and reliable casinos since 2020.
+              Your trusted source for online casino reviews, bonuses, and expert guides. We help
+              players find safe and reliable casinos since 2020.
             </p>
 
             {/* Social Links */}
@@ -150,9 +147,7 @@ export function Footer() {
           {/* Link Columns */}
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-sm font-semibold text-white mb-4">
-                {column.title}
-              </h3>
+              <h3 className="text-sm font-semibold text-white mb-4">{column.title}</h3>
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.href}>
@@ -173,9 +168,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-lg font-semibold text-white mb-1">
-                Get the latest bonuses
-              </h3>
+              <h3 className="text-lg font-semibold text-white mb-1">Get the latest bonuses</h3>
               <p className="text-sm text-slate-400">
                 Subscribe for exclusive casino offers and promotions.
               </p>
@@ -226,9 +219,9 @@ export function Footer() {
           {/* Disclaimer */}
           <p className="mt-4 text-xs text-slate-600 text-center md:text-left">
             Gambling can be addictive. Please play responsibly. CasinoHub is an independent
-            comparison website. We may receive compensation when you click on links to
-            operators listed on our site. This does not affect our reviews, which remain
-            honest and unbiased. Always check the T&Cs of any bonus offers. 18+ only.
+            comparison website. We may receive compensation when you click on links to operators
+            listed on our site. This does not affect our reviews, which remain honest and unbiased.
+            Always check the T&Cs of any bonus offers. 18+ only.
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 // Base UI Components
-export { Button, buttonVariants, type ButtonProps } from "./button";
-export { Badge, badgeVariants, type BadgeProps } from "./badge";
+export { Button, buttonVariants, type ButtonProps } from './button';
+export { Badge, badgeVariants, type BadgeProps } from './badge';
 export {
   Card,
   CardHeader,
@@ -10,10 +10,10 @@ export {
   CardFooter,
   cardVariants,
   type CardProps,
-} from "./card";
+} from './card';
 export {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "./accordion";
+} from './accordion';

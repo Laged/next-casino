@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Check, X, ThumbsUp, ThumbsDown } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
+import { Card } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { Check, ThumbsDown, ThumbsUp, X } from 'lucide-react';
+import * as React from 'react';
 
 interface ProsCons {
   pros: string[];
@@ -10,23 +10,15 @@ interface ProsCons {
 
 interface ProsConsProps extends ProsCons {
   title?: string;
-  variant?: "default" | "cards" | "compact";
+  variant?: 'default' | 'cards' | 'compact';
   className?: string;
 }
 
-export function ProsCons({
-  pros,
-  cons,
-  title,
-  variant = "default",
-  className,
-}: ProsConsProps) {
-  if (variant === "cards") {
+export function ProsCons({ pros, cons, title, variant = 'default', className }: ProsConsProps) {
+  if (variant === 'cards') {
     return (
-      <section className={cn("space-y-6", className)}>
-        {title && (
-          <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>
-        )}
+      <section className={cn('space-y-6', className)}>
+        {title && <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>}
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Pros Card */}
@@ -83,15 +75,12 @@ export function ProsCons({
     );
   }
 
-  if (variant === "compact") {
+  if (variant === 'compact') {
     return (
-      <div className={cn("flex flex-col sm:flex-row gap-4", className)}>
+      <div className={cn('flex flex-col sm:flex-row gap-4', className)}>
         <div className="flex-1 space-y-2">
           {pros.slice(0, 3).map((pro, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-2 text-sm text-slate-300"
-            >
+            <div key={index} className="flex items-center gap-2 text-sm text-slate-300">
               <Check className="w-4 h-4 text-emerald-500 shrink-0" />
               <span className="line-clamp-1">{pro}</span>
             </div>
@@ -99,10 +88,7 @@ export function ProsCons({
         </div>
         <div className="flex-1 space-y-2">
           {cons.slice(0, 3).map((con, index) => (
-            <div
-              key={index}
-              className="flex items-center gap-2 text-sm text-slate-300"
-            >
+            <div key={index} className="flex items-center gap-2 text-sm text-slate-300">
               <X className="w-4 h-4 text-red-500 shrink-0" />
               <span className="line-clamp-1">{con}</span>
             </div>
@@ -114,10 +100,8 @@ export function ProsCons({
 
   // Default two-column layout
   return (
-    <section className={cn("space-y-6", className)}>
-      {title && (
-        <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>
-      )}
+    <section className={cn('space-y-6', className)}>
+      {title && <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>}
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Pros Column */}

@@ -3,7 +3,7 @@
  * Safely injects schema.org JSON-LD data into the page
  */
 
-import React from 'react';
+import type React from 'react';
 
 interface JsonLdProps {
   /** Schema.org structured data object */
@@ -27,11 +27,7 @@ export function JsonLd({ data, id }: JsonLdProps): React.ReactElement {
     .replace(/&/g, '\\u0026');
 
   return (
-    <script
-      id={id}
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: safeJsonLd }}
-    />
+    <script id={id} type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd }} />
   );
 }
 
@@ -132,9 +128,7 @@ interface BreadcrumbSchemaProps {
   items: Array<{ name: string; url: string }>;
 }
 
-export function BreadcrumbSchema({
-  items,
-}: BreadcrumbSchemaProps): React.ReactElement {
+export function BreadcrumbSchema({ items }: BreadcrumbSchemaProps): React.ReactElement {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

@@ -2,9 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-// ISR configuration - revalidate every 10 minutes
-export const revalidate = 600;
-
 // Types
 interface Article {
   id: string;
@@ -54,12 +51,15 @@ async function getArticle(slug: string): Promise<Article | null> {
       slug: 'paras-kasino-opas',
       title: 'Parhaan nettikasinon valinta - Täydellinen opas 2025',
       metaTitle: 'Parhaan Nettikasinon Valinta | Opas 2025',
-      metaDescription: 'Opi valitsemaan paras nettikasino tarpeidesi mukaan. Käymme läpi tärkeimmät kriteerit: lisenssit, bonukset, pelitarjonta ja maksutavat.',
-      excerpt: 'Nettikasinoiden maailma voi tuntua sekavalta. Tässä oppaassa käymme läpi, miten löydät juuri sinulle sopivan kasinon.',
+      metaDescription:
+        'Opi valitsemaan paras nettikasino tarpeidesi mukaan. Käymme läpi tärkeimmät kriteerit: lisenssit, bonukset, pelitarjonta ja maksutavat.',
+      excerpt:
+        'Nettikasinoiden maailma voi tuntua sekavalta. Tässä oppaassa käymme läpi, miten löydät juuri sinulle sopivan kasinon.',
       content: [
         {
           type: 'paragraph',
-          content: 'Nettikasinoiden määrä kasvaa jatkuvasti, ja oikean valinnan tekeminen voi tuntua haastavalta. Tässä kattavassa oppaassa käymme läpi kaikki tärkeimmät kriteerit, joiden avulla löydät juuri sinulle sopivan kasinon.',
+          content:
+            'Nettikasinoiden määrä kasvaa jatkuvasti, ja oikean valinnan tekeminen voi tuntua haastavalta. Tässä kattavassa oppaassa käymme läpi kaikki tärkeimmät kriteerit, joiden avulla löydät juuri sinulle sopivan kasinon.',
         },
         {
           type: 'heading',
@@ -67,7 +67,8 @@ async function getArticle(slug: string): Promise<Article | null> {
         },
         {
           type: 'paragraph',
-          content: 'Oikean kasinon valinta vaikuttaa koko pelikokemukseesi. Luotettava kasino takaa turvalliset maksut, reilut pelit ja nopeat kotiutukset. Huono valinta voi johtaa ongelmiin voittojen nostamisessa tai jopa rahojen menettämiseen.',
+          content:
+            'Oikean kasinon valinta vaikuttaa koko pelikokemukseesi. Luotettava kasino takaa turvalliset maksut, reilut pelit ja nopeat kotiutukset. Huono valinta voi johtaa ongelmiin voittojen nostamisessa tai jopa rahojen menettämiseen.',
         },
         {
           type: 'heading',
@@ -87,7 +88,8 @@ async function getArticle(slug: string): Promise<Article | null> {
         },
         {
           type: 'tip',
-          content: 'Lue aina bonusehdot huolellisesti ennen talletuksen tekemistä. Kierrätysvaatimukset ja aikarajat vaihtelevat suuresti kasinoiden välillä.',
+          content:
+            'Lue aina bonusehdot huolellisesti ennen talletuksen tekemistä. Kierrätysvaatimukset ja aikarajat vaihtelevat suuresti kasinoiden välillä.',
         },
         {
           type: 'heading',
@@ -95,11 +97,13 @@ async function getArticle(slug: string): Promise<Article | null> {
         },
         {
           type: 'paragraph',
-          content: 'Luotettavan kasinon tärkein tunnusmerkki on voimassa oleva pelilisenssi. Suomalaisille pelaajille parhaita lisenssejä ovat Maltan peliviranomaisen (MGA) ja Iso-Britannian pelikomission (UKGC) myöntämät lisenssit. Nämä viranomaiset valvovat kasinoiden toimintaa tiukasti.',
+          content:
+            'Luotettavan kasinon tärkein tunnusmerkki on voimassa oleva pelilisenssi. Suomalaisille pelaajille parhaita lisenssejä ovat Maltan peliviranomaisen (MGA) ja Iso-Britannian pelikomission (UKGC) myöntämät lisenssit. Nämä viranomaiset valvovat kasinoiden toimintaa tiukasti.',
         },
         {
           type: 'warning',
-          content: 'Älä koskaan pelaa kasinolla, jolla ei ole voimassa olevaa pelilisenssiä. Lisensoimattomat kasinot eivät takaa reilua peliä tai voittojen maksua.',
+          content:
+            'Älä koskaan pelaa kasinolla, jolla ei ole voimassa olevaa pelilisenssiä. Lisensoimattomat kasinot eivät takaa reilua peliä tai voittojen maksua.',
         },
         {
           type: 'heading',
@@ -107,7 +111,8 @@ async function getArticle(slug: string): Promise<Article | null> {
         },
         {
           type: 'paragraph',
-          content: 'Tervetuliaisbonukset ovat yksi tärkeimmistä valintakriteereistä. Tyypillinen bonus on 100% ensitalletuksesta, mutta määrät ja ehdot vaihtelevat suuresti. Kiinnitä huomiota erityisesti kierrätysvaatimuksiin - mitä matalampi vaatimus, sitä parempi.',
+          content:
+            'Tervetuliaisbonukset ovat yksi tärkeimmistä valintakriteereistä. Tyypillinen bonus on 100% ensitalletuksesta, mutta määrät ja ehdot vaihtelevat suuresti. Kiinnitä huomiota erityisesti kierrätysvaatimuksiin - mitä matalampi vaatimus, sitä parempi.',
         },
         {
           type: 'heading',
@@ -115,7 +120,8 @@ async function getArticle(slug: string): Promise<Article | null> {
         },
         {
           type: 'paragraph',
-          content: 'Parhaan kasinon löytäminen vaatii hieman tutkimista, mutta se kannattaa. Keskity luotettavuuteen, bonusehtoihin ja pelitarjontaan. Lue arvosteluja ja pelaajien kokemuksia ennen päätöksen tekemistä.',
+          content:
+            'Parhaan kasinon löytäminen vaatii hieman tutkimista, mutta se kannattaa. Keskity luotettavuuteen, bonusehtoihin ja pelitarjontaan. Lue arvosteluja ja pelaajien kokemuksia ennen päätöksen tekemistä.',
         },
       ],
       author: {
@@ -132,7 +138,8 @@ async function getArticle(slug: string): Promise<Article | null> {
         {
           slug: 'bonusten-kierratysvaatimukset',
           title: 'Bonusten kierrätysvaatimukset selitettynä',
-          excerpt: 'Mitä kierrätysvaatimukset tarkoittavat ja miten ne vaikuttavat bonuksen arvoon.',
+          excerpt:
+            'Mitä kierrätysvaatimukset tarkoittavat ja miten ne vaikuttavat bonuksen arvoon.',
         },
         {
           slug: 'turvallinen-pelaaminen',
@@ -207,8 +214,18 @@ function ArticleContent({ sections }: { sections: ArticleSection[] }) {
                 <ul className="mt-2 space-y-2">
                   {section.items?.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start gap-2 text-muted-foreground">
-                      <svg className="mt-1 h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <svg
+                        className="mt-1 h-4 w-4 shrink-0 text-primary"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       {item}
                     </li>
@@ -218,10 +235,23 @@ function ArticleContent({ sections }: { sections: ArticleSection[] }) {
             );
           case 'tip':
             return (
-              <div key={index} className="mt-6 rounded-lg border-l-4 border-green-500 bg-green-50 p-4 dark:bg-green-950">
+              <div
+                key={index}
+                className="mt-6 rounded-lg border-l-4 border-green-500 bg-green-50 p-4 dark:bg-green-950"
+              >
                 <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  <svg
+                    className="h-5 w-5 text-green-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
                   </svg>
                   <span className="font-semibold text-green-700 dark:text-green-400">Vinkki</span>
                 </div>
@@ -230,12 +260,27 @@ function ArticleContent({ sections }: { sections: ArticleSection[] }) {
             );
           case 'warning':
             return (
-              <div key={index} className="mt-6 rounded-lg border-l-4 border-yellow-500 bg-yellow-50 p-4 dark:bg-yellow-950">
+              <div
+                key={index}
+                className="mt-6 rounded-lg border-l-4 border-yellow-500 bg-yellow-50 p-4 dark:bg-yellow-950"
+              >
                 <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  <svg
+                    className="h-5 w-5 text-yellow-600"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    />
                   </svg>
-                  <span className="font-semibold text-yellow-700 dark:text-yellow-400">Varoitus</span>
+                  <span className="font-semibold text-yellow-700 dark:text-yellow-400">
+                    Varoitus
+                  </span>
                 </div>
                 <p className="mt-2 text-yellow-800 dark:text-yellow-300">{section.content}</p>
               </div>
@@ -261,9 +306,13 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* Breadcrumbs */}
       <div className="container mb-6">
         <nav className="text-sm text-muted-foreground">
-          <Link href="/" className="hover:text-primary">Etusivu</Link>
+          <Link href="/" className="hover:text-primary">
+            Etusivu
+          </Link>
           <span className="mx-2">/</span>
-          <Link href="/oppaat" className="hover:text-primary">{article.category}</Link>
+          <Link href="/oppaat" className="hover:text-primary">
+            {article.category}
+          </Link>
           <span className="mx-2">/</span>
           <span className="truncate">{article.title}</span>
         </nav>
@@ -283,12 +332,8 @@ export default async function ArticlePage({ params }: PageProps) {
                   {article.readingTime} min lukuaika
                 </span>
               </div>
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
-                {article.title}
-              </h1>
-              <p className="mt-4 text-lg text-muted-foreground">
-                {article.excerpt}
-              </p>
+              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">{article.title}</h1>
+              <p className="mt-4 text-lg text-muted-foreground">{article.excerpt}</p>
 
               {/* Author & Date */}
               <div className="mt-6 flex items-center gap-4 border-y py-4">

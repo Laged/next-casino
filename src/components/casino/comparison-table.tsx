@@ -1,21 +1,13 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  Check,
-  X,
-  ExternalLink,
-  ChevronLeft,
-  ChevronRight,
-  Star,
-  Info,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { type CasinoData } from "./casino-card";
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { Check, ChevronLeft, ChevronRight, ExternalLink, Info, Star, X } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import * as React from 'react';
+import type { CasinoData } from './casino-card';
 
 interface ComparisonFeature {
   id: string;
@@ -39,11 +31,11 @@ interface ComparisonTableProps {
 }
 
 const featureCategories = [
-  { id: "general", label: "General" },
-  { id: "bonuses", label: "Bonuses" },
-  { id: "payments", label: "Payments" },
-  { id: "games", label: "Games" },
-  { id: "support", label: "Support" },
+  { id: 'general', label: 'General' },
+  { id: 'bonuses', label: 'Bonuses' },
+  { id: 'payments', label: 'Payments' },
+  { id: 'games', label: 'Games' },
+  { id: 'support', label: 'Support' },
 ];
 
 export function ComparisonTable({
@@ -56,7 +48,7 @@ export function ComparisonTable({
   const scrollContainerRef = React.useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
-  const [activeCategory, setActiveCategory] = React.useState("general");
+  const [activeCategory, setActiveCategory] = React.useState('general');
 
   const checkScroll = () => {
     if (scrollContainerRef.current) {
@@ -70,17 +62,17 @@ export function ComparisonTable({
     checkScroll();
     const container = scrollContainerRef.current;
     if (container) {
-      container.addEventListener("scroll", checkScroll);
-      return () => container.removeEventListener("scroll", checkScroll);
+      container.addEventListener('scroll', checkScroll);
+      return () => container.removeEventListener('scroll', checkScroll);
     }
   }, []);
 
-  const scroll = (direction: "left" | "right") => {
+  const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const scrollAmount = 300;
       scrollContainerRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
       });
     }
   };
@@ -88,7 +80,7 @@ export function ComparisonTable({
   const filteredFeatures = features.filter((f) => f.category === activeCategory);
 
   const renderValue = (value: boolean | string | number) => {
-    if (typeof value === "boolean") {
+    if (typeof value === 'boolean') {
       return value ? (
         <Check className="w-5 h-5 text-emerald-500" />
       ) : (
@@ -99,12 +91,10 @@ export function ComparisonTable({
   };
 
   return (
-    <section className={cn("space-y-6", className)}>
+    <section className={cn('space-y-6', className)}>
       {(title || subtitle) && (
         <div className="space-y-2">
-          {title && (
-            <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>
-          )}
+          {title && <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>}
           {subtitle && <p className="text-slate-400 max-w-2xl">{subtitle}</p>}
         </div>
       )}
@@ -116,10 +106,10 @@ export function ComparisonTable({
             key={category.id}
             onClick={() => setActiveCategory(category.id)}
             className={cn(
-              "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+              'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
               activeCategory === category.id
-                ? "bg-amber-500 text-white"
-                : "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white"
+                ? 'bg-amber-500 text-white'
+                : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white'
             )}
           >
             {category.label}
@@ -132,7 +122,7 @@ export function ComparisonTable({
         {/* Scroll Buttons */}
         {canScrollLeft && (
           <button
-            onClick={() => scroll("left")}
+            onClick={() => scroll('left')}
             className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-slate-900/90 border border-slate-700 rounded-full shadow-lg hover:bg-slate-800 transition-colors"
             aria-label="Scroll left"
           >
@@ -141,7 +131,7 @@ export function ComparisonTable({
         )}
         {canScrollRight && (
           <button
-            onClick={() => scroll("right")}
+            onClick={() => scroll('right')}
             className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-slate-900/90 border border-slate-700 rounded-full shadow-lg hover:bg-slate-800 transition-colors"
             aria-label="Scroll right"
           >
@@ -158,7 +148,7 @@ export function ComparisonTable({
             <thead>
               {/* Casino Headers */}
               <tr>
-                <th className="sticky left-0 z-20 bg-slate-950 p-4 w-48 min-w-48"></th>
+                <th className="sticky left-0 z-20 bg-slate-950 p-4 w-48 min-w-48" />
                 {casinos.map((casino) => (
                   <th
                     key={casino.id}
@@ -202,9 +192,7 @@ export function ComparisonTable({
                     key={casino.id}
                     className="p-4 bg-slate-900/50 border-b border-slate-800 text-center"
                   >
-                    <div className="font-bold text-amber-400">
-                      {casino.welcomeBonus.title}
-                    </div>
+                    <div className="font-bold text-amber-400">{casino.welcomeBonus.title}</div>
                   </td>
                 ))}
               </tr>
@@ -214,13 +202,11 @@ export function ComparisonTable({
               {filteredFeatures.map((feature, index) => (
                 <tr
                   key={feature.id}
-                  className={cn(index % 2 === 0 ? "bg-slate-900/30" : "bg-transparent")}
+                  className={cn(index % 2 === 0 ? 'bg-slate-900/30' : 'bg-transparent')}
                 >
                   <td className="sticky left-0 z-20 bg-slate-950 p-4 border-b border-slate-800">
                     <div className="flex items-center gap-2">
-                      <span className="font-medium text-slate-300">
-                        {feature.label}
-                      </span>
+                      <span className="font-medium text-slate-300">{feature.label}</span>
                       {feature.tooltip && (
                         <button
                           className="text-slate-500 hover:text-slate-400"
@@ -232,10 +218,7 @@ export function ComparisonTable({
                     </div>
                   </td>
                   {casinos.map((casino) => (
-                    <td
-                      key={casino.id}
-                      className="p-4 border-b border-slate-800 text-center"
-                    >
+                    <td key={casino.id} className="p-4 border-b border-slate-800 text-center">
                       <div className="flex items-center justify-center">
                         {renderValue(casino.comparisonData[feature.id])}
                       </div>
@@ -248,7 +231,7 @@ export function ComparisonTable({
             <tfoot>
               {/* CTA Row */}
               <tr>
-                <td className="sticky left-0 z-20 bg-slate-950 p-4"></td>
+                <td className="sticky left-0 z-20 bg-slate-950 p-4" />
                 {casinos.map((casino) => (
                   <td key={casino.id} className="p-4 bg-slate-900/50">
                     <div className="flex flex-col items-center gap-2">
@@ -258,10 +241,7 @@ export function ComparisonTable({
                         rel="noopener noreferrer sponsored"
                         className="w-full"
                       >
-                        <Button
-                          fullWidth
-                          rightIcon={<ExternalLink className="w-4 h-4" />}
-                        >
+                        <Button fullWidth rightIcon={<ExternalLink className="w-4 h-4" />}>
                           Visit Casino
                         </Button>
                       </Link>
@@ -282,8 +262,7 @@ export function ComparisonTable({
 
       {/* Disclaimer */}
       <p className="text-xs text-slate-500 text-center">
-        T&Cs apply to all bonuses. 18+ | Gamble responsibly. Feature comparison
-        updated monthly.
+        T&Cs apply to all bonuses. 18+ | Gamble responsibly. Feature comparison updated monthly.
       </p>
     </section>
   );

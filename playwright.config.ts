@@ -1,7 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './tests/e2e',
 
   // Run tests in parallel
   fullyParallel: true,
@@ -51,7 +51,7 @@ export default defineConfig({
 
   // Start dev server before running tests
   webServer: {
-    command: 'npm run dev',
+    command: 'bun run dev',
     url: 'http://localhost:3000',
     reuseExistingServer: true, // Use existing server if running
     timeout: 120 * 1000,

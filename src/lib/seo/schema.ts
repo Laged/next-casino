@@ -36,14 +36,12 @@ const SITE_CONFIG = {
   name: 'Kasinolista',
   url: 'https://kasinolista.fi',
   logo: 'https://kasinolista.fi/logo.png',
-  description: 'Suomen kattavin kasino-opas. Vertaile nettikasinoita, lue arvosteluja ja loyda parhaat bonukset.',
+  description:
+    'Suomen kattavin kasino-opas. Vertaile nettikasinoita, lue arvosteluja ja loyda parhaat bonukset.',
   locale: 'fi-FI',
   founder: 'Kasinolista',
   foundingDate: '2024',
-  sameAs: [
-    'https://twitter.com/kasinolista',
-    'https://facebook.com/kasinolista',
-  ],
+  sameAs: ['https://twitter.com/kasinolista', 'https://facebook.com/kasinolista'],
 } as const;
 
 /**
@@ -173,7 +171,7 @@ export function generateReviewSchema(
  */
 export function generateItemListSchema(
   casinos: Casino[],
-  listName: string = 'Parhaat nettikasinot'
+  listName = 'Parhaat nettikasinot'
 ): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',

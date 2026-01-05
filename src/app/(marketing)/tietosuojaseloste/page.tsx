@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 
-// ISR configuration - revalidate every 10 minutes
-export const revalidate = 600;
-
 export const metadata: Metadata = {
   title: 'Tietosuojaseloste',
-  description: 'Lue tietosuojaselosteemme ja opi, miten kasittelemme henkilotietojasi. Sitoudumme suojaamaan yksityisyyttasi.',
+  description:
+    'Lue tietosuojaselosteemme ja opi, miten kasittelemme henkilotietojasi. Sitoudumme suojaamaan yksityisyyttasi.',
   openGraph: {
     title: 'Tietosuojaseloste | Nettikasinot',
     description: 'Tietosuojaseloste ja henkilotietojen kasittelykayatannot.',
@@ -114,12 +112,10 @@ export default function PrivacyPolicyPage() {
         <header className="mb-12">
           <h1 className="text-4xl font-bold tracking-tight">Tietosuojaseloste</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Tama tietosuojaseloste kuvaa, miten kasittelemme henkilotietojasi.
-            Yksityisyytesi on meille tarkeaa.
+            Tama tietosuojaseloste kuvaa, miten kasittelemme henkilotietojasi. Yksityisyytesi on
+            meille tarkeaa.
           </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Paivitetty viimeksi: Tammikuu 2025
-          </p>
+          <p className="mt-2 text-sm text-muted-foreground">Paivitetty viimeksi: Tammikuu 2025</p>
         </header>
 
         {/* Table of Contents */}

@@ -1,15 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-// ISR configuration - revalidate every 10 minutes
-export const revalidate = 600;
-
 export const metadata: Metadata = {
   title: 'Parhaat Nettikasinot 2025 | Luotettavat Kasinoarvostelut',
-  description: 'Loyda Suomen parhaat nettikasinot vuonna 2025. Vertaile bonuksia, lue arvosteluja ja valitse sinulle sopiva kasino. Luotettavat arvostelut ammattilaisilta.',
+  description:
+    'Loyda Suomen parhaat nettikasinot vuonna 2025. Vertaile bonuksia, lue arvosteluja ja valitse sinulle sopiva kasino. Luotettavat arvostelut ammattilaisilta.',
   openGraph: {
     title: 'Parhaat Nettikasinot 2025 | Luotettavat Kasinoarvostelut',
-    description: 'Loyda Suomen parhaat nettikasinot vuonna 2025. Vertaile bonuksia ja lue arvosteluja.',
+    description:
+      'Loyda Suomen parhaat nettikasinot vuonna 2025. Vertaile bonuksia ja lue arvosteluja.',
     type: 'website',
   },
 };
@@ -121,10 +120,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default async function HomePage() {
-  const [featuredCasinos, categories] = await Promise.all([
-    getFeaturedCasinos(),
-    getCategories(),
-  ]);
+  const [featuredCasinos, categories] = await Promise.all([getFeaturedCasinos(), getCategories()]);
 
   return (
     <div className="flex flex-col gap-16 py-8">
@@ -135,8 +131,8 @@ export default async function HomePage() {
             Parhaat Nettikasinot 2025
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">
-            Loyda luotettavat nettikasinot asiantuntija-arvostelujemme avulla.
-            Vertaile bonuksia, lue pelaajien kokemuksia ja aloita pelaaminen turvallisesti.
+            Loyda luotettavat nettikasinot asiantuntija-arvostelujemme avulla. Vertaile bonuksia,
+            lue pelaajien kokemuksia ja aloita pelaaminen turvallisesti.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -180,8 +176,18 @@ export default async function HomePage() {
               <ul className="mb-4 space-y-2">
                 {casino.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2 text-sm">
-                    <svg className="h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="h-4 w-4 text-green-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     {feature}
                   </li>
@@ -202,9 +208,7 @@ export default async function HomePage() {
       <section className="container">
         <div className="mb-8">
           <h2 className="text-3xl font-bold">Selaa kategorioittain</h2>
-          <p className="mt-2 text-muted-foreground">
-            Loyda juuri sinulle sopivat nettikasinot
-          </p>
+          <p className="mt-2 text-muted-foreground">Loyda juuri sinulle sopivat nettikasinot</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
@@ -215,9 +219,7 @@ export default async function HomePage() {
             >
               <h3 className="font-semibold group-hover:text-primary">{category.name}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{category.description}</p>
-              <p className="mt-2 text-xs text-muted-foreground">
-                {category.casinoCount} kasinoa
-              </p>
+              <p className="mt-2 text-xs text-muted-foreground">{category.casinoCount} kasinoa</p>
             </Link>
           ))}
         </div>
@@ -230,8 +232,18 @@ export default async function HomePage() {
           <div className="mt-8 grid gap-8 sm:grid-cols-3">
             <div>
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="h-6 w-6 text-primary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
               <h3 className="font-semibold">Riippumattomat arvostelut</h3>
@@ -241,8 +253,18 @@ export default async function HomePage() {
             </div>
             <div>
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                <svg
+                  className="h-6 w-6 text-primary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
                 </svg>
               </div>
               <h3 className="font-semibold">Turvalliset kasinot</h3>
@@ -252,8 +274,18 @@ export default async function HomePage() {
             </div>
             <div>
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <svg
+                  className="h-6 w-6 text-primary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
               </div>
               <h3 className="font-semibold">Ajan tasalla</h3>

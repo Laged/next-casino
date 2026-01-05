@@ -55,14 +55,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-          '/auth/',
-          '/*?q=*',
-          '/*?search=*',
-          '/*?filter=*',
-        ],
+        disallow: ['/api/', '/admin/', '/auth/', '/*?q=*', '/*?search=*', '/*?filter=*'],
       },
       // Block AI crawlers
       {

@@ -161,11 +161,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: PRIORITIES.articles,
   }));
 
-  return [
-    ...homePages,
-    ...listPages,
-    ...reviewPages,
-    ...articlePages,
-    ...infoPages,
-  ];
+  return [...homePages, ...listPages, ...reviewPages, ...articlePages, ...infoPages];
 }

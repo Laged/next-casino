@@ -1,10 +1,10 @@
-import * as React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Calendar, Clock, Award, Linkedin, Twitter, CheckCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from '@/components/ui/badge';
+import { Card } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import { Award, Calendar, CheckCircle, Clock, Linkedin, Twitter } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import * as React from 'react';
 
 interface AuthorData {
   name: string;
@@ -25,7 +25,7 @@ interface AuthorBioProps {
   publishDate?: string;
   updateDate?: string;
   readTime?: string;
-  variant?: "default" | "compact" | "inline";
+  variant?: 'default' | 'compact' | 'inline';
   showCredentials?: boolean;
   className?: string;
 }
@@ -35,14 +35,14 @@ export function AuthorBio({
   publishDate,
   updateDate,
   readTime,
-  variant = "default",
+  variant = 'default',
   showCredentials = true,
   className,
 }: AuthorBioProps) {
   // Generate Author Schema for E-E-A-T
   const authorSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
+    '@context': 'https://schema.org',
+    '@type': 'Person',
     name: author.name,
     jobTitle: author.role,
     image: author.avatar,
@@ -50,16 +50,11 @@ export function AuthorBio({
     sameAs: [author.social?.linkedin, author.social?.twitter].filter(Boolean),
   };
 
-  if (variant === "inline") {
+  if (variant === 'inline') {
     return (
-      <div className={cn("flex items-center gap-4", className)}>
+      <div className={cn('flex items-center gap-4', className)}>
         <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
-          <Image
-            src={author.avatar}
-            alt={author.name}
-            fill
-            className="object-cover"
-          />
+          <Image src={author.avatar} alt={author.name} fill className="object-cover" />
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
           <span className="font-medium text-white">{author.name}</span>
@@ -80,22 +75,17 @@ export function AuthorBio({
     );
   }
 
-  if (variant === "compact") {
+  if (variant === 'compact') {
     return (
-      <div className={cn("flex items-start gap-4", className)}>
-        <Link href={author.slug ? `/author/${author.slug}` : "#"}>
+      <div className={cn('flex items-start gap-4', className)}>
+        <Link href={author.slug ? `/author/${author.slug}` : '#'}>
           <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-amber-500/30">
-            <Image
-              src={author.avatar}
-              alt={author.name}
-              fill
-              className="object-cover"
-            />
+            <Image src={author.avatar} alt={author.name} fill className="object-cover" />
           </div>
         </Link>
         <div>
           <Link
-            href={author.slug ? `/author/${author.slug}` : "#"}
+            href={author.slug ? `/author/${author.slug}` : '#'}
             className="font-semibold text-white hover:text-amber-400 transition-colors"
           >
             {author.name}
@@ -129,18 +119,13 @@ export function AuthorBio({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(authorSchema) }}
       />
 
-      <Card variant="gradient" className={cn("overflow-hidden", className)}>
+      <Card variant="gradient" className={cn('overflow-hidden', className)}>
         <div className="flex flex-col md:flex-row gap-6 p-6">
           {/* Avatar & Social */}
           <div className="flex flex-col items-center shrink-0">
-            <Link href={author.slug ? `/author/${author.slug}` : "#"}>
+            <Link href={author.slug ? `/author/${author.slug}` : '#'}>
               <div className="relative w-24 h-24 rounded-full overflow-hidden ring-4 ring-amber-500/30">
-                <Image
-                  src={author.avatar}
-                  alt={author.name}
-                  fill
-                  className="object-cover"
-                />
+                <Image src={author.avatar} alt={author.name} fill className="object-cover" />
               </div>
             </Link>
             {author.social && (
@@ -176,7 +161,7 @@ export function AuthorBio({
             <div>
               <div className="flex items-center gap-3 flex-wrap">
                 <Link
-                  href={author.slug ? `/author/${author.slug}` : "#"}
+                  href={author.slug ? `/author/${author.slug}` : '#'}
                   className="text-xl font-bold text-white hover:text-amber-400 transition-colors"
                 >
                   {author.name}
@@ -210,8 +195,7 @@ export function AuthorBio({
             {/* Experience */}
             {author.experience && (
               <p className="text-sm text-slate-400">
-                <span className="font-medium text-slate-300">Experience:</span>{" "}
-                {author.experience}
+                <span className="font-medium text-slate-300">Experience:</span> {author.experience}
               </p>
             )}
 
@@ -262,7 +246,7 @@ export function FactCheckBox({
   return (
     <div
       className={cn(
-        "flex items-center gap-4 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl",
+        'flex items-center gap-4 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl',
         className
       )}
     >
@@ -270,8 +254,8 @@ export function FactCheckBox({
       <div>
         <p className="font-medium text-white">Fact-Checked Content</p>
         <p className="text-sm text-slate-400">
-          Reviewed by <span className="text-emerald-400">{reviewer}</span>,{" "}
-          {reviewerRole}. Last verified: {lastReviewed}
+          Reviewed by <span className="text-emerald-400">{reviewer}</span>, {reviewerRole}. Last
+          verified: {lastReviewed}
         </p>
       </div>
     </div>

@@ -12,7 +12,7 @@
  * 4. Links point to English URL patterns (e.g., /casinos/new vs /uudet-kasinot)
  */
 
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Content Verification - Root Landing Page', () => {
   test.beforeEach(async ({ page }) => {
@@ -47,11 +47,15 @@ test.describe('Content Verification - Root Landing Page', () => {
     await expect(learnMoreButton).toBeVisible();
 
     // Finnish buttons should exist but don't
-    const finnishCta = page.locator('a:has-text("Selaa kasinoita"), button:has-text("Selaa kasinoita")');
+    const finnishCta = page.locator(
+      'a:has-text("Selaa kasinoita"), button:has-text("Selaa kasinoita")'
+    );
     await expect(finnishCta).toHaveCount(0); // Confirms Finnish CTAs are missing
   });
 
-  test('ISSUE: Page shows generic gaming content instead of casino recommendations', async ({ page }) => {
+  test('ISSUE: Page shows generic gaming content instead of casino recommendations', async ({
+    page,
+  }) => {
     // Plan expects: Featured casino list with ratings and bonuses
     // Current: Generic Blackjack, Poker, Roulette cards
 
@@ -113,14 +117,14 @@ test.describe('Navigation Link Verification', () => {
 
         // Check for English link patterns
         const englishLink = page.locator('a[href="/casinos/new"]');
-        const hasEnglishPatterns = await englishLink.count() > 0;
+        const hasEnglishPatterns = (await englishLink.count()) > 0;
 
         // English patterns exist (issue per plan)
         expect(hasEnglishPatterns).toBe(true);
 
         // Finnish patterns should exist but don't
         const finnishLink = page.locator('a[href="/uudet-kasinot"]');
-        const hasFinnishPatterns = await finnishLink.count() > 0;
+        const hasFinnishPatterns = (await finnishLink.count()) > 0;
         expect(hasFinnishPatterns).toBe(false);
       }
     }
@@ -133,7 +137,8 @@ test.describe('Navigation Link Verification', () => {
     const links = await page.locator('a[href^="/"]').all();
     const testedLinks: Array<{ href: string; status: number }> = [];
 
-    for (const link of links.slice(0, 10)) { // Test first 10 links
+    for (const link of links.slice(0, 10)) {
+      // Test first 10 links
       const href = await link.getAttribute('href');
       if (href) {
         const response = await page.request.get(href);
@@ -145,7 +150,7 @@ test.describe('Navigation Link Verification', () => {
     }
 
     // Report broken links
-    const brokenLinks = testedLinks.filter(l => l.status >= 400);
+    const brokenLinks = testedLinks.filter((l) => l.status >= 400);
     console.log('Link test results:', JSON.stringify(testedLinks, null, 2));
 
     if (brokenLinks.length > 0) {
@@ -187,21 +192,27 @@ test.describe('Route Configuration Issues', () => {
     // Log comprehensive results
     console.log('\n=== ROUTE STATUS REPORT ===\n');
     console.log('Working Routes (2xx):');
-    results.filter(r => r.status >= 200 && r.status < 300).forEach(r => {
-      console.log(`  ✓ ${r.path} (${r.status}) - ${r.expected}`);
-    });
+    results
+      .filter((r) => r.status >= 200 && r.status < 300)
+      .forEach((r) => {
+        console.log(`  ✓ ${r.path} (${r.status}) - ${r.expected}`);
+      });
 
     console.log('\nBroken Routes (404):');
-    results.filter(r => r.status === 404).forEach(r => {
-      console.log(`  ✗ ${r.path} (404) - ${r.expected}`);
-    });
+    results
+      .filter((r) => r.status === 404)
+      .forEach((r) => {
+        console.log(`  ✗ ${r.path} (404) - ${r.expected}`);
+      });
 
     console.log('\nOther Errors:');
-    results.filter(r => r.status >= 400 && r.status !== 404).forEach(r => {
-      console.log(`  ! ${r.path} (${r.status}) - ${r.expected}`);
-    });
+    results
+      .filter((r) => r.status >= 400 && r.status !== 404)
+      .forEach((r) => {
+        console.log(`  ! ${r.path} (${r.status}) - ${r.expected}`);
+      });
 
     // At minimum, root should work
-    expect(results.find(r => r.path === '/')?.status).toBe(200);
+    expect(results.find((r) => r.path === '/')?.status).toBe(200);
   });
 });

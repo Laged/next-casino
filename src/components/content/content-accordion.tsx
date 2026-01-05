@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { cn } from "@/lib/utils";
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
+} from '@/components/ui/accordion';
+import { cn } from '@/lib/utils';
+import type * as React from 'react';
 
 interface FAQItem {
   id: string;
@@ -20,8 +20,8 @@ interface ContentAccordionProps {
   title?: string;
   subtitle?: string;
   defaultOpen?: string[];
-  type?: "single" | "multiple";
-  variant?: "default" | "card" | "minimal";
+  type?: 'single' | 'multiple';
+  variant?: 'default' | 'card' | 'minimal';
   className?: string;
 }
 
@@ -30,61 +30,78 @@ export function ContentAccordion({
   title,
   subtitle,
   defaultOpen,
-  type = "single",
-  variant = "default",
+  type = 'single',
+  variant = 'default',
   className,
 }: ContentAccordionProps) {
   const containerClasses = {
-    default: "bg-slate-900 rounded-xl border border-slate-800 p-6",
-    card: "space-y-3",
-    minimal: "",
+    default: 'bg-slate-900 rounded-xl border border-slate-800 p-6',
+    card: 'space-y-3',
+    minimal: '',
   };
 
   const itemClasses = {
-    default: "",
-    card: "bg-slate-900 rounded-xl border border-slate-800 px-6",
-    minimal: "border-b border-slate-800 last:border-b-0",
+    default: '',
+    card: 'bg-slate-900 rounded-xl border border-slate-800 px-6',
+    minimal: 'border-b border-slate-800 last:border-b-0',
   };
 
   return (
-    <section className={cn("space-y-6", className)}>
+    <section className={cn('space-y-6', className)}>
       {(title || subtitle) && (
         <div className="space-y-2">
-          {title && (
-            <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>
-          )}
+          {title && <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>}
           {subtitle && <p className="text-slate-400 max-w-2xl">{subtitle}</p>}
         </div>
       )}
 
       <div className={containerClasses[variant]}>
-        <Accordion
-          type={type}
-          defaultValue={defaultOpen}
-          className={cn(variant === "card" && "space-y-3")}
-        >
-          {items.map((item) => (
-            <AccordionItem
-              key={item.id}
-              value={item.id}
-              className={itemClasses[variant]}
-            >
-              <AccordionTrigger className="text-left">
-                {item.question}
-              </AccordionTrigger>
-              <AccordionContent>
-                {typeof item.answer === "string" ? (
-                  <div
-                    className="prose prose-invert prose-sm max-w-none"
-                    dangerouslySetInnerHTML={{ __html: item.answer }}
-                  />
-                ) : (
-                  item.answer
-                )}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        {type === 'single' ? (
+          <Accordion
+            type="single"
+            defaultValue={defaultOpen?.[0]}
+            className={cn(variant === 'card' && 'space-y-3')}
+            collapsible
+          >
+            {items.map((item) => (
+              <AccordionItem key={item.id} value={item.id} className={itemClasses[variant]}>
+                <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
+                <AccordionContent>
+                  {typeof item.answer === 'string' ? (
+                    <div
+                      className="prose prose-invert prose-sm max-w-none"
+                      dangerouslySetInnerHTML={{ __html: item.answer }}
+                    />
+                  ) : (
+                    item.answer
+                  )}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        ) : (
+          <Accordion
+            type="multiple"
+            defaultValue={defaultOpen}
+            className={cn(variant === 'card' && 'space-y-3')}
+          >
+            {items.map((item) => (
+              <AccordionItem key={item.id} value={item.id} className={itemClasses[variant]}>
+                <AccordionTrigger className="text-left">{item.question}</AccordionTrigger>
+                <AccordionContent>
+                  {typeof item.answer === 'string' ? (
+                    <div
+                      className="prose prose-invert prose-sm max-w-none"
+                      dangerouslySetInnerHTML={{ __html: item.answer }}
+                    />
+                  ) : (
+                    item.answer
+                  )}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        )}
       </div>
     </section>
   );
@@ -97,20 +114,20 @@ interface FAQSectionProps extends ContentAccordionProps {
 
 export function FAQSection({
   items,
-  title = "Frequently Asked Questions",
-  schemaId = "faq-schema",
+  title = 'Frequently Asked Questions',
+  schemaId = 'faq-schema',
   ...props
 }: FAQSectionProps) {
   // Generate FAQ Schema for SEO
   const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
     mainEntity: items.map((item) => ({
-      "@type": "Question",
+      '@type': 'Question',
       name: item.question,
       acceptedAnswer: {
-        "@type": "Answer",
-        text: typeof item.answer === "string" ? item.answer : "",
+        '@type': 'Answer',
+        text: typeof item.answer === 'string' ? item.answer : '',
       },
     })),
   };
