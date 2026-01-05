@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+/* Casino Theme Configuration via CSS Variables */
+@theme {
+  /* Primary casino green */
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10B981;
+  --color-primary-600: #059669;
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+  --color-primary-950: #022c22;
+  --color-primary: #10B981;
+
+  /* Casino-specific colors */
+  --color-casino-dark: #0a0a0a;
+  --color-casino-darker: #050505;
+  --color-casino-card: #141414;
+  --color-casino-gold: #fbbf24;
+  --color-casino-gold-light: #fcd34d;
+  --color-casino-gold-dark: #d97706;
+  --color-casino-win: #22c55e;
+  --color-casino-lose: #ef4444;
+  --color-casino-draw: #6b7280;
+  --color-casino-felt: #15803d;
+  --color-casino-felt-light: #16a34a;
+  --color-casino-felt-dark: #14532d;
+  --color-casino-chip-red: #dc2626;
+  --color-casino-chip-blue: #2563eb;
+  --color-casino-chip-green: #16a34a;
+  --color-casino-chip-black: #1f2937;
+  --color-casino-chip-white: #f3f4f6;
+  --color-casino-chip-purple: #7c3aed;
+
+  /* Background colors */
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+
+  /* Custom animations */
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-card-flip: card-flip 0.6s ease-in-out;
+  --animate-chip-bounce: chip-bounce 0.5s ease-out;
+  --animate-dice-roll: dice-roll 1s ease-out;
+}
+
+/* Custom keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+  }
+}
+
+@keyframes card-flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+@keyframes chip-bounce {
+  0% { transform: translateY(-100px); opacity: 0; }
+  60% { transform: translateY(10px); }
+  80% { transform: translateY(-5px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes dice-roll {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.1); }
+  50% { transform: rotate(180deg) scale(1); }
+  75% { transform: rotate(270deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Base styles */
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --card: #141414;
+  --card-foreground: #ededed;
+  --popover: #141414;
+  --popover-foreground: #ededed;
+  --primary: #10B981;
+  --primary-foreground: #ffffff;
+  --secondary: #1f2937;
+  --secondary-foreground: #f9fafb;
+  --muted: #1f2937;
+  --muted-foreground: #9ca3af;
+  --accent: #fbbf24;
+  --accent-foreground: #000000;
+  --destructive: #ef4444;
+  --destructive-foreground: #f9fafb;
+  --border: #374151;
+  --input: #374151;
+  --ring: #10B981;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}
+
+/* Casino-specific component classes */
+@layer components {
+  .casino-card {
+    background-color: var(--color-casino-card);
+    border: 1px solid #374151;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .casino-button {
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .casino-button:hover {
+    background-color: var(--color-primary-600);
+  }
+
+  .casino-button-gold {
+    background: linear-gradient(135deg, var(--color-casino-gold) 0%, var(--color-casino-gold-dark) 100%);
+    color: black;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+
+  .casino-button-gold:hover {
+    background: linear-gradient(135deg, var(--color-casino-gold-light) 0%, var(--color-casino-gold) 100%);
+  }
+
+  .casino-chip {
+    border-radius: 9999px;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .casino-felt {
+    background-color: var(--color-casino-felt);
+    border-radius: 0.75rem;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+  }
+
+  .bg-casino-gradient {
+    background: linear-gradient(135deg, #064e3b 0%, #0a0a0a 50%, #1f2937 100%);
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for casino theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}

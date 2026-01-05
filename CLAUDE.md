@@ -1,5 +1,49 @@
 # Claude Code Configuration - SPARC Development Environment
 
+## 🔧 TOOLING: Bun + Biome (MANDATORY)
+
+**This project uses Bun (not npm) and Biome (not ESLint).**
+
+### Package Management (Bun)
+```bash
+bun install              # Install dependencies (11x faster than npm)
+bun add <package>        # Add dependency
+bun add -D <package>     # Add dev dependency
+bun remove <package>     # Remove package
+bun run <script>         # Run package.json script
+bunx <command>           # Run binary (like npx)
+```
+
+### Linting & Formatting (Biome)
+```bash
+bun run lint             # Check for errors
+bun run lint:fix         # Check and auto-fix
+bun run format           # Format all files
+bun run check            # Lint + typecheck (use before commits)
+bunx biome check .       # Direct Biome check
+bunx biome ci .          # CI mode (strict)
+```
+
+### Claude Code Workflow
+1. **Before writing code**: Run `bun run lint` to understand current issues
+2. **After writing code**: Run `bun run check` to validate
+3. **If lint errors**: Run `bun run lint:fix` to auto-fix
+4. **Before commits**: Run `bun run ci` for full validation
+
+### Key Commands Quick Reference
+| Task | Command |
+|------|---------|
+| Dev server | `bun run dev` |
+| Build | `bun run build` |
+| Lint | `bun run lint` |
+| Fix all | `bun run lint:fix` |
+| Type check | `bun run typecheck` |
+| Full check | `bun run check` |
+| Tests | `bun run test` |
+| CI validation | `bun run ci` |
+
+---
+
 ## 🚨 CRITICAL: CONCURRENT EXECUTION & FILE MANAGEMENT
 
 **ABSOLUTE RULES**:
@@ -7,6 +51,8 @@
 2. **NEVER save working files, text/mds and tests to the root folder**
 3. ALWAYS organize files in appropriate subdirectories
 4. **USE CLAUDE CODE'S TASK TOOL** for spawning agents concurrently, not just MCP
+5. **ALWAYS use `bun` instead of `npm`** for package management
+6. **ALWAYS use `biome` instead of `eslint`** for linting
 
 ### ⚡ GOLDEN RULE: "1 MESSAGE = ALL RELATED OPERATIONS"
 
@@ -62,11 +108,14 @@ This project uses SPARC (Specification, Pseudocode, Architecture, Refinement, Co
 - `npx claude-flow sparc pipeline "<task>"` - Full pipeline processing
 - `npx claude-flow sparc concurrent <mode> "<tasks-file>"` - Multi-task processing
 
-### Build Commands
-- `npm run build` - Build project
-- `npm run test` - Run tests
-- `npm run lint` - Linting
-- `npm run typecheck` - Type checking
+### Build Commands (use bun, not npm!)
+- `bun run build` - Build project
+- `bun run test` - Run Playwright tests
+- `bun run lint` - Biome linting
+- `bun run lint:fix` - Auto-fix lint issues
+- `bun run typecheck` - TypeScript type checking
+- `bun run check` - Lint + typecheck combined
+- `bun run ci` - Full CI validation (lint + types + tests)
 
 ## SPARC Workflow Phases
 
