@@ -1,7 +1,7 @@
 {
   "config": {
     "configFile": "/Users/laged/Codings/laged/next-casino/playwright.config.ts",
-    "rootDir": "/Users/laged/Codings/laged/next-casino/tests",
+    "rootDir": "/Users/laged/Codings/laged/next-casino/tests/e2e",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -47,7 +47,7 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "/Users/laged/Codings/laged/next-casino/tests",
+        "testDir": "/Users/laged/Codings/laged/next-casino/tests/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -63,7 +63,7 @@
         },
         "id": "Mobile Chrome",
         "name": "Mobile Chrome",
-        "testDir": "/Users/laged/Codings/laged/next-casino/tests",
+        "testDir": "/Users/laged/Codings/laged/next-casino/tests/e2e",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -78,7 +78,7 @@
     "version": "1.57.0",
     "workers": 6,
     "webServer": {
-      "command": "npm run dev",
+      "command": "bun run dev",
       "url": "http://localhost:3000",
       "reuseExistingServer": true,
       "timeout": 120000
@@ -114,12 +114,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4344,
+                      "duration": 724,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:09.029Z",
+                      "startTime": "2026-01-06T07:03:50.474Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -148,12 +148,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 4242,
+                      "duration": 790,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:09.020Z",
+                      "startTime": "2026-01-06T07:03:50.472Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -182,12 +182,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 4265,
+                      "duration": 806,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:09.006Z",
+                      "startTime": "2026-01-06T07:03:50.488Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -197,7 +197,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-95d16aeaec6bf81358ac",
               "file": "smoke/content-verification.spec.ts",
-              "line": 54,
+              "line": 56,
               "column": 7
             },
             {
@@ -214,14 +214,14 @@
                   "results": [
                     {
                       "workerIndex": 6,
-                      "parallelIndex": 1,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 2058,
+                      "duration": 762,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:16.339Z",
+                      "startTime": "2026-01-06T07:03:52.114Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -247,15 +247,15 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 8,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 1917,
+                      "duration": 752,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:16.440Z",
+                      "startTime": "2026-01-06T07:03:52.532Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -281,15 +281,15 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 1837,
+                      "duration": 6743,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:16.438Z",
+                      "startTime": "2026-01-06T07:03:52.650Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -299,7 +299,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-536045cc433956016237",
               "file": "smoke/content-verification.spec.ts",
-              "line": 54,
+              "line": 56,
               "column": 7
             }
           ]
@@ -307,7 +307,7 @@
         {
           "title": "Content Verification - Marketing Page (Finnish)",
           "file": "smoke/content-verification.spec.ts",
-          "line": 73,
+          "line": 77,
           "column": 6,
           "specs": [
             {
@@ -326,12 +326,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 5116,
+                      "duration": 1385,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:09.019Z",
+                      "startTime": "2026-01-06T07:03:50.483Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -341,7 +341,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-8c72cb611d7df38f25c8",
               "file": "smoke/content-verification.spec.ts",
-              "line": 81,
+              "line": 85,
               "column": 7
             },
             {
@@ -358,14 +358,14 @@
                   "results": [
                     {
                       "workerIndex": 9,
-                      "parallelIndex": 5,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 3008,
+                      "duration": 1177,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:16.437Z",
+                      "startTime": "2026-01-06T07:03:52.651Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -375,7 +375,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-303cfbeedcd3768ea811",
               "file": "smoke/content-verification.spec.ts",
-              "line": 81,
+              "line": 85,
               "column": 7
             }
           ]
@@ -383,7 +383,7 @@
         {
           "title": "Navigation Link Verification",
           "file": "smoke/content-verification.spec.ts",
-          "line": 98,
+          "line": 102,
           "column": 6,
           "specs": [
             {
@@ -402,12 +402,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 4217,
+                      "duration": 756,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:09.031Z",
+                      "startTime": "2026-01-06T07:03:50.481Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -417,7 +417,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-777794a3014e1d50b45f",
               "file": "smoke/content-verification.spec.ts",
-              "line": 99,
+              "line": 103,
               "column": 7
             },
             {
@@ -436,7 +436,7 @@
                       "workerIndex": 5,
                       "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 4575,
+                      "duration": 710,
                       "errors": [],
                       "stdout": [
                         {
@@ -445,7 +445,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:09.008Z",
+                      "startTime": "2026-01-06T07:03:50.496Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -455,7 +455,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-541d71b51709642ebcea",
               "file": "smoke/content-verification.spec.ts",
-              "line": 129,
+              "line": 133,
               "column": 7
             },
             {
@@ -472,14 +472,14 @@
                   "results": [
                     {
                       "workerIndex": 10,
-                      "parallelIndex": 3,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 2131,
+                      "duration": 689,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:17.435Z",
+                      "startTime": "2026-01-06T07:03:52.780Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -489,7 +489,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-8840d50a05d9b0ca400d",
               "file": "smoke/content-verification.spec.ts",
-              "line": 99,
+              "line": 103,
               "column": 7
             },
             {
@@ -505,10 +505,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 7,
-                      "parallelIndex": 0,
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 1043,
+                      "duration": 774,
                       "errors": [],
                       "stdout": [
                         {
@@ -517,7 +517,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:18.674Z",
+                      "startTime": "2026-01-06T07:03:53.001Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -527,7 +527,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-ed1b8bd0d662e205579f",
               "file": "smoke/content-verification.spec.ts",
-              "line": 129,
+              "line": 133,
               "column": 7
             }
           ]
@@ -535,7 +535,7 @@
         {
           "title": "Route Configuration Issues",
           "file": "smoke/content-verification.spec.ts",
-          "line": 160,
+          "line": 165,
           "column": 6,
           "specs": [
             {
@@ -551,10 +551,10 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 4,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 5771,
+                      "duration": 4007,
                       "errors": [],
                       "stdout": [
                         {
@@ -605,7 +605,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:15.397Z",
+                      "startTime": "2026-01-06T07:03:51.415Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -615,7 +615,7 @@
               ],
               "id": "f6cec41780fa6eb493ab-def7367900899753dc96",
               "file": "smoke/content-verification.spec.ts",
-              "line": 161,
+              "line": 166,
               "column": 7
             },
             {
@@ -631,10 +631,10 @@
                   "projectName": "Mobile Chrome",
                   "results": [
                     {
-                      "workerIndex": 8,
-                      "parallelIndex": 2,
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 2649,
+                      "duration": 2462,
                       "errors": [],
                       "stdout": [
                         {
@@ -685,7 +685,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-01-05T09:31:18.799Z",
+                      "startTime": "2026-01-06T07:03:53.414Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -695,7 +695,364 @@
               ],
               "id": "f6cec41780fa6eb493ab-93c7e28a853863c991f5",
               "file": "smoke/content-verification.spec.ts",
-              "line": 161,
+              "line": 166,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "smoke/smoke.spec.ts",
+      "file": "smoke/smoke.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Smoke Tests",
+          "file": "smoke/smoke.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "homepage loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 753,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:51.426Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-9abbdc44e5076169e105",
+              "file": "smoke/smoke.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "main content loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 751,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:51.465Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-7cb68e93ae447f3109b5",
+              "file": "smoke/smoke.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "no critical console errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 838,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:51.500Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-0dc1386eb0fdc52dfced",
+              "file": "smoke/smoke.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "sitemap responds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 95,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:51.506Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-89d53d83c5926954d984",
+              "file": "smoke/smoke.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "robots.txt responds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 47,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:51.608Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-b3e8d813e7dd5368f2d6",
+              "file": "smoke/smoke.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "homepage loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 733,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:53.633Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-01ecd9dd2140c09722f5",
+              "file": "smoke/smoke.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "main content loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 763,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:53.790Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-cad2713c488a24fde6f2",
+              "file": "smoke/smoke.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "no critical console errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 785,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:53.978Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-d5e31e9ec2f868bc9f2d",
+              "file": "smoke/smoke.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "sitemap responds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 137,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:54.375Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-1a05880d3deefcebe8fd",
+              "file": "smoke/smoke.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "robots.txt responds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 15,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-01-06T07:03:54.527Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f2f9e57ccde56fbee371-7b6867370796873b0652",
+              "file": "smoke/smoke.spec.ts",
+              "line": 46,
               "column": 7
             }
           ]
@@ -705,9 +1062,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-01-05T09:31:08.623Z",
-    "duration": 12902.617,
-    "expected": 14,
+    "startTime": "2026-01-06T07:03:48.841Z",
+    "duration": 10724.564,
+    "expected": 24,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

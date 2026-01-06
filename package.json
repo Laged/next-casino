@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit",
     "check": "biome check --write . && tsc --noEmit",
     "test": "playwright test",
-    "test:smoke": "playwright test tests/smoke/",
+    "test:smoke": "playwright test tests/e2e/smoke/",
     "test:pages": "playwright test tests/e2e/pages/",
     "test:components": "playwright test tests/e2e/components/",
     "test:seo": "playwright test tests/e2e/seo/",
