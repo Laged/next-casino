@@ -1,7 +1,26 @@
 import { Star, Shield, Zap, Gift, Clock, CreditCard } from 'lucide-react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Footer } from '@/components/layout/footer';
 import { Navbar } from '@/components/layout/navbar';
+import { HeroBackground } from '@/components/ui/hero-background';
+import { GradientText, TiltCard, NoiseOverlay } from '@/components/ui/reactbits';
+
+// Dynamic imports for client components (performance optimization)
+const BlurText = dynamic(
+  () => import('@/components/ui/reactbits/blur-text').then((mod) => mod.BlurText),
+  { ssr: true }
+);
+
+const CountUp = dynamic(
+  () => import('@/components/ui/reactbits/count-up').then((mod) => mod.CountUp),
+  { ssr: true }
+);
+
+const MagneticButton = dynamic(
+  () => import('@/components/ui/reactbits/magnetic-button').then((mod) => mod.MagneticButton),
+  { ssr: true }
+);
 
 // Casino data type
 interface Casino {
@@ -95,11 +114,12 @@ const categories = [
 
 function CasinoCard({ casino }: { casino: Casino }) {
   return (
-    <article
-      data-testid="casino-card"
+    <TiltCard
+      as="article"
+      shine
       className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden hover:border-amber-500/50 transition-colors"
     >
-      <div className="p-6">
+      <div data-testid="casino-card" className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div>
             <h3 className="text-xl font-bold text-white">{casino.name}</h3>
@@ -143,14 +163,15 @@ function CasinoCard({ casino }: { casino: Casino }) {
         </div>
 
         <div className="flex gap-3">
-          <a
+          <MagneticButton
+            as="a"
             href={`https://example.com/go/${casino.id}`}
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
             className="flex-1 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg text-center hover:from-amber-600 hover:to-orange-600 transition-colors"
           >
             Pelaa nyt
-          </a>
+          </MagneticButton>
           <Link
             href={casino.href}
             className="px-4 py-3 bg-slate-800 text-slate-300 font-medium rounded-lg hover:bg-slate-700 transition-colors"
@@ -159,7 +180,7 @@ function CasinoCard({ casino }: { casino: Casino }) {
           </Link>
         </div>
       </div>
-    </article>
+    </TiltCard>
   );
 }
 
@@ -168,40 +189,50 @@ export default function Home() {
     <div className="min-h-screen bg-slate-950">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-slate-900 to-slate-950 py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-sm mb-6">
-              <Shield className="w-4 h-4" />
-              <span>Luotettavat ja lisensioidut kasinot</span>
-            </div>
+      {/* Hero Section with Aurora Background */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 py-16 md:py-24">
+        {/* Canvas backgrounds (client-only) */}
+        <HeroBackground />
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Parhaat Nettikasinot Suomalaisille 2025
-            </h1>
+        <NoiseOverlay className="relative z-10">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-sm mb-6">
+                <Shield className="w-4 h-4" />
+                <span>Luotettavat ja lisensioidut kasinot</span>
+              </div>
 
-            <p className="text-lg text-slate-400 mb-8">
-              Vertaile luotettavat nettikasinot ja löydä parhaat bonukset. Kaikki kasinot on
-              testattu ja arvioitu suomalaisten pelaajien näkökulmasta.
-            </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                <BlurText
+                  text="Parhaat Nettikasinot Suomalaisille 2025"
+                  delay={100}
+                  animateBy="words"
+                />
+              </h1>
 
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link
-                href="/uudet-kasinot"
-                className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-colors"
-              >
-                Selaa kasinoita
-              </Link>
-              <Link
-                href="/bonukset"
-                className="px-6 py-3 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-700 transition-colors"
-              >
-                Katso bonukset
-              </Link>
+              <p className="text-lg text-slate-400 mb-8">
+                Vertaile luotettavat nettikasinot ja löydä parhaat bonukset. Kaikki kasinot on
+                testattu ja arvioitu suomalaisten pelaajien näkökulmasta.
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-4">
+                <MagneticButton
+                  as="a"
+                  href="/uudet-kasinot"
+                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-colors glow-amber"
+                >
+                  Selaa kasinoita
+                </MagneticButton>
+                <Link
+                  href="/bonukset"
+                  className="px-6 py-3 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-700 transition-colors"
+                >
+                  Katso bonukset
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        </NoiseOverlay>
       </section>
 
       {/* Featured Casinos */}
@@ -244,7 +275,7 @@ export default function Home() {
                 <Link
                   key={category.href}
                   href={category.href}
-                  className="group p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-all"
+                  className="group p-6 bg-slate-900 rounded-xl border border-slate-800 hover:border-amber-500/50 transition-all tilt-card"
                 >
                   <div className="w-12 h-12 bg-amber-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors">
                     <Icon className="w-6 h-6 text-amber-400" />
@@ -259,14 +290,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Section */}
+      {/* Trust Section with CountUp */}
       <section className="py-16 bg-slate-950">
         <div className="container mx-auto px-4">
-          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 border border-slate-700">
+          <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-8 md:p-12 border border-slate-700 noise-overlay">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Miksi luottaa Kasinolista.fi-sivustoon?
+                  Miksi luottaa{' '}
+                  <GradientText>Kasinolista.fi</GradientText>
+                  -sivustoon?
                 </h2>
                 <p className="text-slate-400 mb-6">
                   Olemme suomalainen kasinovertailusivusto, joka on erikoistunut arvioimaan
@@ -289,19 +322,25 @@ export default function Home() {
                 </ul>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-800/50 rounded-xl p-6 text-center">
-                  <div className="text-3xl font-bold text-amber-400 mb-2">100+</div>
+                <div className="bg-slate-800/50 rounded-xl p-6 text-center pulse-subtle">
+                  <div className="text-3xl font-bold text-amber-400 mb-2">
+                    <CountUp to={100} duration={1.5} suffix="+" />
+                  </div>
                   <div className="text-sm text-slate-400">Arvosteltua kasinoa</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 text-center">
-                  <div className="text-3xl font-bold text-emerald-400 mb-2">50+</div>
+                <div className="bg-slate-800/50 rounded-xl p-6 text-center pulse-subtle">
+                  <div className="text-3xl font-bold text-emerald-400 mb-2">
+                    <CountUp to={50} duration={1.5} suffix="+" />
+                  </div>
                   <div className="text-sm text-slate-400">Bonustarjousta</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">5+</div>
+                <div className="bg-slate-800/50 rounded-xl p-6 text-center pulse-subtle">
+                  <div className="text-3xl font-bold text-blue-400 mb-2">
+                    <CountUp to={5} duration={1.5} suffix="+" />
+                  </div>
                   <div className="text-sm text-slate-400">Vuotta kokemusta</div>
                 </div>
-                <div className="bg-slate-800/50 rounded-xl p-6 text-center">
+                <div className="bg-slate-800/50 rounded-xl p-6 text-center pulse-subtle">
                   <div className="text-3xl font-bold text-purple-400 mb-2">24/7</div>
                   <div className="text-sm text-slate-400">Päivitetty sisältö</div>
                 </div>
