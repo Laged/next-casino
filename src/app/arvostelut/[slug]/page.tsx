@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
-import { Star, Shield, Clock, CreditCard, Check, X, ExternalLink } from 'lucide-react';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
 import { Footer } from '@/components/layout/footer';
 import { Navbar } from '@/components/layout/navbar';
+import { Check, Clock, CreditCard, ExternalLink, Shield, Star, X } from 'lucide-react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kasinolista.fi';
 
@@ -50,7 +50,7 @@ const casinoReviews: Record<string, CasinoReview> = {
     customerSupport: ['Live chat', 'Sähköposti'],
     author: 'Kasinolista.fi',
     datePublished: '2024-01-01',
-    dateModified: '2025-01-06',
+    dateModified: '2026-01-06',
   },
   'kasino-yksi': {
     slug: 'kasino-yksi',
@@ -73,11 +73,11 @@ const casinoReviews: Record<string, CasinoReview> = {
     minDeposit: '10€',
     withdrawalTime: '0-24h',
     paymentMethods: ['Trustly', 'Visa', 'MasterCard', 'Skrill'],
-    gameProviders: ['NetEnt', 'Microgaming', 'Play\'n GO', 'Evolution'],
+    gameProviders: ['NetEnt', 'Microgaming', "Play'n GO", 'Evolution'],
     customerSupport: ['Live chat', 'Sähköposti'],
     author: 'Kasinolista.fi',
     datePublished: '2024-01-15',
-    dateModified: '2025-01-06',
+    dateModified: '2026-01-06',
   },
   'kasino-kaksi': {
     slug: 'kasino-kaksi',
@@ -104,7 +104,7 @@ const casinoReviews: Record<string, CasinoReview> = {
     customerSupport: ['Live chat 24/7', 'Sähköposti'],
     author: 'Kasinolista.fi',
     datePublished: '2024-03-20',
-    dateModified: '2025-01-06',
+    dateModified: '2026-01-06',
   },
   'kasino-kolme': {
     slug: 'kasino-kolme',
@@ -131,7 +131,88 @@ const casinoReviews: Record<string, CasinoReview> = {
     customerSupport: ['Live chat', 'Sähköposti', 'Puhelin'],
     author: 'Kasinolista.fi',
     datePublished: '2024-11-01',
-    dateModified: '2025-01-06',
+    dateModified: '2026-01-06',
+  },
+  'uusi-kasino-1': {
+    slug: 'uusi-kasino-1',
+    name: 'Uusi Kasino 2026',
+    rating: 4.9,
+    ratingCount: 45,
+    bonus: '200% bonus + 100 ilmaiskierrosta',
+    bonusValue: '500€',
+    description:
+      'Uusi Kasino 2026 on vuoden tuorein nettikasino, joka tarjoaa erinomaisen pelikokemuksen ja nopeat kotiutukset. MGA-lisenssi takaa turvallisen pelaamisen.',
+    pros: [
+      'Uusin kasino 2026',
+      'Nopeat kotiutukset (0-24h)',
+      'Suomenkielinen asiakaspalvelu',
+      'MGA-lisenssi',
+    ],
+    cons: ['Uusi kasino, vähemmän arvosteluja', 'Kierrätysvaatimus 35x'],
+    license: 'MGA',
+    established: '2025',
+    minDeposit: '10€',
+    withdrawalTime: '0-24h',
+    paymentMethods: ['Trustly', 'Visa', 'MasterCard', 'Skrill'],
+    gameProviders: ['NetEnt', 'Microgaming', "Play'n GO", 'Evolution', 'Pragmatic Play'],
+    customerSupport: ['Live chat 24/7', 'Sähköposti'],
+    author: 'Kasinolista.fi',
+    datePublished: '2025-12-15',
+    dateModified: '2026-01-06',
+  },
+  'uusi-kasino-2': {
+    slug: 'uusi-kasino-2',
+    name: 'Fresh Casino',
+    rating: 4.8,
+    ratingCount: 32,
+    bonus: '150% bonus ensitalletukseen',
+    bonusValue: '300€',
+    description:
+      'Fresh Casino on moderni pikakasino, joka mahdollistaa pelaamisen ilman rekisteröintiä. VIP-ohjelma ja loistavat bonukset.',
+    pros: [
+      'Pikakasino - ei rekisteröintiä',
+      'VIP-ohjelma',
+      'Nopeat 5 minuutin kotiutukset',
+      'Malta MGA-lisenssi',
+    ],
+    cons: ['Korkeampi kierrätysvaatimus 40x', 'Rajattu pelivalikoima'],
+    license: 'Malta MGA',
+    established: '2025',
+    minDeposit: '15€',
+    withdrawalTime: '5 min',
+    paymentMethods: ['Trustly', 'Zimpler', 'Brite'],
+    gameProviders: ['NetEnt', 'Pragmatic Play', 'Red Tiger', 'Big Time Gaming'],
+    customerSupport: ['Live chat 24/7', 'Sähköposti'],
+    author: 'Kasinolista.fi',
+    datePublished: '2025-11-20',
+    dateModified: '2026-01-06',
+  },
+  'uusi-kasino-3': {
+    slug: 'uusi-kasino-3',
+    name: 'Nordic Kasino',
+    rating: 4.7,
+    ratingCount: 28,
+    bonus: '100 ilmaiskierrosta ilman talletusta',
+    bonusValue: 'Ilmainen',
+    description:
+      'Nordic Kasino tarjoaa ainutlaatuisen cashback-bonuksen ja laajan live-kasinon. Täydellinen valinta pohjoismaisille pelaajille.',
+    pros: [
+      'Ilmaiskierrokset ilman talletusta',
+      'Cashback-bonus',
+      'Laaja live-kasino',
+      'Pohjoismaisille pelaajille',
+    ],
+    cons: ['Curacao-lisenssi', 'Hitaammat kotiutukset 1-2 päivää'],
+    license: 'Curacao',
+    established: '2025',
+    minDeposit: '10€',
+    withdrawalTime: '1-2 päivää',
+    paymentMethods: ['Visa', 'Skrill', 'Neteller', 'Bitcoin', 'Ethereum'],
+    gameProviders: ['BGaming', 'Hacksaw', 'Nolimit City', 'Push Gaming'],
+    customerSupport: ['Live chat', 'Sähköposti', 'Puhelin'],
+    author: 'Kasinolista.fi',
+    datePublished: '2025-10-01',
+    dateModified: '2026-01-06',
   },
 };
 

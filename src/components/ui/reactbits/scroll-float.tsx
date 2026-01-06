@@ -60,11 +60,7 @@ export function ScrollFloat({
       ref={ref}
       className={cn('will-change-transform', className)}
       initial={{ opacity: 0, ...initial }}
-      animate={
-        isInView
-          ? { opacity: 1, x: 0, y: 0 }
-          : { opacity: 0, ...initial }
-      }
+      animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...initial }}
       transition={{
         duration,
         delay,

@@ -20,10 +20,7 @@ export function GradientText({
 }: GradientTextProps) {
   return (
     <Component
-      className={cn(
-        variant === 'default' ? 'gradient-text' : 'gradient-text-subtle',
-        className
-      )}
+      className={cn(variant === 'default' ? 'gradient-text' : 'gradient-text-subtle', className)}
     >
       {children}
     </Component>

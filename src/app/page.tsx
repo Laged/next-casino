@@ -1,10 +1,10 @@
-import { Star, Shield, Zap, Gift, Clock, CreditCard } from 'lucide-react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { Footer } from '@/components/layout/footer';
 import { Navbar } from '@/components/layout/navbar';
 import { HeroBackground } from '@/components/ui/hero-background';
-import { GradientText, TiltCard, NoiseOverlay } from '@/components/ui/reactbits';
+import { GradientText, NoiseOverlay, TiltCard } from '@/components/ui/reactbits';
+import { Clock, CreditCard, Gift, Shield, Star, Zap } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 
 // Dynamic imports for client components (performance optimization)
 const BlurText = dynamic(
@@ -140,11 +140,11 @@ function CasinoCard({ casino }: { casino: Casino }) {
 
         <p className="text-slate-300 mb-4">{casino.bonus}</p>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {casino.features.map((feature) => (
+        <div className="flex flex-wrap gap-2 mb-4 max-h-[4.5rem] overflow-hidden">
+          {casino.features.slice(0, 3).map((feature) => (
             <span
               key={feature}
-              className="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded-full"
+              className="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded-full whitespace-nowrap"
             >
               {feature}
             </span>
@@ -204,7 +204,7 @@ export default function Home() {
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 <BlurText
-                  text="Parhaat Nettikasinot Suomalaisille 2025"
+                  text="Parhaat Nettikasinot Suomalaisille 2026"
                   delay={100}
                   animateBy="words"
                 />
@@ -297,8 +297,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  Miksi luottaa{' '}
-                  <GradientText>Kasinolista.fi</GradientText>
+                  Miksi luottaa <GradientText>Kasinolista.fi</GradientText>
                   -sivustoon?
                 </h2>
                 <p className="text-slate-400 mb-6">

@@ -40,10 +40,10 @@ const categoryConfig: Record<string, CategoryData> = {
     slug: 'uudet-kasinot',
     name: 'Uudet Kasinot',
     description: 'Tuoreimmat nettikasinot Suomen markkinoilla',
-    metaTitle: 'Uudet Nettikasinot 2025 | Tuoreimmat Kasinot',
+    metaTitle: 'Uudet Nettikasinot 2026 | Tuoreimmat Kasinot',
     metaDescription:
-      'Loyda uusimmat nettikasinot 2025. Listaamme kaikki uudet kasinot ensimmaisten joukossa. Tuoreet bonukset ja arvostelut.',
-    heroTitle: 'Uudet Nettikasinot 2025',
+      'Loyda uusimmat nettikasinot 2026. Listaamme kaikki uudet kasinot ensimmaisten joukossa. Tuoreet bonukset ja arvostelut.',
+    heroTitle: 'Uudet Nettikasinot 2026',
     heroDescription:
       'Listaamme kaikki uudet nettikasinot heti kun ne lanseerataan. Loyda tuoreimmat bonukset ja pelipaikat.',
   },
@@ -51,10 +51,10 @@ const categoryConfig: Record<string, CategoryData> = {
     slug: 'bonukset',
     name: 'Bonukset',
     description: 'Parhaat kasinobonukset',
-    metaTitle: 'Parhaat Kasinobonukset 2025 | Tervetuliaisbonukset',
+    metaTitle: 'Parhaat Kasinobonukset 2026 | Tervetuliaisbonukset',
     metaDescription:
-      'Vertaile parhaat kasinobonukset 2025. Tervetuliaisbonukset, reload-bonukset ja cashback-tarjoukset yhteen paikkaan koottuna.',
-    heroTitle: 'Parhaat Kasinobonukset 2025',
+      'Vertaile parhaat kasinobonukset 2026. Tervetuliaisbonukset, reload-bonukset ja cashback-tarjoukset yhteen paikkaan koottuna.',
+    heroTitle: 'Parhaat Kasinobonukset 2026',
     heroDescription:
       'Kokoamme parhaat kasinobonukset yhteen paikkaan. Vertaile kierratysvaatimuksia ja valitse sinulle sopiva bonus.',
   },
@@ -62,10 +62,10 @@ const categoryConfig: Record<string, CategoryData> = {
     slug: 'ilmaiskierrokset',
     name: 'Ilmaiskierrokset',
     description: 'Ilmaiset pyoraytykset',
-    metaTitle: 'Ilmaiskierrokset 2025 | Parhaat Ilmaiskierrostarjoukset',
+    metaTitle: 'Ilmaiskierrokset 2026 | Parhaat Ilmaiskierrostarjoukset',
     metaDescription:
       'Hae parhaat ilmaiskierrokset nettikasinoille. Ilmaiset pyoraytykset ilman talletusta ja talletuksen kanssa.',
-    heroTitle: 'Parhaat Ilmaiskierrokset 2025',
+    heroTitle: 'Parhaat Ilmaiskierrokset 2026',
     heroDescription:
       'Loyda parhaat ilmaiskierrostarjoukset. Mukana ilmaiset kierrokset ilman talletusta ja tervetuliaistarjoukset.',
   },
@@ -73,7 +73,7 @@ const categoryConfig: Record<string, CategoryData> = {
     slug: 'pikakotiutus',
     name: 'Pikakotiutus Kasinot',
     description: 'Nopeat kotiutukset',
-    metaTitle: 'Pikakotiutus Kasinot 2025 | Nopeat Nostot',
+    metaTitle: 'Pikakotiutus Kasinot 2026 | Nopeat Nostot',
     metaDescription:
       'Loyda kasinot nopeimmilla kotiutuksilla. Pikakotiutus jopa muutamassa minuutissa. Vertaile nostoajat.',
     heroTitle: 'Pikakotiutus Kasinot',
@@ -84,7 +84,7 @@ const categoryConfig: Record<string, CategoryData> = {
     slug: 'pay-n-play',
     name: 'Pay N Play Kasinot',
     description: 'Kasinot ilman rekisteroitymista',
-    metaTitle: 'Pay N Play Kasinot 2025 | Pelaa Ilman Rekisteroitymista',
+    metaTitle: 'Pay N Play Kasinot 2026 | Pelaa Ilman Rekisteroitymista',
     metaDescription:
       'Pay N Play kasinot mahdollistavat pelaamisen ilman rekisteroitymista. Nopea tunnistautuminen pankkitunnuksilla.',
     heroTitle: 'Pay N Play Kasinot',

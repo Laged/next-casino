@@ -1,6 +1,6 @@
 'use client';
 
-import { Award, Gamepad2, Mail, Shield, Lock, ExternalLink } from 'lucide-react';
+import { Award, ExternalLink, Gamepad2, Lock, Mail, Shield } from 'lucide-react';
 import Link from 'next/link';
 
 interface FooterLink {
@@ -122,9 +122,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-lg font-semibold text-white mb-1">
-                Tilaa uutiskirjeemme
-              </h3>
+              <h3 className="text-lg font-semibold text-white mb-1">Tilaa uutiskirjeemme</h3>
               <p className="text-sm text-slate-400">
                 Saat parhaat bonustarjoukset suoraan sähköpostiisi.
               </p>
@@ -199,10 +197,10 @@ export function Footer() {
           {/* Disclaimer */}
           <p className="mt-4 text-xs text-slate-600 text-center md:text-left">
             Rahapelaaminen voi aiheuttaa riippuvuutta. Pelaa vastuullisesti. Kasinolista.fi on
-            riippumaton vertailusivusto. Saatamme saada korvausta, kun klikkaat sivustollamme
-            olevia linkkejä. Tämä ei vaikuta arvosteluihimme, jotka ovat rehellisiä ja
-            puolueettomia. Tarkista aina bonusten käyttöehdot. Kaikki listatut kasinot ovat
-            lisensioituja ja säädeltyjä (MGA, Malta, Curacao). Vain 18+ vuotiaille.
+            riippumaton vertailusivusto. Saatamme saada korvausta, kun klikkaat sivustollamme olevia
+            linkkejä. Tämä ei vaikuta arvosteluihimme, jotka ovat rehellisiä ja puolueettomia.
+            Tarkista aina bonusten käyttöehdot. Kaikki listatut kasinot ovat lisensioituja ja
+            säädeltyjä (MGA, Malta, Curacao). Vain 18+ vuotiaille.
           </p>
         </div>
       </div>

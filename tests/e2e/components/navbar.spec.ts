@@ -11,11 +11,8 @@ test.describe('Navbar', () => {
   });
 
   test('shows navigation links (desktop)', async ({ page }) => {
-    // Skip on mobile
-    const viewport = page.viewportSize();
-    if (viewport && viewport.width < 1024) {
-      test.skip();
-    }
+    // Ensure desktop viewport for this test
+    await page.setViewportSize({ width: 1280, height: 720 });
 
     // Check for Finnish navigation links in the navbar specifically
     const nav = page.locator('header nav');

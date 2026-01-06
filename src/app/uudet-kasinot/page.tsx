@@ -1,22 +1,21 @@
-import type { Metadata } from 'next';
-import { Star, Shield, Clock, CreditCard, Sparkles } from 'lucide-react';
-import Link from 'next/link';
 import { Footer } from '@/components/layout/footer';
 import { Navbar } from '@/components/layout/navbar';
+import { Clock, CreditCard, Shield, Sparkles, Star } from 'lucide-react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kasinolista.fi';
 
 export const metadata: Metadata = {
-  title: 'Uudet Nettikasinot 2025 | Tuoreimmat Kasinot',
+  title: 'Uudet Nettikasinot 2026 | Tuoreimmat Kasinot',
   description:
-    'Löydä uudet nettikasinot 2025! Vertaile tuoreimmat suomalaiset kasinot, bonukset ja ilmaiskierrokset. Päivitetty lista uusista kasinoista.',
+    'Löydä uudet nettikasinot 2026! Vertaile tuoreimmat suomalaiset kasinot, bonukset ja ilmaiskierrokset. Päivitetty lista uusista kasinoista.',
   alternates: {
     canonical: `${siteUrl}/uudet-kasinot`,
   },
   openGraph: {
-    title: 'Uudet Nettikasinot 2025 | Tuoreimmat Kasinot',
-    description:
-      'Löydä uudet nettikasinot 2025! Vertaile tuoreimmat suomalaiset kasinot.',
+    title: 'Uudet Nettikasinot 2026 | Tuoreimmat Kasinot',
+    description: 'Löydä uudet nettikasinot 2026! Vertaile tuoreimmat suomalaiset kasinot.',
     url: `${siteUrl}/uudet-kasinot`,
     locale: 'fi_FI',
     type: 'website',
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/images/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Uudet Nettikasinot 2025',
+        alt: 'Uudet Nettikasinot 2026',
       },
     ],
   },
@@ -48,11 +47,11 @@ interface Casino {
 const newCasinos: Casino[] = [
   {
     id: 'uusi-kasino-1',
-    name: 'Uusi Kasino 2025',
+    name: 'Uusi Kasino 2026',
     rating: 4.9,
     bonus: '200% bonus + 100 ilmaiskierrosta',
     bonusValue: '500€',
-    features: ['Uusi 2025', 'Nopeat kotiutukset', 'Suomenkielinen tuki'],
+    features: ['Uusi 2026', 'Nopeat kotiutukset', 'Suomenkielinen tuki'],
     license: 'MGA',
     minDeposit: '10€',
     withdrawalTime: '0-24h',
@@ -65,7 +64,7 @@ const newCasinos: Casino[] = [
     rating: 4.8,
     bonus: '150% bonus ensitalletukseen',
     bonusValue: '300€',
-    features: ['Uusi 2025', 'Pikakasino', 'VIP-ohjelma'],
+    features: ['Uusi 2026', 'Pikakasino', 'VIP-ohjelma'],
     license: 'Malta MGA',
     minDeposit: '15€',
     withdrawalTime: '5 min',
@@ -78,7 +77,7 @@ const newCasinos: Casino[] = [
     rating: 4.7,
     bonus: '100 ilmaiskierrosta ilman talletusta',
     bonusValue: 'Ilmainen',
-    features: ['Uusi 2025', 'Cashback-bonus', 'Live kasino'],
+    features: ['Uusi 2026', 'Cashback-bonus', 'Live kasino'],
     license: 'Curacao',
     minDeposit: '10€',
     withdrawalTime: '1-2 päivää',
@@ -103,7 +102,7 @@ function CasinoCard({ casino, position }: { casino: Casino; position: number }) 
               {casino.isNew && (
                 <span className="text-xs px-2 py-0.5 bg-amber-500/20 text-amber-400 rounded-full flex items-center gap-1">
                   <Sparkles className="w-3 h-3" />
-                  2025
+                  2026
                 </span>
               )}
             </div>
@@ -172,7 +171,7 @@ export default function UudetKasinotPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Uudet Nettikasinot 2025',
+    name: 'Uudet Nettikasinot 2026',
     description: 'Lista uusista nettikasinoista suomalaisille pelaajille',
     numberOfItems: newCasinos.length,
     itemListElement: newCasinos.map((casino, index) => ({
@@ -229,11 +228,11 @@ export default function UudetKasinotPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-400 text-sm mb-4">
               <Sparkles className="w-4 h-4" />
-              <span>Päivitetty tammikuu 2025</span>
+              <span>Päivitetty tammikuu 2026</span>
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Uudet Nettikasinot 2025
+              Uudet Nettikasinot 2026
             </h1>
 
             <p className="text-lg text-slate-400 mb-6">
@@ -258,7 +257,7 @@ export default function UudetKasinotPage() {
       {/* Casino List */}
       <section className="py-12 bg-slate-950">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-white mb-8">Tuoreimmat Kasinot 2025</h2>
+          <h2 className="text-2xl font-bold text-white mb-8">Tuoreimmat Kasinot 2026</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {newCasinos.map((casino, index) => (
               <CasinoCard key={casino.id} casino={casino} position={index + 1} />
@@ -271,15 +270,13 @@ export default function UudetKasinotPage() {
       <section className="py-12 bg-slate-900/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Miksi valita uusi nettikasino?
-            </h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Miksi valita uusi nettikasino?</h2>
             <div className="prose prose-invert prose-slate max-w-none">
               <p className="text-slate-400">
-                Uudet nettikasinot tarjoavat usein parempia bonuksia ja modernimpia
-                pelikokemuksia. Ne käyttävät uusinta teknologiaa ja tarjoavat nopeammat
-                kotiutukset. Testaamme kaikki uudet kasinot varmistaaksemme, että ne ovat
-                turvallisia suomalaisille pelaajille.
+                Uudet nettikasinot tarjoavat usein parempia bonuksia ja modernimpia pelikokemuksia.
+                Ne käyttävät uusinta teknologiaa ja tarjoavat nopeammat kotiutukset. Testaamme
+                kaikki uudet kasinot varmistaaksemme, että ne ovat turvallisia suomalaisille
+                pelaajille.
               </p>
             </div>
           </div>

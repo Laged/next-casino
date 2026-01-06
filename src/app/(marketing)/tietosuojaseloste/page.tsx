@@ -100,7 +100,7 @@ const privacySections: Section[] = [
     content: [
       'Pidatamme oikeuden paivittaa tata tietosuojaselostetta.',
       'Merkittavista muutoksista ilmoitamme verkkosivuillamme.',
-      'Tama seloste on paivitetty viimeksi: Tammikuu 2025.',
+      'Tama seloste on paivitetty viimeksi: Tammikuu 2026.',
     ],
   },
 ];
@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
             Tama tietosuojaseloste kuvaa, miten kasittelemme henkilotietojasi. Yksityisyytesi on
             meille tarkeaa.
           </p>
-          <p className="mt-2 text-sm text-muted-foreground">Paivitetty viimeksi: Tammikuu 2025</p>
+          <p className="mt-2 text-sm text-muted-foreground">Paivitetty viimeksi: Tammikuu 2026</p>
         </header>
 
         {/* Table of Contents */}

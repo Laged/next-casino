@@ -1,7 +1,7 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
 import { Footer } from '@/components/layout/footer';
 import { Navbar } from '@/components/layout/navbar';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kasinolista.fi';
 
@@ -29,49 +29,38 @@ export default function EhdotPage() {
           </nav>
 
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-8">
-              Käyttöehdot
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-8">Käyttöehdot</h1>
 
             <div className="prose prose-invert prose-slate max-w-none">
-              <h2 className="text-xl font-semibold text-white mt-8 mb-4">
-                1. Yleistä
-              </h2>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-4">1. Yleistä</h2>
               <p className="text-slate-400 mb-4">
-                Nämä käyttöehdot koskevat Kasinolista.fi-sivuston käyttöä.
-                Käyttämällä sivustoa hyväksyt nämä ehdot.
+                Nämä käyttöehdot koskevat Kasinolista.fi-sivuston käyttöä. Käyttämällä sivustoa
+                hyväksyt nämä ehdot.
               </p>
 
-              <h2 className="text-xl font-semibold text-white mt-8 mb-4">
-                2. Sisältö
-              </h2>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-4">2. Sisältö</h2>
               <p className="text-slate-400 mb-4">
-                Sivustomme tarjoaa tietoa nettikasinoista vertailutarkoituksessa.
-                Emme ole vastuussa kasinoiden toiminnasta tai tarjouksista.
+                Sivustomme tarjoaa tietoa nettikasinoista vertailutarkoituksessa. Emme ole vastuussa
+                kasinoiden toiminnasta tai tarjouksista.
               </p>
 
-              <h2 className="text-xl font-semibold text-white mt-8 mb-4">
-                3. Ikäraja
-              </h2>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-4">3. Ikäraja</h2>
               <p className="text-slate-400 mb-4">
-                Rahapelaaminen on sallittua vain 18 vuotta täyttäneille.
-                Pelaa vastuullisesti.
+                Rahapelaaminen on sallittua vain 18 vuotta täyttäneille. Pelaa vastuullisesti.
               </p>
 
-              <h2 className="text-xl font-semibold text-white mt-8 mb-4">
-                4. Affiliate-linkit
-              </h2>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-4">4. Affiliate-linkit</h2>
               <p className="text-slate-400 mb-4">
-                Sivustomme sisältää affiliate-linkkejä. Saatamme saada korvausta,
-                kun klikkaat linkkejämme ja rekisteröidyt kasinolle.
+                Sivustomme sisältää affiliate-linkkejä. Saatamme saada korvausta, kun klikkaat
+                linkkejämme ja rekisteröidyt kasinolle.
               </p>
 
               <h2 className="text-xl font-semibold text-white mt-8 mb-4">
                 5. Vastuullinen pelaaminen
               </h2>
               <p className="text-slate-400 mb-4">
-                Rohkaisemme vastuulliseen pelaamiseen. Jos sinulla on
-                ongelmia pelaamisen kanssa, ota yhteyttä Peluuriin: 0800 100 101.
+                Rohkaisemme vastuulliseen pelaamiseen. Jos sinulla on ongelmia pelaamisen kanssa,
+                ota yhteyttä Peluuriin: 0800 100 101.
               </p>
             </div>
           </div>

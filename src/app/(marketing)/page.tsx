@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Parhaat Nettikasinot 2025 | Luotettavat Kasinoarvostelut',
+  title: 'Parhaat Nettikasinot 2026 | Luotettavat Kasinoarvostelut',
   description:
-    'Loyda Suomen parhaat nettikasinot vuonna 2025. Vertaile bonuksia, lue arvosteluja ja valitse sinulle sopiva kasino. Luotettavat arvostelut ammattilaisilta.',
+    'Loyda Suomen parhaat nettikasinot vuonna 2026. Vertaile bonuksia, lue arvosteluja ja valitse sinulle sopiva kasino. Luotettavat arvostelut ammattilaisilta.',
   openGraph: {
-    title: 'Parhaat Nettikasinot 2025 | Luotettavat Kasinoarvostelut',
+    title: 'Parhaat Nettikasinot 2026 | Luotettavat Kasinoarvostelut',
     description:
-      'Loyda Suomen parhaat nettikasinot vuonna 2025. Vertaile bonuksia ja lue arvosteluja.',
+      'Loyda Suomen parhaat nettikasinot vuonna 2026. Vertaile bonuksia ja lue arvosteluja.',
     type: 'website',
   },
 };
@@ -128,7 +128,7 @@ export default async function HomePage() {
       <section className="container">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Parhaat Nettikasinot 2025
+            Parhaat Nettikasinot 2026
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">
             Loyda luotettavat nettikasinot asiantuntija-arvostelujemme avulla. Vertaile bonuksia,

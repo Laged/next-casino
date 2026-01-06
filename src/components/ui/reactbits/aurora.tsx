@@ -81,14 +81,7 @@ export function Aurora({
         if (blob.y > height + blob.radius) blob.y = -blob.radius;
 
         // Draw gradient blob
-        const gradient = ctx.createRadialGradient(
-          blob.x,
-          blob.y,
-          0,
-          blob.x,
-          blob.y,
-          blob.radius
-        );
+        const gradient = ctx.createRadialGradient(blob.x, blob.y, 0, blob.x, blob.y, blob.radius);
         gradient.addColorStop(0, blob.color + '40');
         gradient.addColorStop(0.5, blob.color + '20');
         gradient.addColorStop(1, blob.color + '00');

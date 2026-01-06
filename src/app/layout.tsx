@@ -17,7 +17,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kasinolista.fi';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Parhaat Nettikasinot 2025 | Kasinolista.fi',
+    default: 'Parhaat Nettikasinot 2026 | Kasinolista.fi',
     template: '%s | Kasinolista.fi',
   },
   description:
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     locale: 'fi_FI',
     url: siteUrl,
     siteName: 'Kasinolista.fi',
-    title: 'Parhaat Nettikasinot 2025 | Kasinolista.fi',
+    title: 'Parhaat Nettikasinot 2026 | Kasinolista.fi',
     description:
       'Vertaile parhaat nettikasinot ja löydä luotettavat kasinot suomalaisille pelaajille.',
     images: [
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Parhaat Nettikasinot 2025 | Kasinolista.fi',
+    title: 'Parhaat Nettikasinot 2026 | Kasinolista.fi',
     description:
       'Vertaile parhaat nettikasinot ja löydä luotettavat kasinot suomalaisille pelaajille.',
     images: [`${siteUrl}/images/og-image.jpg`],

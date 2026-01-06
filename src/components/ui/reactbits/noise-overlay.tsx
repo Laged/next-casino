@@ -11,18 +11,10 @@ interface NoiseOverlayProps {
  * CSS-only noise texture overlay
  * Adds depth and texture without any JavaScript
  */
-export function NoiseOverlay({
-  children,
-  className,
-  intensity = 'default',
-}: NoiseOverlayProps) {
+export function NoiseOverlay({ children, className, intensity = 'default' }: NoiseOverlayProps) {
   return (
     <div
-      className={cn(
-        'noise-overlay',
-        intensity === 'strong' && 'noise-overlay-strong',
-        className
-      )}
+      className={cn('noise-overlay', intensity === 'strong' && 'noise-overlay-strong', className)}
     >
       {children}
     </div>

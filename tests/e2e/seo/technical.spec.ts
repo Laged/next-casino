@@ -55,7 +55,8 @@ test.describe('Robots.txt', () => {
 
     // Extract the default user-agent (*) section to check its rules
     // The AI crawler sections (GPTBot, CCBot, etc.) intentionally disallow /
-    const defaultAgentSection = content.match(/User-Agent:\s*\*[\s\S]*?(?=User-Agent:|$)/i)?.[0] || '';
+    const defaultAgentSection =
+      content.match(/User-Agent:\s*\*[\s\S]*?(?=User-Agent:|$)/i)?.[0] || '';
 
     // Default user-agent should allow main content
     expect(defaultAgentSection).toContain('Allow: /');

@@ -4,7 +4,7 @@ import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { cn } from '@/lib/utils';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import type { ReactNode } from 'react';
-import { useRef, useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -41,19 +41,22 @@ export function MagneticButton({
   const springX = useSpring(x, springConfig);
   const springY = useSpring(y, springConfig);
 
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (reducedMotion || !containerRef.current) return;
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (reducedMotion || !containerRef.current) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+      const rect = containerRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-    const deltaX = (e.clientX - centerX) * strength;
-    const deltaY = (e.clientY - centerY) * strength;
+      const deltaX = (e.clientX - centerX) * strength;
+      const deltaY = (e.clientY - centerY) * strength;
 
-    x.set(deltaX);
-    y.set(deltaY);
-  }, [reducedMotion, strength, x, y]);
+      x.set(deltaX);
+      y.set(deltaY);
+    },
+    [reducedMotion, strength, x, y]
+  );
 
   const handleMouseLeave = useCallback(() => {
     x.set(0);
@@ -73,7 +76,9 @@ export function MagneticButton({
   if (as === 'a' && href) {
     return (
       <motion.a
-        ref={(el) => { containerRef.current = el; }}
+        ref={(el) => {
+          containerRef.current = el;
+        }}
         href={href}
         target={target}
         rel={rel}
@@ -87,7 +92,9 @@ export function MagneticButton({
   if (as === 'button') {
     return (
       <motion.button
-        ref={(el) => { containerRef.current = el; }}
+        ref={(el) => {
+          containerRef.current = el;
+        }}
         onClick={onClick}
         {...sharedProps}
       >
@@ -98,7 +105,9 @@ export function MagneticButton({
 
   return (
     <motion.div
-      ref={(el) => { containerRef.current = el; }}
+      ref={(el) => {
+        containerRef.current = el;
+      }}
       {...sharedProps}
     >
       {children}

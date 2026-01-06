@@ -19,13 +19,7 @@ export function TiltCard({
   as: Component = 'div',
 }: TiltCardProps) {
   return (
-    <Component
-      className={cn(
-        'tilt-card relative',
-        shine && 'tilt-card-shine',
-        className
-      )}
-    >
+    <Component className={cn('tilt-card relative', shine && 'tilt-card-shine', className)}>
       {children}
     </Component>
   );

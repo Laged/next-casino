@@ -24,12 +24,7 @@
 }
 
 .gradient-text-subtle {
-  background: linear-gradient(
-    90deg,
-    #f8fafc 0%,
-    #fbbf24 50%,
-    #f8fafc 100%
-  );
+  background: linear-gradient(90deg, #f8fafc 0%, #fbbf24 50%, #f8fafc 100%);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -64,7 +59,7 @@
 }
 
 .tilt-card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -90,7 +85,7 @@
 }
 
 .tilt-card-shine::after {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
@@ -122,7 +117,7 @@
 }
 
 .noise-overlay::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -148,20 +143,17 @@
    ========================================================================== */
 
 .glow-amber {
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3),
-              0 0 40px rgba(251, 191, 36, 0.1);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3), 0 0 40px rgba(251, 191, 36, 0.1);
 }
 
 .glow-amber-strong {
-  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5),
-              0 0 60px rgba(251, 191, 36, 0.2),
-              0 0 100px rgba(251, 191, 36, 0.1);
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(251, 191, 36, 0.2), 0 0 100px
+    rgba(251, 191, 36, 0.1);
 }
 
 .glow-text {
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5),
-               0 0 20px rgba(251, 191, 36, 0.3),
-               0 0 40px rgba(251, 191, 36, 0.1);
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.5), 0 0 20px rgba(251, 191, 36, 0.3), 0 0 40px
+    rgba(251, 191, 36, 0.1);
 }
 
 /* ==========================================================================
@@ -174,16 +166,11 @@
 }
 
 .shimmer::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
   animation: shimmer 2s infinite;
 }
 
@@ -202,7 +189,8 @@
 }
 
 @keyframes pulse-subtle {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -217,7 +205,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
   }
   50% {
@@ -234,7 +223,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

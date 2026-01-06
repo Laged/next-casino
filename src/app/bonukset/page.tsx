@@ -1,22 +1,22 @@
-import type { Metadata } from 'next';
-import { Star, Shield, Gift, Percent, CreditCard } from 'lucide-react';
-import Link from 'next/link';
 import { Footer } from '@/components/layout/footer';
 import { Navbar } from '@/components/layout/navbar';
+import { CreditCard, Gift, Percent, Shield, Star } from 'lucide-react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kasinolista.fi';
 
 export const metadata: Metadata = {
-  title: 'Kasinobonukset 2025 | Parhaat Tervetuliaistarjoukset',
+  title: 'Kasinobonukset 2026 | Parhaat Tervetuliaistarjoukset',
   description:
-    'Parhaat kasinobonukset 2025! Vertaile tervetuliaistarjoukset, talletusbonukset ja ilmaiskierrokset. Eksklusiiviset bonukset suomalaisille.',
+    'Parhaat kasinobonukset 2026! Vertaile tervetuliaistarjoukset, talletusbonukset ja ilmaiskierrokset. Eksklusiiviset bonukset suomalaisille.',
   alternates: {
     canonical: `${siteUrl}/bonukset`,
   },
   openGraph: {
-    title: 'Kasinobonukset 2025 | Parhaat Tervetuliaistarjoukset',
+    title: 'Kasinobonukset 2026 | Parhaat Tervetuliaistarjoukset',
     description:
-      'Parhaat kasinobonukset 2025! Vertaile tervetuliaistarjoukset ja ilmaiskierrokset.',
+      'Parhaat kasinobonukset 2026! Vertaile tervetuliaistarjoukset ja ilmaiskierrokset.',
     url: `${siteUrl}/bonukset`,
     locale: 'fi_FI',
     type: 'website',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: `${siteUrl}/images/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Kasinobonukset 2025',
+        alt: 'Kasinobonukset 2026',
       },
     ],
   },
@@ -169,7 +169,7 @@ export default function BonuksetPage() {
   const itemListSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Kasinobonukset 2025',
+    name: 'Kasinobonukset 2026',
     description: 'Lista parhaista kasinobonuksista suomalaisille pelaajille',
     numberOfItems: bonusOffers.length,
     itemListElement: bonusOffers.map((bonus, index) => ({
@@ -230,7 +230,7 @@ export default function BonuksetPage() {
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Kasinobonukset 2025
+              Kasinobonukset 2026
             </h1>
 
             <p className="text-lg text-slate-400 mb-6">
@@ -268,14 +268,12 @@ export default function BonuksetPage() {
       <section className="py-12 bg-slate-900/50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Miten kasinobonukset toimivat?
-            </h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Miten kasinobonukset toimivat?</h2>
             <div className="prose prose-invert prose-slate max-w-none">
               <p className="text-slate-400">
                 Kasinobonukset ovat etuja, joita nettikasinot tarjoavat houkutellakseen uusia
-                pelaajia. Yleisin on tervetuliaisbonus, joka kerrotaan ensitalletuksestasi.
-                Muista aina tarkistaa kierrätysvaatimus ennen bonuksen lunastamista.
+                pelaajia. Yleisin on tervetuliaisbonus, joka kerrotaan ensitalletuksestasi. Muista
+                aina tarkistaa kierrätysvaatimus ennen bonuksen lunastamista.
               </p>
             </div>
           </div>

@@ -49,8 +49,8 @@ async function getArticle(slug: string): Promise<Article | null> {
     'paras-kasino-opas': {
       id: '1',
       slug: 'paras-kasino-opas',
-      title: 'Parhaan nettikasinon valinta - Täydellinen opas 2025',
-      metaTitle: 'Parhaan Nettikasinon Valinta | Opas 2025',
+      title: 'Parhaan nettikasinon valinta - Täydellinen opas 2026',
+      metaTitle: 'Parhaan Nettikasinon Valinta | Opas 2026',
       metaDescription:
         'Opi valitsemaan paras nettikasino tarpeidesi mukaan. Käymme läpi tärkeimmät kriteerit: lisenssit, bonukset, pelitarjonta ja maksutavat.',
       excerpt:
@@ -129,8 +129,8 @@ async function getArticle(slug: string): Promise<Article | null> {
         avatar: '/images/authors/mika.jpg',
         bio: 'Mika on nettikasinoiden asiantuntija yli 10 vuoden kokemuksella alalta.',
       },
-      publishedAt: '2025-01-01',
-      updatedAt: '2025-01-05',
+      publishedAt: '2026-01-01',
+      updatedAt: '2026-01-05',
       readingTime: 8,
       category: 'Oppaat',
       tags: ['kasinot', 'oppaat', 'aloittelijat', 'bonukset'],
