@@ -34,9 +34,9 @@ interface HeroSectionProps {
 }
 
 const defaultTrustBadges = [
-  { icon: <Star className="w-4 h-4" />, text: 'Expert Reviews' },
-  { icon: <Shield className="w-4 h-4" />, text: 'Licensed Only' },
-  { icon: <Zap className="w-4 h-4" />, text: 'Updated Daily' },
+  { icon: <Star className="h-4 w-4" />, text: 'Expert Reviews' },
+  { icon: <Shield className="h-4 w-4" />, text: 'Licensed Only' },
+  { icon: <Zap className="h-4 w-4" />, text: 'Updated Daily' },
 ];
 
 export function HeroSection({
@@ -59,7 +59,7 @@ export function HeroSection({
       return (
         <>
           {parts[0]}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+          <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
             {titleHighlight}
           </span>
           {parts[1]}
@@ -86,22 +86,22 @@ export function HeroSection({
       className={cn('relative overflow-hidden', backgroundClasses[backgroundVariant], className)}
     >
       {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="-top-24 -right-24 absolute h-96 w-96 rounded-full bg-amber-500/10 blur-3xl" />
+        <div className="-bottom-24 -left-24 absolute h-96 w-96 rounded-full bg-orange-500/10 blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10">
+      <div className="container relative z-10 mx-auto px-4 py-16 md:py-24 lg:py-32">
         <div
           className={cn(
-            'flex flex-col gap-6 max-w-4xl',
+            'flex max-w-4xl flex-col gap-6',
             contentAlignment[variant],
             variant === 'centered' && 'mx-auto'
           )}
         >
           {/* Badge */}
           {badge && (
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-sm font-medium">
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/20 bg-amber-500/10 px-4 py-2 font-medium text-amber-400 text-sm">
               {badge.icon}
               {badge.text}
             </div>
@@ -110,7 +110,7 @@ export function HeroSection({
           {/* Main Heading (H1 for SEO) */}
           <h1
             className={cn(
-              'text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight',
+              'font-bold text-4xl text-white tracking-tight md:text-5xl lg:text-6xl',
               variant === 'centered' && 'max-w-3xl'
             )}
           >
@@ -120,7 +120,7 @@ export function HeroSection({
           {/* Subtitle */}
           <p
             className={cn(
-              'text-lg md:text-xl text-slate-400 max-w-2xl',
+              'max-w-2xl text-lg text-slate-400 md:text-xl',
               variant === 'centered' && 'mx-auto'
             )}
           >
@@ -131,13 +131,13 @@ export function HeroSection({
           {(primaryCta || secondaryCta) && (
             <div
               className={cn(
-                'flex flex-col sm:flex-row gap-4 mt-2',
+                'mt-2 flex flex-col gap-4 sm:flex-row',
                 variant === 'centered' && 'justify-center'
               )}
             >
               {primaryCta && (
                 <Link href={primaryCta.href}>
-                  <Button size="lg" rightIcon={<ArrowRight className="w-5 h-5" />}>
+                  <Button size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
                     {primaryCta.text}
                   </Button>
                 </Link>
@@ -156,14 +156,14 @@ export function HeroSection({
           {trustBadges && trustBadges.length > 0 && (
             <div
               className={cn(
-                'flex flex-wrap gap-6 mt-4',
+                'mt-4 flex flex-wrap gap-6',
                 variant === 'centered' && 'justify-center'
               )}
             >
               {trustBadges.map((badge, index) => (
                 <div key={index} className="flex items-center gap-2 text-slate-400">
                   <span className="text-amber-500">{badge.icon}</span>
-                  <span className="text-sm font-medium">{badge.text}</span>
+                  <span className="font-medium text-sm">{badge.text}</span>
                 </div>
               ))}
             </div>
@@ -173,14 +173,14 @@ export function HeroSection({
           {stats && stats.length > 0 && (
             <div
               className={cn(
-                'flex flex-wrap gap-8 md:gap-12 mt-8 pt-8 border-t border-slate-800',
+                'mt-8 flex flex-wrap gap-8 border-slate-800 border-t pt-8 md:gap-12',
                 variant === 'centered' && 'justify-center'
               )}
             >
               {stats.map((stat, index) => (
                 <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-slate-400 mt-1">{stat.label}</div>
+                  <div className="font-bold text-3xl text-white md:text-4xl">{stat.value}</div>
+                  <div className="mt-1 text-slate-400 text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -212,13 +212,13 @@ export function PageHero({ title, description, breadcrumbs, className }: PageHer
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center gap-2 text-sm text-slate-400 mb-4"
+            className="mb-4 flex items-center gap-2 text-slate-400 text-sm"
           >
             {breadcrumbs.map((crumb, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <span>/</span>}
                 {crumb.href ? (
-                  <Link href={crumb.href} className="hover:text-amber-400 transition-colors">
+                  <Link href={crumb.href} className="transition-colors hover:text-amber-400">
                     {crumb.label}
                   </Link>
                 ) : (
@@ -229,9 +229,9 @@ export function PageHero({ title, description, breadcrumbs, className }: PageHer
           </nav>
         )}
 
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">{title}</h1>
+        <h1 className="font-bold text-3xl text-white md:text-4xl lg:text-5xl">{title}</h1>
 
-        {description && <p className="text-lg text-slate-400 mt-4 max-w-3xl">{description}</p>}
+        {description && <p className="mt-4 max-w-3xl text-lg text-slate-400">{description}</p>}
       </div>
     </section>
   );

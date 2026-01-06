@@ -7,17 +7,17 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-amber-500/20 text-amber-400 border border-amber-500/30',
-        secondary: 'bg-slate-700 text-slate-300 border border-slate-600',
-        success: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30',
-        warning: 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30',
-        danger: 'bg-red-500/20 text-red-400 border border-red-500/30',
-        info: 'bg-blue-500/20 text-blue-400 border border-blue-500/30',
-        premium: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0',
-        exclusive: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0',
-        new: 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white border-0',
-        hot: 'bg-gradient-to-r from-red-500 to-orange-500 text-white border-0',
-        vip: 'bg-gradient-to-r from-yellow-600 to-amber-600 text-white border-0',
+        default: 'border border-amber-500/30 bg-amber-500/20 text-amber-400',
+        secondary: 'border border-slate-600 bg-slate-700 text-slate-300',
+        success: 'border border-emerald-500/30 bg-emerald-500/20 text-emerald-400',
+        warning: 'border border-yellow-500/30 bg-yellow-500/20 text-yellow-400',
+        danger: 'border border-red-500/30 bg-red-500/20 text-red-400',
+        info: 'border border-blue-500/30 bg-blue-500/20 text-blue-400',
+        premium: 'border-0 bg-gradient-to-r from-amber-500 to-orange-500 text-white',
+        exclusive: 'border-0 bg-gradient-to-r from-purple-500 to-pink-500 text-white',
+        new: 'border-0 bg-gradient-to-r from-emerald-500 to-teal-500 text-white',
+        hot: 'border-0 bg-gradient-to-r from-red-500 to-orange-500 text-white',
+        vip: 'border-0 bg-gradient-to-r from-yellow-600 to-amber-600 text-white',
       },
       size: {
         sm: 'px-2 py-0.5 text-xs',

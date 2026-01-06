@@ -5,7 +5,7 @@ export default function Loading() {
         <div className="relative">
           <div className="h-12 w-12 animate-spin rounded-full border-4 border-muted border-t-primary" />
         </div>
-        <p className="text-sm text-muted-foreground">Ladataan...</p>
+        <p className="text-muted-foreground text-sm">Ladataan...</p>
       </div>
     </div>
   );

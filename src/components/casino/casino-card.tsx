@@ -58,7 +58,7 @@ function RatingStars({ rating, size = 'default' }: { rating: number; size?: 'sm'
       {hasHalfStar && (
         <div className="relative">
           <Star className={cn(starSize, 'text-slate-600')} />
-          <div className="absolute inset-0 overflow-hidden w-1/2">
+          <div className="absolute inset-0 w-1/2 overflow-hidden">
             <Star className={cn(starSize, 'fill-amber-400 text-amber-400')} />
           </div>
         </div>
@@ -82,11 +82,11 @@ export function CasinoCard({
       <Card variant="elevated" interactive padding="sm" className={cn('group', className)}>
         <div className="flex items-center gap-4">
           {showRank && rank && (
-            <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 text-white font-bold text-sm shrink-0">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-500 to-orange-500 font-bold text-sm text-white">
               {rank}
             </div>
           )}
-          <div className="relative w-12 h-12 rounded-lg bg-white overflow-hidden shrink-0">
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-white">
             <Image
               src={casino.logo}
               alt={`${casino.name} logo`}
@@ -94,22 +94,22 @@ export function CasinoCard({
               className="object-contain p-1"
             />
           </div>
-          <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-white truncate">{casino.name}</h3>
-            <div className="flex items-center gap-2 mt-0.5">
+          <div className="min-w-0 flex-1">
+            <h3 className="truncate font-semibold text-white">{casino.name}</h3>
+            <div className="mt-0.5 flex items-center gap-2">
               <RatingStars rating={casino.rating} size="sm" />
-              <span className="text-xs text-slate-400">{casino.rating.toFixed(1)}</span>
+              <span className="text-slate-400 text-xs">{casino.rating.toFixed(1)}</span>
             </div>
           </div>
-          <div className="text-right shrink-0">
-            <p className="text-sm font-semibold text-amber-400">{casino.welcomeBonus.value}</p>
+          <div className="shrink-0 text-right">
+            <p className="font-semibold text-amber-400 text-sm">{casino.welcomeBonus.value}</p>
             <Link
               href={casino.affiliateUrl}
               target="_blank"
               rel="noopener noreferrer sponsored"
-              className="inline-flex items-center gap-1 text-xs text-slate-400 hover:text-amber-400"
+              className="inline-flex items-center gap-1 text-slate-400 text-xs hover:text-amber-400"
             >
-              Claim <ChevronRight className="w-3 h-3" />
+              Claim <ChevronRight className="h-3 w-3" />
             </Link>
           </div>
         </div>
@@ -130,21 +130,21 @@ export function CasinoCard({
       >
         {/* Featured Banner */}
         {casino.isFeatured && (
-          <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white text-center py-2 text-sm font-semibold">
+          <div className="bg-gradient-to-r from-amber-500 to-orange-500 py-2 text-center font-semibold text-sm text-white">
             Editor&apos;s Choice
           </div>
         )}
 
         <div className="p-6">
-          <div className="flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col gap-6 lg:flex-row">
             {/* Left: Logo & Rating */}
-            <div className="flex flex-col items-center lg:items-start gap-4">
+            <div className="flex flex-col items-center gap-4 lg:items-start">
               {showRank && rank && (
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white font-bold text-xl">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 font-bold text-white text-xl">
                   #{rank}
                 </div>
               )}
-              <div className="relative w-24 h-24 rounded-xl bg-white shadow-lg overflow-hidden">
+              <div className="relative h-24 w-24 overflow-hidden rounded-xl bg-white shadow-lg">
                 <Image
                   src={casino.logo}
                   alt={`${casino.name} logo`}
@@ -153,14 +153,14 @@ export function CasinoCard({
                 />
               </div>
               <div className="text-center lg:text-left">
-                <h3 className="text-xl font-bold text-white">{casino.name}</h3>
-                <div className="flex items-center gap-2 mt-1">
+                <h3 className="font-bold text-white text-xl">{casino.name}</h3>
+                <div className="mt-1 flex items-center gap-2">
                   <RatingStars rating={casino.rating} />
-                  <span className="text-sm font-semibold text-amber-400">
+                  <span className="font-semibold text-amber-400 text-sm">
                     {casino.rating.toFixed(1)}
                   </span>
                   {casino.reviewCount && (
-                    <span className="text-xs text-slate-400">({casino.reviewCount} reviews)</span>
+                    <span className="text-slate-400 text-xs">({casino.reviewCount} reviews)</span>
                   )}
                 </div>
               </div>
@@ -175,29 +175,29 @@ export function CasinoCard({
               </div>
 
               <div>
-                <p className="text-2xl font-bold text-white">{casino.welcomeBonus.title}</p>
-                <p className="text-slate-400 mt-1">{casino.welcomeBonus.description}</p>
+                <p className="font-bold text-2xl text-white">{casino.welcomeBonus.title}</p>
+                <p className="mt-1 text-slate-400">{casino.welcomeBonus.description}</p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-4 border-t border-slate-800">
+              <div className="grid grid-cols-2 gap-4 border-slate-800 border-t pt-4 md:grid-cols-3">
                 {casino.features.slice(0, 3).map((feature) => (
                   <div key={feature} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-emerald-500 shrink-0" />
-                    <span className="text-sm text-slate-300">{feature}</span>
+                    <Check className="h-4 w-4 shrink-0 text-emerald-500" />
+                    <span className="text-slate-300 text-sm">{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Right: CTA */}
-            <div className="flex flex-col items-stretch lg:items-end justify-between gap-4 lg:min-w-[180px]">
+            <div className="flex flex-col items-stretch justify-between gap-4 lg:min-w-[180px] lg:items-end">
               <div className="flex flex-col gap-2">
                 <Link
                   href={casino.affiliateUrl}
                   target="_blank"
                   rel="noopener noreferrer sponsored"
                 >
-                  <Button size="lg" fullWidth rightIcon={<ExternalLink className="w-4 h-4" />}>
+                  <Button size="lg" fullWidth rightIcon={<ExternalLink className="h-4 w-4" />}>
                     Claim Bonus
                   </Button>
                 </Link>
@@ -206,7 +206,7 @@ export function CasinoCard({
                     variant="ghost"
                     size="sm"
                     fullWidth
-                    leftIcon={<Info className="w-4 h-4" />}
+                    leftIcon={<Info className="h-4 w-4" />}
                   >
                     Read Review
                   </Button>
@@ -217,7 +217,7 @@ export function CasinoCard({
                   href={casino.termsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-slate-500 hover:text-slate-400 text-center"
+                  className="text-center text-slate-500 text-xs hover:text-slate-400"
                 >
                   T&Cs Apply. 18+
                 </Link>
@@ -240,12 +240,12 @@ export function CasinoCard({
       <div className="p-5">
         <div className="flex items-start gap-4">
           {showRank && rank && (
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 text-white font-bold shrink-0">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 font-bold text-white">
               {rank}
             </div>
           )}
 
-          <div className="relative w-16 h-16 rounded-xl bg-white shadow-md overflow-hidden shrink-0">
+          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-white shadow-md">
             <Image
               src={casino.logo}
               alt={`${casino.name} logo`}
@@ -254,18 +254,18 @@ export function CasinoCard({
             />
           </div>
 
-          <div className="flex-1 min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <h3 className="font-bold text-white text-lg">{casino.name}</h3>
-                <div className="flex items-center gap-2 mt-1">
+                <h3 className="font-bold text-lg text-white">{casino.name}</h3>
+                <div className="mt-1 flex items-center gap-2">
                   <RatingStars rating={casino.rating} size="sm" />
-                  <span className="text-sm text-amber-400 font-semibold">
+                  <span className="font-semibold text-amber-400 text-sm">
                     {casino.rating.toFixed(1)}
                   </span>
                 </div>
               </div>
-              <div className="flex gap-1 shrink-0">
+              <div className="flex shrink-0 gap-1">
                 {casino.isNew && <BonusBadge type="new" size="sm" showIcon={false} />}
                 {casino.isExclusive && <BonusBadge type="exclusive" size="sm" showIcon={false} />}
               </div>
@@ -273,18 +273,18 @@ export function CasinoCard({
 
             <div className="mt-3">
               <p className="font-semibold text-white">{casino.welcomeBonus.title}</p>
-              <p className="text-sm text-slate-400 line-clamp-2">
+              <p className="line-clamp-2 text-slate-400 text-sm">
                 {casino.welcomeBonus.description}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 mt-3">
+            <div className="mt-3 flex flex-wrap gap-2">
               {casino.features.slice(0, 3).map((feature) => (
                 <span
                   key={feature}
-                  className="inline-flex items-center gap-1 px-2 py-1 text-xs bg-slate-800 text-slate-300 rounded-md"
+                  className="inline-flex items-center gap-1 rounded-md bg-slate-800 px-2 py-1 text-slate-300 text-xs"
                 >
-                  <Check className="w-3 h-3 text-emerald-500" />
+                  <Check className="h-3 w-3 text-emerald-500" />
                   {feature}
                 </span>
               ))}
@@ -292,26 +292,26 @@ export function CasinoCard({
           </div>
         </div>
 
-        <div className="flex items-center gap-3 mt-4 pt-4 border-t border-slate-800">
+        <div className="mt-4 flex items-center gap-3 border-slate-800 border-t pt-4">
           <Link
             href={casino.affiliateUrl}
             target="_blank"
             rel="noopener noreferrer sponsored"
             className="flex-1"
           >
-            <Button fullWidth rightIcon={<ExternalLink className="w-4 h-4" />}>
+            <Button fullWidth rightIcon={<ExternalLink className="h-4 w-4" />}>
               Claim Bonus
             </Button>
           </Link>
           <Link href={`/review/${casino.slug}`}>
-            <Button variant="outline" leftIcon={<Info className="w-4 h-4" />}>
+            <Button variant="outline" leftIcon={<Info className="h-4 w-4" />}>
               Review
             </Button>
           </Link>
         </div>
 
         {casino.termsUrl && (
-          <p className="text-xs text-slate-500 text-center mt-3">
+          <p className="mt-3 text-center text-slate-500 text-xs">
             T&Cs Apply. 18+ | Gamble Responsibly
           </p>
         )}

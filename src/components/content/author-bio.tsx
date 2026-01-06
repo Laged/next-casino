@@ -53,20 +53,20 @@ export function AuthorBio({
   if (variant === 'inline') {
     return (
       <div className={cn('flex items-center gap-4', className)}>
-        <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0">
+        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
           <Image src={author.avatar} alt={author.name} fill className="object-cover" />
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
           <span className="font-medium text-white">{author.name}</span>
           {publishDate && (
             <span className="flex items-center gap-1 text-slate-400">
-              <Calendar className="w-4 h-4" />
+              <Calendar className="h-4 w-4" />
               {publishDate}
             </span>
           )}
           {readTime && (
             <span className="flex items-center gap-1 text-slate-400">
-              <Clock className="w-4 h-4" />
+              <Clock className="h-4 w-4" />
               {readTime}
             </span>
           )}
@@ -79,28 +79,28 @@ export function AuthorBio({
     return (
       <div className={cn('flex items-start gap-4', className)}>
         <Link href={author.slug ? `/author/${author.slug}` : '#'}>
-          <div className="relative w-14 h-14 rounded-full overflow-hidden shrink-0 ring-2 ring-amber-500/30">
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-amber-500/30">
             <Image src={author.avatar} alt={author.name} fill className="object-cover" />
           </div>
         </Link>
         <div>
           <Link
             href={author.slug ? `/author/${author.slug}` : '#'}
-            className="font-semibold text-white hover:text-amber-400 transition-colors"
+            className="font-semibold text-white transition-colors hover:text-amber-400"
           >
             {author.name}
           </Link>
-          <p className="text-sm text-amber-500">{author.role}</p>
-          <div className="flex items-center gap-3 mt-2 text-xs text-slate-400">
+          <p className="text-amber-500 text-sm">{author.role}</p>
+          <div className="mt-2 flex items-center gap-3 text-slate-400 text-xs">
             {publishDate && (
               <span className="flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
+                <Calendar className="h-3 w-3" />
                 {publishDate}
               </span>
             )}
             {updateDate && (
               <span className="flex items-center gap-1 text-emerald-400">
-                <Clock className="w-3 h-3" />
+                <Clock className="h-3 w-3" />
                 Updated {updateDate}
               </span>
             )}
@@ -120,25 +120,25 @@ export function AuthorBio({
       />
 
       <Card variant="gradient" className={cn('overflow-hidden', className)}>
-        <div className="flex flex-col md:flex-row gap-6 p-6">
+        <div className="flex flex-col gap-6 p-6 md:flex-row">
           {/* Avatar & Social */}
-          <div className="flex flex-col items-center shrink-0">
+          <div className="flex shrink-0 flex-col items-center">
             <Link href={author.slug ? `/author/${author.slug}` : '#'}>
-              <div className="relative w-24 h-24 rounded-full overflow-hidden ring-4 ring-amber-500/30">
+              <div className="relative h-24 w-24 overflow-hidden rounded-full ring-4 ring-amber-500/30">
                 <Image src={author.avatar} alt={author.name} fill className="object-cover" />
               </div>
             </Link>
             {author.social && (
-              <div className="flex items-center gap-2 mt-4">
+              <div className="mt-4 flex items-center gap-2">
                 {author.social.linkedin && (
                   <a
                     href={author.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-colors"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-800 text-slate-400 transition-colors hover:bg-blue-600 hover:text-white"
                     aria-label="LinkedIn"
                   >
-                    <Linkedin className="w-4 h-4" />
+                    <Linkedin className="h-4 w-4" />
                   </a>
                 )}
                 {author.social.twitter && (
@@ -146,10 +146,10 @@ export function AuthorBio({
                     href={author.social.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:bg-sky-500 hover:text-white transition-colors"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-800 text-slate-400 transition-colors hover:bg-sky-500 hover:text-white"
                     aria-label="Twitter"
                   >
-                    <Twitter className="w-4 h-4" />
+                    <Twitter className="h-4 w-4" />
                   </a>
                 )}
               </div>
@@ -159,27 +159,27 @@ export function AuthorBio({
           {/* Bio Content */}
           <div className="flex-1 space-y-4">
             <div>
-              <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex flex-wrap items-center gap-3">
                 <Link
                   href={author.slug ? `/author/${author.slug}` : '#'}
-                  className="text-xl font-bold text-white hover:text-amber-400 transition-colors"
+                  className="font-bold text-white text-xl transition-colors hover:text-amber-400"
                 >
                   {author.name}
                 </Link>
-                <Badge variant="success" size="sm" icon={<CheckCircle className="w-3 h-3" />}>
+                <Badge variant="success" size="sm" icon={<CheckCircle className="h-3 w-3" />}>
                   Verified Expert
                 </Badge>
               </div>
-              <p className="text-amber-500 font-medium">{author.role}</p>
+              <p className="font-medium text-amber-500">{author.role}</p>
             </div>
 
             <p className="text-slate-300">{author.bio}</p>
 
             {/* Credentials */}
             {showCredentials && author.credentials && author.credentials.length > 0 && (
-              <div className="pt-4 border-t border-slate-700">
-                <h4 className="text-sm font-semibold text-slate-400 mb-3 flex items-center gap-2">
-                  <Award className="w-4 h-4 text-amber-500" />
+              <div className="border-slate-700 border-t pt-4">
+                <h4 className="mb-3 flex items-center gap-2 font-semibold text-slate-400 text-sm">
+                  <Award className="h-4 w-4 text-amber-500" />
                   Credentials & Expertise
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -194,29 +194,29 @@ export function AuthorBio({
 
             {/* Experience */}
             {author.experience && (
-              <p className="text-sm text-slate-400">
+              <p className="text-slate-400 text-sm">
                 <span className="font-medium text-slate-300">Experience:</span> {author.experience}
               </p>
             )}
 
             {/* Article Meta */}
             {(publishDate || updateDate || readTime) && (
-              <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-700 text-sm text-slate-400">
+              <div className="flex flex-wrap items-center gap-4 border-slate-700 border-t pt-4 text-slate-400 text-sm">
                 {publishDate && (
                   <span className="flex items-center gap-1">
-                    <Calendar className="w-4 h-4" />
+                    <Calendar className="h-4 w-4" />
                     Published: {publishDate}
                   </span>
                 )}
                 {updateDate && (
                   <span className="flex items-center gap-1 text-emerald-400">
-                    <Clock className="w-4 h-4" />
+                    <Clock className="h-4 w-4" />
                     Updated: {updateDate}
                   </span>
                 )}
                 {readTime && (
                   <span className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
+                    <Clock className="h-4 w-4" />
                     {readTime} read
                   </span>
                 )}
@@ -246,14 +246,14 @@ export function FactCheckBox({
   return (
     <div
       className={cn(
-        'flex items-center gap-4 p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl',
+        'flex items-center gap-4 rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4',
         className
       )}
     >
-      <CheckCircle className="w-8 h-8 text-emerald-500 shrink-0" />
+      <CheckCircle className="h-8 w-8 shrink-0 text-emerald-500" />
       <div>
         <p className="font-medium text-white">Fact-Checked Content</p>
-        <p className="text-sm text-slate-400">
+        <p className="text-slate-400 text-sm">
           Reviewed by <span className="text-emerald-400">{reviewer}</span>, {reviewerRole}. Last
           verified: {lastReviewed}
         </p>

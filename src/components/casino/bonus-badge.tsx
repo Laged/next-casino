@@ -4,7 +4,7 @@ import { Clock, Coins, Gift, Percent, Star, Trophy, Zap } from 'lucide-react';
 import type * as React from 'react';
 
 const bonusBadgeVariants = cva(
-  'inline-flex items-center gap-1.5 rounded-full font-semibold whitespace-nowrap',
+  'inline-flex items-center gap-1.5 whitespace-nowrap rounded-full font-semibold',
   {
     variants: {
       type: {
@@ -13,7 +13,7 @@ const bonusBadgeVariants = cva(
         freeSpins: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white',
         cashback: 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white',
         exclusive: 'bg-gradient-to-r from-yellow-500 to-amber-500 text-black',
-        vip: 'bg-gradient-to-r from-slate-700 to-slate-600 text-amber-400 border border-amber-500/50',
+        vip: 'border border-amber-500/50 bg-gradient-to-r from-slate-700 to-slate-600 text-amber-400',
         limited: 'bg-gradient-to-r from-red-500 to-rose-500 text-white',
         new: 'bg-gradient-to-r from-green-500 to-emerald-500 text-white',
       },
@@ -41,14 +41,14 @@ export type BonusType =
   | 'new';
 
 const bonusIcons: Record<BonusType, React.ReactNode> = {
-  welcome: <Gift className="w-3 h-3" />,
-  noDeposit: <Coins className="w-3 h-3" />,
-  freeSpins: <Zap className="w-3 h-3" />,
-  cashback: <Percent className="w-3 h-3" />,
-  exclusive: <Star className="w-3 h-3" />,
-  vip: <Trophy className="w-3 h-3" />,
-  limited: <Clock className="w-3 h-3" />,
-  new: <Zap className="w-3 h-3" />,
+  welcome: <Gift className="h-3 w-3" />,
+  noDeposit: <Coins className="h-3 w-3" />,
+  freeSpins: <Zap className="h-3 w-3" />,
+  cashback: <Percent className="h-3 w-3" />,
+  exclusive: <Star className="h-3 w-3" />,
+  vip: <Trophy className="h-3 w-3" />,
+  limited: <Clock className="h-3 w-3" />,
+  new: <Zap className="h-3 w-3" />,
 };
 
 const bonusLabels: Record<BonusType, string> = {
@@ -122,7 +122,7 @@ export function BonusBadgeList({
         />
       ))}
       {remaining > 0 && (
-        <span className="px-2 py-0.5 text-xs font-medium text-slate-400 bg-slate-800 rounded-full">
+        <span className="rounded-full bg-slate-800 px-2 py-0.5 font-medium text-slate-400 text-xs">
           +{remaining} more
         </span>
       )}

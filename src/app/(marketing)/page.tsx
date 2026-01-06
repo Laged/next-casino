@@ -114,7 +114,7 @@ function StarRating({ rating }: { rating: number }) {
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
-      <span className="ml-1 text-sm font-medium">{rating.toFixed(1)}</span>
+      <span className="ml-1 font-medium text-sm">{rating.toFixed(1)}</span>
     </div>
   );
 }
@@ -127,7 +127,7 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="container">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+          <h1 className="font-bold text-4xl tracking-tight sm:text-5xl md:text-6xl">
             Parhaat Nettikasinot 2026
           </h1>
           <p className="mt-6 text-lg text-muted-foreground">
@@ -137,13 +137,13 @@ export default async function HomePage() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/uudet-kasinot"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 font-medium text-primary-foreground text-sm shadow transition-colors hover:bg-primary/90"
             >
               Selaa kasinoita
             </Link>
             <Link
               href="/bonukset"
-              className="inline-flex items-center justify-center rounded-md border border-input bg-background px-8 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="inline-flex items-center justify-center rounded-md border border-input bg-background px-8 py-3 font-medium text-sm shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
             >
               Katso bonukset
             </Link>
@@ -154,7 +154,7 @@ export default async function HomePage() {
       {/* Featured Casinos Section */}
       <section className="container">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold">Suositellut Kasinot</h2>
+          <h2 className="font-bold text-3xl">Suositellut Kasinot</h2>
           <p className="mt-2 text-muted-foreground">
             Kayttajien suosikit ja asiantuntijoiden valinnat
           </p>
@@ -166,12 +166,12 @@ export default async function HomePage() {
               className="group rounded-lg border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-xl font-semibold">{casino.name}</h3>
+                <h3 className="font-semibold text-xl">{casino.name}</h3>
                 <StarRating rating={casino.rating} />
               </div>
               <div className="mb-4 rounded-md bg-primary/10 p-4">
                 <p className="font-semibold text-primary">{casino.bonusTitle}</p>
-                <p className="text-sm text-muted-foreground">{casino.bonusDescription}</p>
+                <p className="text-muted-foreground text-sm">{casino.bonusDescription}</p>
               </div>
               <ul className="mb-4 space-y-2">
                 {casino.features.map((feature) => (
@@ -195,7 +195,7 @@ export default async function HomePage() {
               </ul>
               <Link
                 href={`/arvostelut/${casino.slug}`}
-                className="inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                className="inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground text-sm transition-colors hover:bg-primary/90"
               >
                 Lue arvostelu
               </Link>
@@ -207,7 +207,7 @@ export default async function HomePage() {
       {/* Categories Section */}
       <section className="container">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold">Selaa kategorioittain</h2>
+          <h2 className="font-bold text-3xl">Selaa kategorioittain</h2>
           <p className="mt-2 text-muted-foreground">Loyda juuri sinulle sopivat nettikasinot</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -218,8 +218,8 @@ export default async function HomePage() {
               className="group rounded-lg border bg-card p-6 transition-all hover:border-primary hover:shadow-md"
             >
               <h3 className="font-semibold group-hover:text-primary">{category.name}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{category.description}</p>
-              <p className="mt-2 text-xs text-muted-foreground">{category.casinoCount} kasinoa</p>
+              <p className="mt-1 text-muted-foreground text-sm">{category.description}</p>
+              <p className="mt-2 text-muted-foreground text-xs">{category.casinoCount} kasinoa</p>
             </Link>
           ))}
         </div>
@@ -228,7 +228,7 @@ export default async function HomePage() {
       {/* Trust Section */}
       <section className="container">
         <div className="rounded-lg bg-muted/50 p-8 text-center">
-          <h2 className="text-2xl font-bold">Miksi luottaa meihin?</h2>
+          <h2 className="font-bold text-2xl">Miksi luottaa meihin?</h2>
           <div className="mt-8 grid gap-8 sm:grid-cols-3">
             <div>
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
@@ -247,7 +247,7 @@ export default async function HomePage() {
                 </svg>
               </div>
               <h3 className="font-semibold">Riippumattomat arvostelut</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-muted-foreground text-sm">
                 Kaikki arvostelumme ovat rehellisia ja puolueettomia
               </p>
             </div>
@@ -268,7 +268,7 @@ export default async function HomePage() {
                 </svg>
               </div>
               <h3 className="font-semibold">Turvalliset kasinot</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-muted-foreground text-sm">
                 Suosittelemme vain lisensoituja ja turvallisia kasinoita
               </p>
             </div>
@@ -289,7 +289,7 @@ export default async function HomePage() {
                 </svg>
               </div>
               <h3 className="font-semibold">Ajan tasalla</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-muted-foreground text-sm">
                 Paivitamme tiedot ja bonukset saannollisesti
               </p>
             </div>

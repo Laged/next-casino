@@ -82,20 +82,20 @@ export function ComparisonTable({
   const renderValue = (value: boolean | string | number) => {
     if (typeof value === 'boolean') {
       return value ? (
-        <Check className="w-5 h-5 text-emerald-500" />
+        <Check className="h-5 w-5 text-emerald-500" />
       ) : (
-        <X className="w-5 h-5 text-red-500" />
+        <X className="h-5 w-5 text-red-500" />
       );
     }
-    return <span className="text-sm text-white font-medium">{value}</span>;
+    return <span className="font-medium text-sm text-white">{value}</span>;
   };
 
   return (
     <section className={cn('space-y-6', className)}>
       {(title || subtitle) && (
         <div className="space-y-2">
-          {title && <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>}
-          {subtitle && <p className="text-slate-400 max-w-2xl">{subtitle}</p>}
+          {title && <h2 className="font-bold text-2xl text-white md:text-3xl">{title}</h2>}
+          {subtitle && <p className="max-w-2xl text-slate-400">{subtitle}</p>}
         </div>
       )}
 
@@ -103,10 +103,11 @@ export function ComparisonTable({
       <div className="flex flex-wrap gap-2">
         {featureCategories.map((category) => (
           <button
+            type="button"
             key={category.id}
             onClick={() => setActiveCategory(category.id)}
             className={cn(
-              'px-4 py-2 rounded-lg text-sm font-medium transition-colors',
+              'rounded-lg px-4 py-2 font-medium text-sm transition-colors',
               activeCategory === category.id
                 ? 'bg-amber-500 text-white'
                 : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white'
@@ -122,40 +123,42 @@ export function ComparisonTable({
         {/* Scroll Buttons */}
         {canScrollLeft && (
           <button
+            type="button"
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-slate-900/90 border border-slate-700 rounded-full shadow-lg hover:bg-slate-800 transition-colors"
+            className="-translate-y-1/2 absolute top-1/2 left-0 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900/90 shadow-lg transition-colors hover:bg-slate-800"
             aria-label="Scroll left"
           >
-            <ChevronLeft className="w-5 h-5 text-white" />
+            <ChevronLeft className="h-5 w-5 text-white" />
           </button>
         )}
         {canScrollRight && (
           <button
+            type="button"
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-slate-900/90 border border-slate-700 rounded-full shadow-lg hover:bg-slate-800 transition-colors"
+            className="-translate-y-1/2 absolute top-1/2 right-0 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900/90 shadow-lg transition-colors hover:bg-slate-800"
             aria-label="Scroll right"
           >
-            <ChevronRight className="w-5 h-5 text-white" />
+            <ChevronRight className="h-5 w-5 text-white" />
           </button>
         )}
 
         {/* Scrollable Container */}
         <div
           ref={scrollContainerRef}
-          className="overflow-x-auto scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 pb-4"
+          className="scrollbar-thin scrollbar-track-slate-800 scrollbar-thumb-slate-600 overflow-x-auto pb-4"
         >
           <table className="w-full min-w-[800px] border-collapse">
             <thead>
               {/* Casino Headers */}
               <tr>
-                <th className="sticky left-0 z-20 bg-slate-950 p-4 w-48 min-w-48" />
+                <th className="sticky left-0 z-20 w-48 min-w-48 bg-slate-950 p-4" />
                 {casinos.map((casino) => (
                   <th
                     key={casino.id}
-                    className="p-4 bg-slate-900 border-b border-slate-800 min-w-48"
+                    className="min-w-48 border-slate-800 border-b bg-slate-900 p-4"
                   >
                     <div className="flex flex-col items-center gap-3">
-                      <div className="relative w-16 h-16 rounded-xl bg-white shadow-md overflow-hidden">
+                      <div className="relative h-16 w-16 overflow-hidden rounded-xl bg-white shadow-md">
                         <Image
                           src={casino.logo}
                           alt={`${casino.name} logo`}
@@ -165,9 +168,9 @@ export function ComparisonTable({
                       </div>
                       <div className="text-center">
                         <h3 className="font-bold text-white">{casino.name}</h3>
-                        <div className="flex items-center justify-center gap-1 mt-1">
-                          <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                          <span className="text-sm text-amber-400 font-semibold">
+                        <div className="mt-1 flex items-center justify-center gap-1">
+                          <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+                          <span className="font-semibold text-amber-400 text-sm">
                             {casino.rating.toFixed(1)}
                           </span>
                         </div>
@@ -184,13 +187,13 @@ export function ComparisonTable({
 
               {/* Welcome Bonus Row */}
               <tr>
-                <td className="sticky left-0 z-20 bg-slate-950 p-4 border-b border-slate-800">
+                <td className="sticky left-0 z-20 border-slate-800 border-b bg-slate-950 p-4">
                   <span className="font-medium text-white">Welcome Bonus</span>
                 </td>
                 {casinos.map((casino) => (
                   <td
                     key={casino.id}
-                    className="p-4 bg-slate-900/50 border-b border-slate-800 text-center"
+                    className="border-slate-800 border-b bg-slate-900/50 p-4 text-center"
                   >
                     <div className="font-bold text-amber-400">{casino.welcomeBonus.title}</div>
                   </td>
@@ -204,21 +207,22 @@ export function ComparisonTable({
                   key={feature.id}
                   className={cn(index % 2 === 0 ? 'bg-slate-900/30' : 'bg-transparent')}
                 >
-                  <td className="sticky left-0 z-20 bg-slate-950 p-4 border-b border-slate-800">
+                  <td className="sticky left-0 z-20 border-slate-800 border-b bg-slate-950 p-4">
                     <div className="flex items-center gap-2">
                       <span className="font-medium text-slate-300">{feature.label}</span>
                       {feature.tooltip && (
                         <button
+                          type="button"
                           className="text-slate-500 hover:text-slate-400"
                           title={feature.tooltip}
                         >
-                          <Info className="w-4 h-4" />
+                          <Info className="h-4 w-4" />
                         </button>
                       )}
                     </div>
                   </td>
                   {casinos.map((casino) => (
-                    <td key={casino.id} className="p-4 border-b border-slate-800 text-center">
+                    <td key={casino.id} className="border-slate-800 border-b p-4 text-center">
                       <div className="flex items-center justify-center">
                         {renderValue(casino.comparisonData[feature.id])}
                       </div>
@@ -233,7 +237,7 @@ export function ComparisonTable({
               <tr>
                 <td className="sticky left-0 z-20 bg-slate-950 p-4" />
                 {casinos.map((casino) => (
-                  <td key={casino.id} className="p-4 bg-slate-900/50">
+                  <td key={casino.id} className="bg-slate-900/50 p-4">
                     <div className="flex flex-col items-center gap-2">
                       <Link
                         href={casino.affiliateUrl}
@@ -241,13 +245,13 @@ export function ComparisonTable({
                         rel="noopener noreferrer sponsored"
                         className="w-full"
                       >
-                        <Button fullWidth rightIcon={<ExternalLink className="w-4 h-4" />}>
+                        <Button fullWidth rightIcon={<ExternalLink className="h-4 w-4" />}>
                           Visit Casino
                         </Button>
                       </Link>
                       <Link
                         href={`/review/${casino.slug}`}
-                        className="text-xs text-slate-400 hover:text-amber-400"
+                        className="text-slate-400 text-xs hover:text-amber-400"
                       >
                         Read Full Review
                       </Link>
@@ -261,7 +265,7 @@ export function ComparisonTable({
       </div>
 
       {/* Disclaimer */}
-      <p className="text-xs text-slate-500 text-center">
+      <p className="text-center text-slate-500 text-xs">
         T&Cs apply to all bonuses. 18+ | Gamble responsibly. Feature comparison updated monthly.
       </p>
     </section>

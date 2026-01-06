@@ -147,7 +147,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="min-h-screen bg-casino-dark text-white font-sans antialiased">
+      <body className="min-h-screen bg-casino-dark font-sans text-white antialiased">
         {children}
       </body>
     </html>

@@ -42,10 +42,14 @@ export function Particles({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || reducedMotion) return;
+    if (!canvas || reducedMotion) {
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
 
     // Set canvas size
     const updateSize = () => {
@@ -102,10 +106,18 @@ export function Particles({
         }
 
         // Wrap around edges
-        if (particle.x < 0) particle.x = width();
-        if (particle.x > width()) particle.x = 0;
-        if (particle.y < 0) particle.y = height();
-        if (particle.y > height()) particle.y = 0;
+        if (particle.x < 0) {
+          particle.x = width();
+        }
+        if (particle.x > width()) {
+          particle.x = 0;
+        }
+        if (particle.y < 0) {
+          particle.y = height();
+        }
+        if (particle.y > height()) {
+          particle.y = 0;
+        }
 
         // Draw particle with glow
         ctx.beginPath();
@@ -151,7 +163,7 @@ export function Particles({
   return (
     <canvas
       ref={canvasRef}
-      className={cn('absolute inset-0 w-full h-full pointer-events-none', className)}
+      className={cn('pointer-events-none absolute inset-0 h-full w-full', className)}
     />
   );
 }

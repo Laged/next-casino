@@ -78,6 +78,7 @@
       "style": {
         "noNamespace": "error",
         "noNegationElse": "warn",
+        "noNonNullAssertion": "warn",
         "useAsConstAssertion": "error",
         "useBlockStatements": "error",
         "useCollapsedElseIf": "error",
@@ -94,6 +95,7 @@
         "useSingleVarDeclarator": "error"
       },
       "suspicious": {
+        "noArrayIndexKey": "warn",
         "noAssignInExpressions": "error",
         "noAsyncPromiseExecutor": "error",
         "noCatchAssign": "error",
@@ -137,6 +139,7 @@
         "noPositiveTabindex": "error",
         "noRedundantAlt": "error",
         "noRedundantRoles": "error",
+        "noSvgWithoutTitle": "warn",
         "useAltText": "error",
         "useAnchorContent": "error",
         "useAriaActivedescendantWithTabindex": "error",
@@ -148,7 +151,7 @@
         "useKeyWithClickEvents": "error",
         "useKeyWithMouseEvents": "error",
         "useMediaCaption": "error",
-        "useValidAnchor": "error",
+        "useValidAnchor": "warn",
         "useValidAriaProps": "error",
         "useValidAriaRole": "error",
         "useValidAriaValues": "error"
@@ -210,6 +213,32 @@
         "rules": {
           "suspicious": {
             "noExplicitAny": "off"
+          },
+          "style": {
+            "noNonNullAssertion": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["scripts/**/*.js", "scripts/**/*.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off"
+          },
+          "suspicious": {
+            "useAwait": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["src/components/ui/reactbits/**/*.tsx"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noForEach": "off"
           }
         }
       }

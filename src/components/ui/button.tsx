@@ -3,19 +3,19 @@ import { type VariantProps, cva } from 'class-variance-authority';
 import * as React from 'react';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   {
     variants: {
       variant: {
         default:
-          'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/25 hover:from-amber-600 hover:to-orange-600 hover:shadow-xl hover:shadow-amber-500/30 focus-visible:ring-amber-500',
+          'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-amber-500/25 shadow-lg hover:from-amber-600 hover:to-orange-600 hover:shadow-amber-500/30 hover:shadow-xl focus-visible:ring-amber-500',
         secondary: 'bg-slate-800 text-white hover:bg-slate-700 focus-visible:ring-slate-500',
         outline:
-          'border-2 border-amber-500 text-amber-500 bg-transparent hover:bg-amber-500 hover:text-white focus-visible:ring-amber-500',
+          'border-2 border-amber-500 bg-transparent text-amber-500 hover:bg-amber-500 hover:text-white focus-visible:ring-amber-500',
         ghost: 'text-slate-300 hover:bg-slate-800 hover:text-white focus-visible:ring-slate-500',
         link: 'text-amber-500 underline-offset-4 hover:underline focus-visible:ring-amber-500',
         success:
-          'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-lg shadow-emerald-500/25 hover:from-emerald-600 hover:to-green-600 focus-visible:ring-emerald-500',
+          'bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-emerald-500/25 shadow-lg hover:from-emerald-600 hover:to-green-600 focus-visible:ring-emerald-500',
         destructive:
           'bg-gradient-to-r from-red-500 to-rose-500 text-white shadow-lg shadow-red-500/25 hover:from-red-600 hover:to-rose-600 focus-visible:ring-red-500',
       },
@@ -66,6 +66,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     return (
       <button
+        type="button"
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         ref={ref}
         disabled={disabled || loading}
@@ -73,7 +74,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {loading ? (
           <svg
-            className="animate-spin h-4 w-4"
+            className="h-4 w-4 animate-spin"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

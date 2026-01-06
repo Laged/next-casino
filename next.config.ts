@@ -50,7 +50,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '**.kasinolista.fi',
       },
-      // Add CMS domains here when integrated
+      // Sanity CDN for CMS images
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
     ],
   },
 

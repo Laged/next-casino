@@ -55,7 +55,9 @@ export function SplitText({
     }
 
     const elements = elementsRef.current.filter(Boolean);
-    if (elements.length === 0) return;
+    if (elements.length === 0) {
+      return;
+    }
 
     // Set initial state
     const fromVars: gsap.TweenVars = {
@@ -94,7 +96,9 @@ export function SplitText({
         <span
           key={`${element}-${index}`}
           ref={(el) => {
-            if (el) elementsRef.current[index] = el;
+            if (el) {
+              elementsRef.current[index] = el;
+            }
           }}
           className="inline-block"
           style={{ opacity: isReady ? undefined : 0 }}

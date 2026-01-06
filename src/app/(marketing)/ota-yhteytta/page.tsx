@@ -113,7 +113,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <header className="mb-12 text-center">
-          <h1 className="text-4xl font-bold tracking-tight">Ota yhteytta</h1>
+          <h1 className="font-bold text-4xl tracking-tight">Ota yhteytta</h1>
           <p className="mt-4 text-lg text-muted-foreground">
             Kysymyksia, palautetta tai yhteistyoehdotuksia? Olemme taalla auttamassa.
           </p>
@@ -131,10 +131,10 @@ export default function ContactPage() {
                   <ContactIcon type={method.icon} />
                 </div>
                 <h2 className="font-semibold">{method.title}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{method.description}</p>
+                <p className="mt-2 text-muted-foreground text-sm">{method.description}</p>
                 <a
                   href={`mailto:${method.value}`}
-                  className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
+                  className="mt-4 inline-block font-medium text-primary text-sm hover:underline"
                 >
                   {method.value}
                 </a>
@@ -146,11 +146,11 @@ export default function ContactPage() {
         {/* Contact Form */}
         <section className="mb-16">
           <div className="rounded-lg border bg-card p-8">
-            <h2 className="mb-6 text-2xl font-bold">Laheta viesti</h2>
+            <h2 className="mb-6 font-bold text-2xl">Laheta viesti</h2>
             <form className="space-y-6">
               <div className="grid gap-6 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="mb-2 block text-sm font-medium">
+                  <label htmlFor="name" className="mb-2 block font-medium text-sm">
                     Nimi *
                   </label>
                   <input
@@ -163,7 +163,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-medium">
+                  <label htmlFor="email" className="mb-2 block font-medium text-sm">
                     Sahkoposti *
                   </label>
                   <input
@@ -177,7 +177,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="mb-2 block text-sm font-medium">
+                <label htmlFor="subject" className="mb-2 block font-medium text-sm">
                   Aihe *
                 </label>
                 <select
@@ -195,7 +195,7 @@ export default function ContactPage() {
                 </select>
               </div>
               <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-medium">
+                <label htmlFor="message" className="mb-2 block font-medium text-sm">
                   Viesti *
                 </label>
                 <textarea
@@ -215,7 +215,7 @@ export default function ContactPage() {
                   required
                   className="h-4 w-4 rounded border-gray-300"
                 />
-                <label htmlFor="privacy" className="text-sm text-muted-foreground">
+                <label htmlFor="privacy" className="text-muted-foreground text-sm">
                   Olen lukenut ja hyvaksyn{' '}
                   <a href="/tietosuojaseloste" className="text-primary hover:underline">
                     tietosuojaselosteen
@@ -224,7 +224,7 @@ export default function ContactPage() {
               </div>
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+                className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 font-medium text-primary-foreground text-sm shadow transition-colors hover:bg-primary/90"
               >
                 Laheta viesti
               </button>
@@ -234,7 +234,7 @@ export default function ContactPage() {
 
         {/* FAQ Section */}
         <section>
-          <h2 className="mb-6 text-2xl font-bold">Usein kysytyt kysymykset</h2>
+          <h2 className="mb-6 font-bold text-2xl">Usein kysytyt kysymykset</h2>
           <div className="space-y-4">
             {faqItems.map((item, index) => (
               <details key={index} className="group rounded-lg border bg-card">

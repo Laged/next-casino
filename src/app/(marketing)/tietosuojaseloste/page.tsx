@@ -110,12 +110,12 @@ export default function PrivacyPolicyPage() {
     <div className="container py-12">
       <div className="mx-auto max-w-3xl">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight">Tietosuojaseloste</h1>
+          <h1 className="font-bold text-4xl tracking-tight">Tietosuojaseloste</h1>
           <p className="mt-4 text-lg text-muted-foreground">
             Tama tietosuojaseloste kuvaa, miten kasittelemme henkilotietojasi. Yksityisyytesi on
             meille tarkeaa.
           </p>
-          <p className="mt-2 text-sm text-muted-foreground">Paivitetty viimeksi: Tammikuu 2026</p>
+          <p className="mt-2 text-muted-foreground text-sm">Paivitetty viimeksi: Tammikuu 2026</p>
         </header>
 
         {/* Table of Contents */}
@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
               <li key={section.id}>
                 <a
                   href={`#${section.id}`}
-                  className="text-sm text-muted-foreground hover:text-primary hover:underline"
+                  className="text-muted-foreground text-sm hover:text-primary hover:underline"
                 >
                   {section.title}
                 </a>
@@ -139,7 +139,7 @@ export default function PrivacyPolicyPage() {
         <div className="space-y-12">
           {privacySections.map((section) => (
             <section key={section.id} id={section.id} className="scroll-mt-24">
-              <h2 className="mb-4 text-2xl font-bold">{section.title}</h2>
+              <h2 className="mb-4 font-bold text-2xl">{section.title}</h2>
               <div className="space-y-4">
                 {section.content.map((paragraph, index) => (
                   <p key={index} className="text-muted-foreground">
@@ -153,13 +153,13 @@ export default function PrivacyPolicyPage() {
 
         {/* Contact CTA */}
         <div className="mt-12 rounded-lg bg-muted/50 p-8 text-center">
-          <h2 className="text-xl font-bold">Kysyttavaa tietosuojasta?</h2>
+          <h2 className="font-bold text-xl">Kysyttavaa tietosuojasta?</h2>
           <p className="mt-2 text-muted-foreground">
             Olemme mielellaan avuksi kaikissa tietosuojaan liittyvissa kysymyksissa.
           </p>
           <a
             href="/ota-yhteytta"
-            className="mt-4 inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+            className="mt-4 inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 font-medium text-primary-foreground text-sm shadow transition-colors hover:bg-primary/90"
           >
             Ota yhteytta
           </a>

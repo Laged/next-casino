@@ -190,7 +190,7 @@ function StarRating({ rating }: { rating: number }) {
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
-      <span className="ml-1 text-sm font-medium">{rating.toFixed(1)}</span>
+      <span className="ml-1 font-medium text-sm">{rating.toFixed(1)}</span>
     </div>
   );
 }
@@ -210,14 +210,14 @@ export default async function CategoryPage({ params }: PageProps) {
       {/* Hero Section */}
       <section className="container mb-12">
         <div className="rounded-lg bg-gradient-to-r from-primary/10 to-primary/5 p-8 md:p-12">
-          <nav className="mb-4 text-sm text-muted-foreground">
+          <nav className="mb-4 text-muted-foreground text-sm">
             <Link href="/" className="hover:text-primary">
               Etusivu
             </Link>
             <span className="mx-2">/</span>
             <span>{categoryData.name}</span>
           </nav>
-          <h1 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <h1 className="font-bold text-3xl tracking-tight md:text-4xl lg:text-5xl">
             {categoryData.heroTitle}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
@@ -255,7 +255,7 @@ export default async function CategoryPage({ params }: PageProps) {
                 {/* Casino Info */}
                 <div className="flex-1">
                   <div className="mb-2 flex items-center gap-3">
-                    <h2 className="text-xl font-bold">{casino.name}</h2>
+                    <h2 className="font-bold text-xl">{casino.name}</h2>
                     <StarRating rating={casino.rating} />
                   </div>
 
@@ -264,7 +264,7 @@ export default async function CategoryPage({ params }: PageProps) {
                     {casino.features.map((feature) => (
                       <span
                         key={feature}
-                        className="rounded-full bg-muted px-3 py-1 text-xs font-medium"
+                        className="rounded-full bg-muted px-3 py-1 font-medium text-xs"
                       >
                         {feature}
                       </span>
@@ -291,17 +291,17 @@ export default async function CategoryPage({ params }: PageProps) {
                 {/* Bonus & CTA */}
                 <div className="rounded-lg bg-primary/10 p-4 lg:w-64">
                   <p className="font-semibold text-primary">{casino.bonusTitle}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{casino.bonusDescription}</p>
+                  <p className="mt-1 text-muted-foreground text-sm">{casino.bonusDescription}</p>
                   <div className="mt-4 flex flex-col gap-2">
                     <a
                       href="#"
-                      className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                      className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground text-sm transition-colors hover:bg-primary/90"
                     >
                       Kasinolle
                     </a>
                     <Link
                       href={`/arvostelut/${casino.slug}`}
-                      className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent"
+                      className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 font-medium text-sm transition-colors hover:bg-accent"
                     >
                       Lue arvostelu
                     </Link>
@@ -312,12 +312,12 @@ export default async function CategoryPage({ params }: PageProps) {
               {/* Pros & Cons */}
               <div className="mt-6 grid gap-4 border-t pt-4 sm:grid-cols-2">
                 <div>
-                  <h3 className="mb-2 text-sm font-medium text-green-600">Plussat</h3>
+                  <h3 className="mb-2 font-medium text-green-600 text-sm">Plussat</h3>
                   <ul className="space-y-1">
                     {casino.pros.map((pro) => (
                       <li
                         key={pro}
-                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                        className="flex items-center gap-2 text-muted-foreground text-sm"
                       >
                         <svg
                           className="h-4 w-4 text-green-500"
@@ -338,12 +338,12 @@ export default async function CategoryPage({ params }: PageProps) {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="mb-2 text-sm font-medium text-red-600">Miinukset</h3>
+                  <h3 className="mb-2 font-medium text-red-600 text-sm">Miinukset</h3>
                   <ul className="space-y-1">
                     {casino.cons.map((con) => (
                       <li
                         key={con}
-                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                        className="flex items-center gap-2 text-muted-foreground text-sm"
                       >
                         <svg
                           className="h-4 w-4 text-red-500"

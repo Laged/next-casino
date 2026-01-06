@@ -98,6 +98,10 @@
         "hooks": [
           {
             "type": "command",
+            "command": "cd /Users/laged/Codings/laged/next-casino && bun run lint:fix 2>/dev/null || true"
+          },
+          {
+            "type": "command",
             "command": "npx claude-flow@alpha hooks session-end --generate-summary true --persist-state true --export-metrics true"
           }
         ]

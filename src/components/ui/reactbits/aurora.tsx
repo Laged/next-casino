@@ -28,10 +28,14 @@ export function Aurora({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || reducedMotion) return;
+    if (!canvas || reducedMotion) {
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
 
     // Set canvas size
     const updateSize = () => {
@@ -75,16 +79,24 @@ export function Aurora({
         blob.y += blob.vy + Math.cos(time + blob.phase) * 0.5;
 
         // Wrap around edges
-        if (blob.x < -blob.radius) blob.x = width + blob.radius;
-        if (blob.x > width + blob.radius) blob.x = -blob.radius;
-        if (blob.y < -blob.radius) blob.y = height + blob.radius;
-        if (blob.y > height + blob.radius) blob.y = -blob.radius;
+        if (blob.x < -blob.radius) {
+          blob.x = width + blob.radius;
+        }
+        if (blob.x > width + blob.radius) {
+          blob.x = -blob.radius;
+        }
+        if (blob.y < -blob.radius) {
+          blob.y = height + blob.radius;
+        }
+        if (blob.y > height + blob.radius) {
+          blob.y = -blob.radius;
+        }
 
         // Draw gradient blob
         const gradient = ctx.createRadialGradient(blob.x, blob.y, 0, blob.x, blob.y, blob.radius);
-        gradient.addColorStop(0, blob.color + '40');
-        gradient.addColorStop(0.5, blob.color + '20');
-        gradient.addColorStop(1, blob.color + '00');
+        gradient.addColorStop(0, `${blob.color}40`);
+        gradient.addColorStop(0.5, `${blob.color}20`);
+        gradient.addColorStop(1, `${blob.color}00`);
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
@@ -120,7 +132,7 @@ export function Aurora({
   return (
     <canvas
       ref={canvasRef}
-      className={cn('absolute inset-0 w-full h-full', className)}
+      className={cn('absolute inset-0 h-full w-full', className)}
       style={{ filter: `blur(${blur}px)` }}
     />
   );

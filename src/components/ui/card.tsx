@@ -5,15 +5,15 @@ import * as React from 'react';
 const cardVariants = cva('rounded-xl border transition-all duration-300', {
   variants: {
     variant: {
-      default: 'bg-slate-900 border-slate-800',
-      elevated: 'bg-slate-900 border-slate-800 shadow-xl shadow-black/20',
-      outlined: 'bg-transparent border-slate-700',
-      glass: 'bg-slate-900/50 backdrop-blur-lg border-slate-700/50',
-      gradient: 'bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700',
-      premium: 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-amber-500/30',
+      default: 'border-slate-800 bg-slate-900',
+      elevated: 'border-slate-800 bg-slate-900 shadow-black/20 shadow-xl',
+      outlined: 'border-slate-700 bg-transparent',
+      glass: 'border-slate-700/50 bg-slate-900/50 backdrop-blur-lg',
+      gradient: 'border-slate-700 bg-gradient-to-br from-slate-900 to-slate-800',
+      premium: 'border-amber-500/30 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900',
     },
     interactive: {
-      true: 'hover:border-amber-500/50 hover:shadow-lg hover:shadow-amber-500/10 cursor-pointer',
+      true: 'cursor-pointer hover:border-amber-500/50 hover:shadow-amber-500/10 hover:shadow-lg',
       false: '',
     },
     padding: {
@@ -60,7 +60,7 @@ const CardTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTML
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
-      className={cn('text-xl font-bold text-white tracking-tight', className)}
+      className={cn('font-bold text-white text-xl tracking-tight', className)}
       {...props}
     />
   )
@@ -72,7 +72,7 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn('text-sm text-slate-400', className)} {...props} />
+  <p ref={ref} className={cn('text-slate-400 text-sm', className)} {...props} />
 ));
 
 CardDescription.displayName = 'CardDescription';

@@ -192,12 +192,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // Content renderer component
 function ArticleContent({ sections }: { sections: ArticleSection[] }) {
   return (
-    <div className="prose prose-gray max-w-none dark:prose-invert">
+    <div className="prose prose-gray dark:prose-invert max-w-none">
       {sections.map((section, index) => {
         switch (section.type) {
           case 'heading':
             return (
-              <h2 key={index} className="mt-8 text-2xl font-bold">
+              <h2 key={index} className="mt-8 font-bold text-2xl">
                 {section.content}
               </h2>
             );
@@ -237,7 +237,7 @@ function ArticleContent({ sections }: { sections: ArticleSection[] }) {
             return (
               <div
                 key={index}
-                className="mt-6 rounded-lg border-l-4 border-green-500 bg-green-50 p-4 dark:bg-green-950"
+                className="mt-6 rounded-lg border-green-500 border-l-4 bg-green-50 p-4 dark:bg-green-950"
               >
                 <div className="flex items-center gap-2">
                   <svg
@@ -262,7 +262,7 @@ function ArticleContent({ sections }: { sections: ArticleSection[] }) {
             return (
               <div
                 key={index}
-                className="mt-6 rounded-lg border-l-4 border-yellow-500 bg-yellow-50 p-4 dark:bg-yellow-950"
+                className="mt-6 rounded-lg border-yellow-500 border-l-4 bg-yellow-50 p-4 dark:bg-yellow-950"
               >
                 <div className="flex items-center gap-2">
                   <svg
@@ -305,7 +305,7 @@ export default async function ArticlePage({ params }: PageProps) {
     <div className="py-8">
       {/* Breadcrumbs */}
       <div className="container mb-6">
-        <nav className="text-sm text-muted-foreground">
+        <nav className="text-muted-foreground text-sm">
           <Link href="/" className="hover:text-primary">
             Etusivu
           </Link>
@@ -325,14 +325,14 @@ export default async function ArticlePage({ params }: PageProps) {
             {/* Header */}
             <header className="mb-8">
               <div className="mb-4 flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                <span className="rounded-full bg-primary/10 px-3 py-1 font-medium text-primary text-sm">
                   {article.category}
                 </span>
-                <span className="text-sm text-muted-foreground">
+                <span className="text-muted-foreground text-sm">
                   {article.readingTime} min lukuaika
                 </span>
               </div>
-              <h1 className="text-3xl font-bold tracking-tight md:text-4xl">{article.title}</h1>
+              <h1 className="font-bold text-3xl tracking-tight md:text-4xl">{article.title}</h1>
               <p className="mt-4 text-lg text-muted-foreground">{article.excerpt}</p>
 
               {/* Author & Date */}
@@ -340,7 +340,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 <div className="h-12 w-12 rounded-full bg-muted" />
                 <div>
                   <p className="font-medium">{article.author.name}</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-muted-foreground text-sm">
                     Julkaistu {new Date(article.publishedAt).toLocaleDateString('fi-FI')}
                     {article.updatedAt !== article.publishedAt && (
                       <> | Päivitetty {new Date(article.updatedAt).toLocaleDateString('fi-FI')}</>
@@ -355,7 +355,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
             {/* Tags */}
             <div className="mt-8 border-t pt-6">
-              <h3 className="mb-3 text-sm font-semibold">Aiheet</h3>
+              <h3 className="mb-3 font-semibold text-sm">Aiheet</h3>
               <div className="flex flex-wrap gap-2">
                 {article.tags.map((tag) => (
                   <Link
@@ -376,7 +376,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 <div>
                   <h3 className="font-bold">Tietoa kirjoittajasta</h3>
                   <p className="font-medium">{article.author.name}</p>
-                  <p className="mt-2 text-sm text-muted-foreground">{article.author.bio}</p>
+                  <p className="mt-2 text-muted-foreground text-sm">{article.author.bio}</p>
                 </div>
               </div>
             </div>
@@ -396,7 +396,7 @@ export default async function ArticlePage({ params }: PageProps) {
                       className="block rounded-md p-3 transition-colors hover:bg-muted"
                     >
                       <h3 className="font-medium leading-tight">{related.title}</h3>
-                      <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                      <p className="mt-1 line-clamp-2 text-muted-foreground text-sm">
                         {related.excerpt}
                       </p>
                     </Link>
@@ -412,7 +412,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 </p>
                 <Link
                   href="/uudet-kasinot"
-                  className="mt-4 inline-block rounded-md bg-white px-4 py-2 text-sm font-medium text-primary shadow transition-transform hover:scale-105"
+                  className="mt-4 inline-block rounded-md bg-white px-4 py-2 font-medium text-primary text-sm shadow transition-transform hover:scale-105"
                 >
                   Selaa kasinoita
                 </Link>

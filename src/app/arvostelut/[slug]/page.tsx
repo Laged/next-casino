@@ -323,7 +323,7 @@ export default async function CasinoReviewPage({ params }: PageProps) {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-slate-900 to-slate-950 py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <nav className="flex items-center gap-2 text-sm text-slate-400 mb-6">
+          <nav className="mb-6 flex items-center gap-2 text-slate-400 text-sm">
             <Link href="/" className="hover:text-amber-400">
               Etusivu
             </Link>
@@ -335,25 +335,25 @@ export default async function CasinoReviewPage({ params }: PageProps) {
             <span className="text-white">{casino.name}</span>
           </nav>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-emerald-400 text-xs">
                   {casino.license}
                 </span>
-                <span className="text-xs px-3 py-1 bg-slate-800 text-slate-400 rounded-full">
+                <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-400 text-xs">
                   Est. {casino.established}
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              <h1 className="mb-4 font-bold text-3xl text-white md:text-4xl lg:text-5xl">
                 {casino.name} Arvostelu
               </h1>
 
-              <div className="flex items-center gap-4 mb-6">
+              <div className="mb-6 flex items-center gap-4">
                 <div className="flex items-center gap-2">
-                  <Star className="w-6 h-6 text-amber-400 fill-amber-400" />
-                  <span className="text-2xl font-bold text-amber-400">{casino.rating}</span>
+                  <Star className="h-6 w-6 fill-amber-400 text-amber-400" />
+                  <span className="font-bold text-2xl text-amber-400">{casino.rating}</span>
                   <span className="text-slate-400">/ 5</span>
                 </div>
                 <span className="text-slate-500">|</span>
@@ -363,9 +363,9 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               <p className="text-lg text-slate-400">{casino.description}</p>
             </div>
 
-            <div className="bg-slate-900 rounded-xl border border-slate-800 p-6">
-              <div className="text-center mb-6">
-                <div className="text-3xl font-bold text-amber-400 mb-2">{casino.bonusValue}</div>
+            <div className="rounded-xl border border-slate-800 bg-slate-900 p-6">
+              <div className="mb-6 text-center">
+                <div className="mb-2 font-bold text-3xl text-amber-400">{casino.bonusValue}</div>
                 <div className="text-slate-300">{casino.bonus}</div>
               </div>
 
@@ -373,9 +373,9 @@ export default async function CasinoReviewPage({ params }: PageProps) {
                 href={`https://example.com/go/${casino.slug}`}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-colors"
+                className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 py-4 font-semibold text-white transition-colors hover:from-amber-600 hover:to-orange-600"
               >
-                <ExternalLink className="w-5 h-5" />
+                <ExternalLink className="h-5 w-5" />
                 Pelaa nyt
               </a>
 
@@ -399,33 +399,33 @@ export default async function CasinoReviewPage({ params }: PageProps) {
       </section>
 
       {/* Pros & Cons */}
-      <section className="py-12 bg-slate-950">
+      <section className="bg-slate-950 py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-slate-900 rounded-xl border border-emerald-500/30 p-6">
-              <h2 className="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-                <Check className="w-5 h-5" />
+          <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+            <div className="rounded-xl border border-emerald-500/30 bg-slate-900 p-6">
+              <h2 className="mb-4 flex items-center gap-2 font-bold text-emerald-400 text-xl">
+                <Check className="h-5 w-5" />
                 Hyvät puolet
               </h2>
               <ul className="space-y-3">
                 {casino.pros.map((pro) => (
                   <li key={pro} className="flex items-start gap-2 text-slate-300">
-                    <Check className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
+                    <Check className="mt-1 h-4 w-4 flex-shrink-0 text-emerald-400" />
                     <span>{pro}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="bg-slate-900 rounded-xl border border-red-500/30 p-6">
-              <h2 className="text-xl font-bold text-red-400 mb-4 flex items-center gap-2">
-                <X className="w-5 h-5" />
+            <div className="rounded-xl border border-red-500/30 bg-slate-900 p-6">
+              <h2 className="mb-4 flex items-center gap-2 font-bold text-red-400 text-xl">
+                <X className="h-5 w-5" />
                 Huonot puolet
               </h2>
               <ul className="space-y-3">
                 {casino.cons.map((con) => (
                   <li key={con} className="flex items-start gap-2 text-slate-300">
-                    <X className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
+                    <X className="mt-1 h-4 w-4 flex-shrink-0 text-red-400" />
                     <span>{con}</span>
                   </li>
                 ))}
@@ -436,22 +436,22 @@ export default async function CasinoReviewPage({ params }: PageProps) {
       </section>
 
       {/* Details */}
-      <section className="py-12 bg-slate-900/50">
+      <section className="bg-slate-900/50 py-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-white mb-8">Kasinon tiedot</h2>
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-8 font-bold text-2xl text-white">Kasinon tiedot</h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <CreditCard className="w-5 h-5 text-amber-400" />
+                <h3 className="mb-4 flex items-center gap-2 font-semibold text-lg text-white">
+                  <CreditCard className="h-5 w-5 text-amber-400" />
                   Maksutavat
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {casino.paymentMethods.map((method) => (
                     <span
                       key={method}
-                      className="text-sm px-3 py-1 bg-slate-800 text-slate-300 rounded-full"
+                      className="rounded-full bg-slate-800 px-3 py-1 text-slate-300 text-sm"
                     >
                       {method}
                     </span>
@@ -460,15 +460,15 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-emerald-400" />
+                <h3 className="mb-4 flex items-center gap-2 font-semibold text-lg text-white">
+                  <Shield className="h-5 w-5 text-emerald-400" />
                   Pelintarjoajat
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {casino.gameProviders.map((provider) => (
                     <span
                       key={provider}
-                      className="text-sm px-3 py-1 bg-slate-800 text-slate-300 rounded-full"
+                      className="rounded-full bg-slate-800 px-3 py-1 text-slate-300 text-sm"
                     >
                       {provider}
                     </span>
@@ -477,15 +477,15 @@ export default async function CasinoReviewPage({ params }: PageProps) {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-blue-400" />
+                <h3 className="mb-4 flex items-center gap-2 font-semibold text-lg text-white">
+                  <Clock className="h-5 w-5 text-blue-400" />
                   Asiakaspalvelu
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {casino.customerSupport.map((support) => (
                     <span
                       key={support}
-                      className="text-sm px-3 py-1 bg-slate-800 text-slate-300 rounded-full"
+                      className="rounded-full bg-slate-800 px-3 py-1 text-slate-300 text-sm"
                     >
                       {support}
                     </span>

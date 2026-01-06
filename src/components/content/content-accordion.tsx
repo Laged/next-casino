@@ -50,8 +50,8 @@ export function ContentAccordion({
     <section className={cn('space-y-6', className)}>
       {(title || subtitle) && (
         <div className="space-y-2">
-          {title && <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>}
-          {subtitle && <p className="text-slate-400 max-w-2xl">{subtitle}</p>}
+          {title && <h2 className="font-bold text-2xl text-white md:text-3xl">{title}</h2>}
+          {subtitle && <p className="max-w-2xl text-slate-400">{subtitle}</p>}
         </div>
       )}
 

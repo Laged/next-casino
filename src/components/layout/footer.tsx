@@ -34,15 +34,15 @@ const footerColumns: FooterColumn[] = [
 
 const trustBadges = [
   {
-    icon: <Shield className="w-6 h-6" />,
+    icon: <Shield className="h-6 w-6" />,
     label: 'Lisensioidut kasinot',
   },
   {
-    icon: <Award className="w-6 h-6" />,
+    icon: <Award className="h-6 w-6" />,
     label: 'Asiantuntija-arvostelut',
   },
   {
-    icon: <Lock className="w-6 h-6" />,
+    icon: <Lock className="h-6 w-6" />,
     label: 'Turvallinen pelaaminen',
   },
 ];
@@ -51,15 +51,15 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800">
+    <footer className="border-slate-800 border-t bg-slate-950">
       {/* Trust Badges Section */}
-      <div className="border-b border-slate-800">
+      <div className="border-slate-800 border-b">
         <div className="container mx-auto px-4 py-8">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             {trustBadges.map((badge) => (
               <div key={badge.label} className="flex items-center gap-3 text-slate-400">
                 <span className="text-amber-500">{badge.icon}</span>
-                <span className="text-sm font-medium">{badge.label}</span>
+                <span className="font-medium text-sm">{badge.label}</span>
               </div>
             ))}
           </div>
@@ -68,31 +68,31 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
-                <Gamepad2 className="w-6 h-6 text-white" />
+            <Link href="/" className="mb-4 flex items-center gap-2">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
+                <Gamepad2 className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-white">
+              <span className="font-bold text-white text-xl">
                 Kasino<span className="text-amber-500">lista</span>
               </span>
             </Link>
-            <p className="text-sm text-slate-400 mb-6 max-w-xs">
+            <p className="mb-6 max-w-xs text-slate-400 text-sm">
               Suomen luotetuin nettikasinovertailu. Autamme suomalaisia pelaajia löytämään
               turvalliset ja laadukkaat nettikasinot vuodesta 2020 lähtien.
             </p>
 
             {/* License Info */}
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className="text-xs px-3 py-1 bg-slate-800 text-emerald-400 rounded-full border border-emerald-500/30">
+            <div className="mb-4 flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-emerald-500/30 bg-slate-800 px-3 py-1 text-emerald-400 text-xs">
                 MGA-lisenssit
               </span>
-              <span className="text-xs px-3 py-1 bg-slate-800 text-blue-400 rounded-full border border-blue-500/30">
+              <span className="rounded-full border border-blue-500/30 bg-slate-800 px-3 py-1 text-blue-400 text-xs">
                 Malta
               </span>
-              <span className="text-xs px-3 py-1 bg-slate-800 text-purple-400 rounded-full border border-purple-500/30">
+              <span className="rounded-full border border-purple-500/30 bg-slate-800 px-3 py-1 text-purple-400 text-xs">
                 Curacao
               </span>
             </div>
@@ -101,13 +101,13 @@ export function Footer() {
           {/* Link Columns */}
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-sm font-semibold text-white mb-4">{column.title}</h3>
+              <h3 className="mb-4 font-semibold text-sm text-white">{column.title}</h3>
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-400 hover:text-amber-400 transition-colors"
+                      className="text-slate-400 text-sm transition-colors hover:text-amber-400"
                     >
                       {link.label}
                     </Link>
@@ -119,26 +119,26 @@ export function Footer() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="mt-12 pt-8 border-t border-slate-800">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-12 border-slate-800 border-t pt-8">
+          <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div>
-              <h3 className="text-lg font-semibold text-white mb-1">Tilaa uutiskirjeemme</h3>
-              <p className="text-sm text-slate-400">
+              <h3 className="mb-1 font-semibold text-lg text-white">Tilaa uutiskirjeemme</h3>
+              <p className="text-slate-400 text-sm">
                 Saat parhaat bonustarjoukset suoraan sähköpostiisi.
               </p>
             </div>
-            <form className="flex w-full md:w-auto gap-2">
+            <form className="flex w-full gap-2 md:w-auto">
               <div className="relative flex-1 md:w-64">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                <Mail className="-translate-y-1/2 absolute top-1/2 left-3 h-5 w-5 text-slate-500" />
                 <input
                   type="email"
                   placeholder="Sähköpostiosoitteesi"
-                  className="w-full h-11 pl-10 pr-4 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  className="h-11 w-full rounded-lg border border-slate-700 bg-slate-800 pr-4 pl-10 text-white placeholder:text-slate-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </div>
               <button
                 type="submit"
-                className="h-11 px-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-colors"
+                className="h-11 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-6 font-semibold text-white transition-colors hover:from-amber-600 hover:to-orange-600"
               >
                 Tilaa
               </button>
@@ -148,30 +148,30 @@ export function Footer() {
       </div>
 
       {/* Responsible Gambling Section */}
-      <div className="border-t border-slate-800 bg-slate-900/50">
+      <div className="border-slate-800 border-t bg-slate-900/50">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <span className="text-lg font-bold text-red-500 border-2 border-red-500 rounded-full w-8 h-8 flex items-center justify-center">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-red-500 font-bold text-lg text-red-500">
                 18+
               </span>
               <a
                 href="https://www.peluuri.fi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm text-slate-400 hover:text-amber-400"
+                className="flex items-center gap-1 text-slate-400 text-sm hover:text-amber-400"
               >
-                <ExternalLink className="w-3 h-3" />
+                <ExternalLink className="h-3 w-3" />
                 Peluuri.fi
               </a>
-              <span className="text-xs px-3 py-1 bg-slate-800 text-slate-400 rounded">
+              <span className="rounded bg-slate-800 px-3 py-1 text-slate-400 text-xs">
                 Vastuullinen pelaaminen
               </span>
-              <span className="text-xs px-3 py-1 bg-slate-800 text-slate-400 rounded">
+              <span className="rounded bg-slate-800 px-3 py-1 text-slate-400 text-xs">
                 Pelaa vastuullisesti
               </span>
             </div>
-            <p className="text-xs text-slate-500 text-center md:text-right max-w-md">
+            <p className="max-w-md text-center text-slate-500 text-xs md:text-right">
               Pelaaminen voi aiheuttaa riippuvuutta. Pelaa vastuullisesti. Apua ongelmapelaamiseen
               saat Peluurista: 0800 100 101.
             </p>
@@ -180,22 +180,22 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-800">
+      <div className="border-slate-800 border-t">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+          <div className="flex flex-col items-center justify-between gap-4 text-slate-500 text-sm md:flex-row">
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <span>&copy; {currentYear} Kasinolista.fi. Kaikki oikeudet pidätetään.</span>
-              <Link href="/tietosuoja" className="hover:text-amber-400 transition-colors">
+              <Link href="/tietosuoja" className="transition-colors hover:text-amber-400">
                 Tietosuojaseloste
               </Link>
-              <Link href="/ehdot" className="hover:text-amber-400 transition-colors">
+              <Link href="/ehdot" className="transition-colors hover:text-amber-400">
                 Käyttöehdot
               </Link>
             </div>
           </div>
 
           {/* Disclaimer */}
-          <p className="mt-4 text-xs text-slate-600 text-center md:text-left">
+          <p className="mt-4 text-center text-slate-600 text-xs md:text-left">
             Rahapelaaminen voi aiheuttaa riippuvuutta. Pelaa vastuullisesti. Kasinolista.fi on
             riippumaton vertailusivusto. Saatamme saada korvausta, kun klikkaat sivustollamme olevia
             linkkejä. Tämä ei vaikuta arvosteluihimme, jotka ovat rehellisiä ja puolueettomia.

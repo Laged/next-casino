@@ -20,27 +20,27 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/95 backdrop-blur supports-[backdrop-filter]:bg-slate-950/80">
+    <header className="sticky top-0 z-50 w-full border-slate-800 border-b bg-slate-950/95 backdrop-blur supports-[backdrop-filter]:bg-slate-950/80">
       <nav className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
-              <Gamepad2 className="w-6 h-6 text-white" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-amber-500 to-orange-500">
+              <Gamepad2 className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-white">
+            <span className="font-bold text-white text-xl">
               Kasino<span className="text-amber-500">lista</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden items-center gap-1 lg:flex">
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors rounded-lg hover:bg-slate-800'
+                  'rounded-lg px-4 py-2 font-medium text-slate-300 text-sm transition-colors hover:bg-slate-800 hover:text-white'
                 )}
               >
                 {item.label}
@@ -49,10 +49,10 @@ export function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden items-center gap-4 lg:flex">
             <Link
               href="/uudet-kasinot"
-              className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-colors text-sm"
+              className="rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2 font-semibold text-sm text-white transition-colors hover:from-amber-600 hover:to-orange-600"
             >
               Löydä kasino
             </Link>
@@ -60,23 +60,24 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-slate-400 hover:text-white"
+            type="button"
+            className="p-2 text-slate-400 hover:text-white lg:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Valikko"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-slate-800">
+          <div className="border-slate-800 border-t py-4 lg:hidden">
             <div className="space-y-2">
               {navigationItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg"
+                  className="block rounded-lg px-4 py-3 font-medium text-slate-300 text-sm hover:bg-slate-800 hover:text-white"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -85,7 +86,7 @@ export function Navbar() {
               <div className="px-4 pt-4">
                 <Link
                   href="/uudet-kasinot"
-                  className="block w-full py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-600 transition-colors text-sm text-center"
+                  className="block w-full rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 py-3 text-center font-semibold text-sm text-white transition-colors hover:from-amber-600 hover:to-orange-600"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Löydä kasino
