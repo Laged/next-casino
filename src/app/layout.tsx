@@ -12,30 +12,63 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kasinolista.fi';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'Next Casino | Modern Gaming Experience',
-    template: '%s | Next Casino',
+    default: 'Parhaat Nettikasinot 2025 | Kasinolista.fi',
+    template: '%s | Kasinolista.fi',
   },
   description:
-    'Experience the thrill of gaming with our modern casino platform built with Next.js 16 and React 19.',
-  keywords: ['casino', 'gaming', 'blackjack', 'poker', 'roulette', 'slots'],
-  authors: [{ name: 'Next Casino Team' }],
-  creator: 'Next Casino',
-  publisher: 'Next Casino',
+    'Vertaile parhaat nettikasinot ja löydä luotettavat kasinot suomalaisille pelaajille. Uudet kasinot, bonukset ja ilmaiskierrokset - kaikki yhdestä paikasta.',
+  keywords: [
+    'nettikasinot',
+    'parhaat kasinot',
+    'uudet kasinot',
+    'kasinobonukset',
+    'ilmaiskierrokset',
+    'pikakasinot',
+    'verovapaat kasinot',
+  ],
+  authors: [{ name: 'Kasinolista.fi' }],
+  creator: 'Kasinolista.fi',
+  publisher: 'Kasinolista.fi',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: siteUrl,
+    languages: {
+      'fi-FI': siteUrl,
+      'x-default': siteUrl,
+    },
+  },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    siteName: 'Next Casino',
+    locale: 'fi_FI',
+    url: siteUrl,
+    siteName: 'Kasinolista.fi',
+    title: 'Parhaat Nettikasinot 2025 | Kasinolista.fi',
+    description:
+      'Vertaile parhaat nettikasinot ja löydä luotettavat kasinot suomalaisille pelaajille.',
+    images: [
+      {
+        url: `${siteUrl}/images/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Kasinolista.fi - Parhaat Nettikasinot',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'Parhaat Nettikasinot 2025 | Kasinolista.fi',
+    description:
+      'Vertaile parhaat nettikasinot ja löydä luotettavat kasinot suomalaisille pelaajille.',
+    images: [`${siteUrl}/images/og-image.jpg`],
   },
   robots: {
     index: true,
@@ -64,12 +97,56 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  // Structured data for the website
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Kasinolista.fi',
+    url: siteUrl,
+    description: 'Parhaat nettikasinot suomalaisille pelaajille',
+    inLanguage: 'fi-FI',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/haku?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Kasinolista.fi',
+    url: siteUrl,
+    logo: `${siteUrl}/images/logo.png`,
+    description: 'Suomen luotetuin nettikasinovertailu',
+    foundingDate: '2020',
+    sameAs: [],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'info@kasinolista.fi',
+      contactType: 'customer service',
+      availableLanguage: 'Finnish',
+    },
+  };
+
   return (
     <html
-      lang="en"
+      lang="fi"
       className={`dark ${geistSans.variable} ${geistMono.variable}`}
       data-scroll-behavior="smooth"
     >
+      <head>
+        <link rel="alternate" hrefLang="fi-FI" href={siteUrl} />
+        <link rel="alternate" hrefLang="x-default" href={siteUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="min-h-screen bg-casino-dark text-white font-sans antialiased">
         {children}
       </body>

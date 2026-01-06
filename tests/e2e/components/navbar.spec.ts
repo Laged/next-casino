@@ -10,27 +10,31 @@ test.describe('Navbar', () => {
     await expect(logo).toBeVisible();
   });
 
-  test('mega-menu opens on hover (desktop)', async ({ page }) => {
+  test('shows navigation links (desktop)', async ({ page }) => {
     // Skip on mobile
     const viewport = page.viewportSize();
     if (viewport && viewport.width < 1024) {
       test.skip();
     }
 
-    const casinosNav = page.getByRole('button', { name: 'Casinos' });
-    await casinosNav.hover();
+    // Check for Finnish navigation links in the navbar specifically
+    const nav = page.locator('header nav');
+    const uudetLink = nav.locator('a[href="/uudet-kasinot"]').first();
+    const bonuksetLink = nav.locator('a[href="/bonukset"]').first();
 
-    const megaMenu = page.locator('[data-testid="mega-menu"]');
-    await expect(megaMenu).toBeVisible();
+    await expect(uudetLink).toBeVisible();
+    await expect(bonuksetLink).toBeVisible();
   });
 
   test('mobile menu toggles', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
 
-    const menuButton = page.getByRole('button', { name: /menu|toggle/i });
+    // Find and click the menu button by aria-label
+    const menuButton = page.locator('button[aria-label="Valikko"]');
     await menuButton.click();
 
-    const mobileNav = page.locator('[data-testid="mobile-menu"]');
-    await expect(mobileNav).toBeVisible();
+    // Mobile menu should show navigation links - use text match for specificity
+    const mobileNavLink = page.getByRole('navigation').getByRole('link', { name: 'Uudet Kasinot' });
+    await expect(mobileNavLink).toBeVisible();
   });
 });
