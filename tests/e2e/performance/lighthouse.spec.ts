@@ -34,16 +34,15 @@ describeOrSkip('Lighthouse Performance Audits', () => {
       },
     });
 
-    expect(result.lhr.categories.performance.score * 100).toBeGreaterThanOrEqual(
-      THRESHOLDS.performance
-    );
-    expect(result.lhr.categories.accessibility.score * 100).toBeGreaterThanOrEqual(
-      THRESHOLDS.accessibility
-    );
-    expect(result.lhr.categories['best-practices'].score * 100).toBeGreaterThanOrEqual(
-      THRESHOLDS['best-practices']
-    );
-    expect(result.lhr.categories.seo.score * 100).toBeGreaterThanOrEqual(THRESHOLDS.seo);
+    const perfScore = (result.lhr.categories.performance?.score ?? 0) * 100;
+    const a11yScore = (result.lhr.categories.accessibility?.score ?? 0) * 100;
+    const bpScore = (result.lhr.categories['best-practices']?.score ?? 0) * 100;
+    const seoScore = (result.lhr.categories.seo?.score ?? 0) * 100;
+
+    expect(perfScore).toBeGreaterThanOrEqual(THRESHOLDS.performance);
+    expect(a11yScore).toBeGreaterThanOrEqual(THRESHOLDS.accessibility);
+    expect(bpScore).toBeGreaterThanOrEqual(THRESHOLDS['best-practices']);
+    expect(seoScore).toBeGreaterThanOrEqual(THRESHOLDS.seo);
 
     await context.close();
   });
@@ -66,9 +65,8 @@ describeOrSkip('Lighthouse Performance Audits', () => {
       },
     });
 
-    expect(result.lhr.categories.performance.score * 100).toBeGreaterThanOrEqual(
-      THRESHOLDS.performance
-    );
+    const perfScore = (result.lhr.categories.performance?.score ?? 0) * 100;
+    expect(perfScore).toBeGreaterThanOrEqual(THRESHOLDS.performance);
 
     await context.close();
   });

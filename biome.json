@@ -15,7 +15,9 @@
       "coverage",
       "playwright-report",
       "test-results",
-      "*.min.js"
+      "*.min.js",
+      "next-env.d.ts",
+      "lighthouse-reports"
     ]
   },
   "formatter": {

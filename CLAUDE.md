@@ -30,6 +30,56 @@ bunx biome ci .          # CI mode (strict)
 3. **If lint errors**: Run `bun run lint:fix` to auto-fix
 4. **Before commits**: Run `bun run ci` for full validation
 
+---
+
+## 🔒 CI/LOCAL PARITY: NEVER COMMIT WITHOUT VALIDATION
+
+**CRITICAL**: If code passes locally, it MUST pass in CI. Follow these rules:
+
+### MANDATORY Pre-Push Checklist
+```bash
+# ALWAYS run these commands before pushing:
+bun run check          # Lint + TypeScript validation
+bun run build          # Ensure build succeeds
+bun run test:smoke     # Run smoke tests
+```
+
+### Version Pinning
+- **Bun**: `1.2.2` (pinned in CI workflows)
+- **Node**: `20` (pinned in CI workflows)
+- **Versions defined in**: `.github/workflows/ci.yml` and `.github/workflows/playwright.yml`
+
+### Reproducible Development Environment
+This project uses **devenv.nix** for reproducible development:
+```bash
+# Enter development shell (if nix is installed)
+nix develop
+
+# Or use devenv directly
+devenv shell
+```
+
+### Common CI Failures to Prevent
+1. **TypeScript null errors**: Always use optional chaining (`?.`) and nullish coalescing (`??`)
+   ```typescript
+   // ❌ WRONG - will fail in CI with strict null checks
+   result.lhr.categories.performance.score * 100
+
+   // ✅ CORRECT - handles null safely
+   (result.lhr.categories.performance?.score ?? 0) * 100
+   ```
+
+2. **Lint errors**: Always run `bunx biome ci .` before committing
+3. **Type errors**: Always run `bun run typecheck` before committing
+4. **Build failures**: Always run `bun run build` before committing
+
+### If CI Fails
+1. Read the error message carefully
+2. Reproduce locally: `bun run check && bun run build`
+3. Fix the issue
+4. Verify: `bun run ci`
+5. Push again
+
 ### Key Commands Quick Reference
 | Task | Command |
 |------|---------|
